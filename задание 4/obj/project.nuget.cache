@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "GzZyQGwyTrjN+IfFqLLY6pkMPVKX2Oq1zBHTq+tTKPd1mPCO4bwGb4u+WU2rCdJGV587QqxuwWgUfRluk+Ki6Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Дарья\\Desktop\\учеба\\2 курс\\1 семестр\\Программирование\\8.20\\задание 4\\задание 4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Дарья\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.435\\stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512"
+  ],
+  "logs": []
+}

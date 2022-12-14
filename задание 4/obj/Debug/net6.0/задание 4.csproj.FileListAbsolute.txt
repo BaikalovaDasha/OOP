@@ -1,0 +1,15 @@
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\bin\Debug\net6.0\задание 4.exe
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\bin\Debug\net6.0\задание 4.deps.json
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\bin\Debug\net6.0\задание 4.runtimeconfig.json
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\bin\Debug\net6.0\задание 4.dll
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\bin\Debug\net6.0\задание 4.pdb
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\obj\Debug\net6.0\задание 4.csproj.AssemblyReference.cache
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\obj\Debug\net6.0\задание 4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\obj\Debug\net6.0\задание 4.AssemblyInfoInputs.cache
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\obj\Debug\net6.0\задание 4.AssemblyInfo.cs
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\obj\Debug\net6.0\задание 4.csproj.CoreCompileInputs.cache
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\obj\Debug\net6.0\задание 4.dll
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\obj\Debug\net6.0\refint\задание 4.dll
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\obj\Debug\net6.0\задание 4.pdb
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\obj\Debug\net6.0\задание 4.genruntimeconfig.cache
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\8.20\задание 4\obj\Debug\net6.0\ref\задание 4.dll
