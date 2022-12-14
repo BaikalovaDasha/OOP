@@ -45,11 +45,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Дарья\\Desktop\\учеба\\2 курс\\1 семестр\\Программирование\\LR6\\LR6\\LR6_1.csproj",
+      "projectUniqueName": "C:\\Users\\Дарья\\Source\\Repos\\BaikalovaDasha\\OOP\\LR6\\LR6_1.csproj",
       "projectName": "LR6_1",
-      "projectPath": "C:\\Users\\Дарья\\Desktop\\учеба\\2 курс\\1 семестр\\Программирование\\LR6\\LR6\\LR6_1.csproj",
+      "projectPath": "C:\\Users\\Дарья\\Source\\Repos\\BaikalovaDasha\\OOP\\LR6\\LR6_1.csproj",
       "packagesPath": "C:\\Users\\Дарья\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Дарья\\Desktop\\учеба\\2 курс\\1 семестр\\Программирование\\LR6\\LR6\\obj\\",
+      "outputPath": "C:\\Users\\Дарья\\Source\\Repos\\BaikalovaDasha\\OOP\\LR6\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Дарья\\AppData\\Roaming\\NuGet\\NuGet.Config",

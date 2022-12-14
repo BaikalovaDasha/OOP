@@ -21,8 +21,8 @@ namespace LR61
                 new Student("Эмилия", "Орлова", 11, "В"),
                 new Student("Максим", "Артамонов", 10, "В"),
                 new Student("Ева", "Орлова", 11, "В"),
-                new Student("Кирилл", "Куликов", 10, "А"),
-                new Student("Даниил", "Куликов", 10, "А")
+                new Student("Кирилл", "Куплинов", 10, "А"),
+                new Student("Даниил", "Куплинов", 10, "А")
             };
 
             Console.WriteLine("Список учащихся:");
@@ -62,6 +62,7 @@ namespace LR61
             Console.WriteLine("\nПроизводится поиск однофамильцев");
             foreach (var person in namesake)
             {
+                // поиск однофамильцев
                 if (person.Count >= 2)
                 {
                     Console.WriteLine($"В {person.Key.ClassNumber} " +
