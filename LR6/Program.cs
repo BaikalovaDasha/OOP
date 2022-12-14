@@ -59,7 +59,7 @@ namespace LR61
                            };
 
             // Перебор нового спсика, в котором находятся однофамильцы
-            Console.WriteLine("\nПроизводится поиск однофамильец");
+            Console.WriteLine("\nПроизводится поиск однофамильцев");
             foreach (var person in namesake)
             {
                 if (person.Count >= 2)
