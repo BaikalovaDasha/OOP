@@ -1,0 +1,30 @@
+C:\Users\User\C#\LR6\LR6\bin\Debug\net6.0\LR6_1.exe
+C:\Users\User\C#\LR6\LR6\bin\Debug\net6.0\LR6_1.deps.json
+C:\Users\User\C#\LR6\LR6\bin\Debug\net6.0\LR6_1.runtimeconfig.json
+C:\Users\User\C#\LR6\LR6\bin\Debug\net6.0\LR6_1.dll
+C:\Users\User\C#\LR6\LR6\bin\Debug\net6.0\LR6_1.pdb
+C:\Users\User\C#\LR6\LR6\obj\Debug\net6.0\LR6_1.csproj.AssemblyReference.cache
+C:\Users\User\C#\LR6\LR6\obj\Debug\net6.0\LR6_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\C#\LR6\LR6\obj\Debug\net6.0\LR6_1.AssemblyInfoInputs.cache
+C:\Users\User\C#\LR6\LR6\obj\Debug\net6.0\LR6_1.AssemblyInfo.cs
+C:\Users\User\C#\LR6\LR6\obj\Debug\net6.0\LR6_1.csproj.CoreCompileInputs.cache
+C:\Users\User\C#\LR6\LR6\obj\Debug\net6.0\LR6_1.dll
+C:\Users\User\C#\LR6\LR6\obj\Debug\net6.0\refint\LR6_1.dll
+C:\Users\User\C#\LR6\LR6\obj\Debug\net6.0\LR6_1.pdb
+C:\Users\User\C#\LR6\LR6\obj\Debug\net6.0\LR6_1.genruntimeconfig.cache
+C:\Users\User\C#\LR6\LR6\obj\Debug\net6.0\ref\LR6_1.dll
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\bin\Debug\net6.0\LR6_1.exe
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\bin\Debug\net6.0\LR6_1.deps.json
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\bin\Debug\net6.0\LR6_1.runtimeconfig.json
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\bin\Debug\net6.0\LR6_1.dll
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\bin\Debug\net6.0\LR6_1.pdb
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\obj\Debug\net6.0\LR6_1.csproj.AssemblyReference.cache
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\obj\Debug\net6.0\LR6_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\obj\Debug\net6.0\LR6_1.AssemblyInfoInputs.cache
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\obj\Debug\net6.0\LR6_1.AssemblyInfo.cs
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\obj\Debug\net6.0\LR6_1.csproj.CoreCompileInputs.cache
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\obj\Debug\net6.0\LR6_1.dll
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\obj\Debug\net6.0\refint\LR6_1.dll
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\obj\Debug\net6.0\LR6_1.pdb
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\obj\Debug\net6.0\LR6_1.genruntimeconfig.cache
+C:\Users\Дарья\Desktop\учеба\2 курс\1 семестр\Программирование\LR6\LR6\obj\Debug\net6.0\ref\LR6_1.dll
