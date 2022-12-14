@@ -10,7 +10,7 @@ namespace LR61
         /// </summary>
         public static void Main()
         {
-            // пустой списко
+            // Пустой список Школы №1
             List<Student> student = new List<Student>(10)
             {
                 new Student("Елизавета", "Васильева", 11, "А"),
@@ -59,7 +59,7 @@ namespace LR61
                            };
 
             // Перебор нового спсика, в котором находятся однофамильцы
-            Console.WriteLine("\nПроизводится поиск однофамильец");
+            Console.WriteLine("\nПроизводится поиск однофамильцев");
             foreach (var person in namesake)
             {
                 if (person.Count >= 2)
