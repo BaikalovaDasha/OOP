@@ -47,7 +47,6 @@ namespace LR61
                            {
                                person.Surname,
                                person.ClassNumber,
-                               person.ClassLetter,
                            }
                            into g
                            select new
@@ -65,8 +64,7 @@ namespace LR61
                 // поиск однофамильцев
                 if (person.Count >= 2)
                 {
-                    Console.WriteLine($"В {person.Key.ClassNumber} " +
-                        $"{person.Key.ClassLetter} классе " +
+                    Console.WriteLine($"В {person.Key.ClassNumber} классе" +
                         $"обучается {person.Count} студента " +
                         $"с одинаковой фамилией: {person.Key.Surname}");
                     /*foreach (var employee in person.Learner)
