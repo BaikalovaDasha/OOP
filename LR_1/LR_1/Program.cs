@@ -13,6 +13,9 @@ namespace LR_1
         /// </summary>
         public static void Main()
         {
+            Console.WriteLine("Для отображения списков нажмите любую клавишу.");
+            Console.ReadKey();
+            Console.WriteLine();
             var listOne = new PersonList();
             var listTwo = new PersonList();
 
@@ -33,12 +36,18 @@ namespace LR_1
             listOne.AddPersonInArray(arrayOne);
             listTwo.AddPersonInArray(arrayTwo);
 
-            Console.WriteLine("Список 1.");
+            Console.WriteLine("\t\t\tСписок 1.");
             ConsolePerson.ShowPersonList(listOne);
-            Console.WriteLine("");
-            Console.WriteLine("Список 2.");
+            Console.WriteLine();
+            Console.WriteLine("\t\t\tСписок 2.");
             ConsolePerson.ShowPersonList(listTwo);
-            Console.WriteLine("");
+            Console.WriteLine();
+            Console.WriteLine("Добавим персону в 1-ый список. Для продолжения" +
+                " нажмите любую клавишу.");
+            Console.ReadKey();
+            Console.WriteLine();
+            listOne.AddPerson(ConsolePerson.AddPersonConsole());
+            ConsolePerson.ShowPersonList(listOne);
         }
 
     }

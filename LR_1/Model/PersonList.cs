@@ -46,6 +46,9 @@ namespace Model
             }
         }
         
+        /// <summary>
+        /// Количество персон.
+        /// </summary>
         public int CountOfPerson
         { 
             get
