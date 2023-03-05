@@ -58,6 +58,27 @@ namespace Model
         }
 
         /// <summary>
+        /// Удаление персоны по индексу.
+        /// </summary>
+        /// <param name="person"></param>
+        public void DeleteByIndex(ref Person[] person, int index)
+        {
+            var newArray = new Person[_innerPersonArray.Length - 1];
+
+            for (int i = 0; i < index; i++)
+            {
+                newArray[i] = _innerPersonArray[i];
+            }
+
+            for (int i = index + 1; i < _innerPersonArray.Length; i++)
+            {
+                newArray[i - 1] = _innerPersonArray[i];
+            }
+
+            _innerPersonArray = newArray;
+        }
+
+        /// <summary>
         /// Очистить список 
         /// </summary>
         public void DeleteAllPeople()
@@ -80,7 +101,7 @@ namespace Model
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("Такого индекса нет в списке.");
                 }
             }
             set

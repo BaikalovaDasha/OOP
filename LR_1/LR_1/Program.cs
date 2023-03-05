@@ -47,7 +47,34 @@ namespace LR_1
             Console.ReadKey();
             Console.WriteLine();
             listOne.AddPerson(ConsolePerson.AddPersonConsole());
+            Console.WriteLine("\t\t\tСписок 1.");
             ConsolePerson.ShowPersonList(listOne);
+            Console.WriteLine();
+            Console.Write("Введите индекс персоны, которую необходимо" +
+                " скопировать из первого списка во второй: ");
+            int indexCopy = int.Parse(Console.ReadLine());
+            try
+            {
+                listTwo.AddPerson(listOne[indexCopy - 1]);
+            }
+            catch (ArgumentOutOfRangeException ar)
+            {
+                Console.WriteLine($"Ошибка: {ar.Message}");
+            }
+
+            Console.WriteLine("\t\t\tСписок 1.");
+            ConsolePerson.ShowPersonList(listOne);
+            Console.WriteLine("\t\t\tСписок 2.");
+            ConsolePerson.ShowPersonList(listTwo);
+            Console.WriteLine();
+            Console.Write("Введите индекс персоны, которую необходимо" +
+                " удалить из первого списка: ");
+            int indexDelete = int.Parse(Console.ReadLine());
+            listOne.DeleteByIndex(ref arrayOne, indexDelete - 1);
+            Console.WriteLine("\t\t\tСписок 1.");
+            ConsolePerson.ShowPersonList(listOne);
+            Console.WriteLine("\t\t\tСписок 2.");
+            ConsolePerson.ShowPersonList(listTwo);
         }
 
     }
