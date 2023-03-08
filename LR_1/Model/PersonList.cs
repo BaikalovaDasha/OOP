@@ -81,7 +81,7 @@ namespace Model
         /// <summary>
         /// Очистить список 
         /// </summary>
-        public void DeleteAllPeople()
+        public void ClearList()
         {
             Array.Resize(ref _innerPersonArray, 0);
         }

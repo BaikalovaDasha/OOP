@@ -53,6 +53,7 @@ namespace LR_1
             Console.Write("Введите индекс персоны, которую необходимо" +
                 " скопировать из первого списка во второй: ");
             int indexCopy = int.Parse(Console.ReadLine());
+            Console.WriteLine();
             try
             {
                 listTwo.AddPerson(listOne[indexCopy - 1]);
@@ -70,7 +71,18 @@ namespace LR_1
             Console.Write("Введите индекс персоны, которую необходимо" +
                 " удалить из первого списка: ");
             int indexDelete = int.Parse(Console.ReadLine());
+            Console.WriteLine();
             listOne.DeleteByIndex(ref arrayOne, indexDelete - 1);
+            Console.WriteLine("\t\t\tСписок 1.");
+            ConsolePerson.ShowPersonList(listOne);
+            Console.WriteLine("\t\t\tСписок 2.");
+            ConsolePerson.ShowPersonList(listTwo);
+            Console.WriteLine();
+            Console.Write("Следующее нажатие клавиши приведёт к отчистке второго списка.");
+            listTwo.ClearList();
+            Console.WriteLine();
+            Console.ReadKey();
+            Console.WriteLine();
             Console.WriteLine("\t\t\tСписок 1.");
             ConsolePerson.ShowPersonList(listOne);
             Console.WriteLine("\t\t\tСписок 2.");
