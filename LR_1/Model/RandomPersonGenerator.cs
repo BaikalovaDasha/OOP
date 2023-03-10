@@ -12,12 +12,11 @@ namespace Model
     public static class RandomPersonGenerator
     {
         /// <summary>
-        /// Класс случайной персоны.
+        /// 
         /// </summary>
-        public static Person Person
+        public static Person GetRandomPerson()
         {
-            get
-            {
+
                 string[] _maleNames = new string[]
                 {
                     "Alisha", "Amanda", "Amelia", "Anaya", "Anna",
@@ -41,7 +40,7 @@ namespace Model
 
                 Random random = new Random();
                 string name;
-                Gender gender = (Gender)random.Next(0, 1);
+                Gender gender = (Gender)random.Next(0, 2);
                 switch (gender)
                 {
                     case Gender.Male:
@@ -58,7 +57,6 @@ namespace Model
                 int age = random.Next(0, Person.maxAge);
 
                 return new Person(name, surename, age, gender);
-            }
         }
     }
 }

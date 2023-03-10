@@ -18,42 +18,68 @@ namespace LR_1
         /// <returns>Новая персона.</returns>
         public static Person AddPersonConsole()
         {
+            var newPerson = new Person();
 
-            Console.Write("Введите имя: ");
-            string name = Console.ReadLine();
-
-            Console.Write("Введите Фамилию: ");
-            string surename = Console.ReadLine();
-
-            Console.Write("Введите возраст: ");
-            int age = int.Parse(Console.ReadLine());
-
-            Console.Write("Введите пол персоны: ");
-            Gender gender;
-
-            while (true)
+            Action actionName = new Action(() =>
             {
-                string gender1 = Console.ReadLine();
-                if (gender1 == "ж")
-                {
-                    gender = Gender.Female;
-                    break;
-                }
-                else if (gender1 == "м")
-                {
-                    gender = Gender.Male;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Введёт некорректный пол," +
-                        " введите 'м' или 'ж'!");
-                }
-            }
+                Console.Write($"Name: ");
+                newPerson._name = Console.ReadLine();
 
-            Person newPerson = new(name, surename, age, gender);
+            });
+            ActionHandler(actionName, "Name");
+
+            Action actionSurname = new Action(() =>
+            {
+                Console.Write($"Surname: ");
+                newPerson._surname = Console.ReadLine();
+
+            });
+            ActionHandler(actionSurname, "Surname");
+
+            Action actionAge = new Action(() =>
+            {
+                Console.Write($"Age: ");
+                _ = int.TryParse(Console.ReadLine(), out int tmpAge);
+                newPerson.Age = tmpAge;
+            });
+            ActionHandler(actionAge, "Age");
+
+            Action actionGender = new Action(() =>
+            {
+                Console.Write($"Enter person gender (1 - Male or 2 - Female): ");
+                _ = int.TryParse(Console.ReadLine(), out int tmpGender);
+                if (tmpGender < 1 || tmpGender > 2)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+
+                var realGender = tmpGender == 1
+                    ? Gender.Male
+                    : Gender.Female;
+
+                newPerson._gender = realGender;
+            });
+            ActionHandler(actionGender, "Gender");
+
             return newPerson;
 
+        }
+
+        private static void ActionHandler(Action action, string propertyName)
+        {
+            while (true)
+            {
+                try
+                {
+                    action.Invoke();
+                    break;
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine($"Incorrect {propertyName}. Error: {exception.Message}. " +
+                        $"Please, enter the {propertyName} again.");
+                }
+            }
         }
 
         /// <summary>

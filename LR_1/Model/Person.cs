@@ -41,7 +41,7 @@ namespace Model
         /// <summary>
         /// Gets or sets Пол.
         /// </summary>
-        private Gender _gender;
+        public Gender _gender;
 
 
         /// <summary>
@@ -68,6 +68,13 @@ namespace Model
             _gender = gender;
         }
 
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
+        public Person()
+        {
+        }
+
         public const int maxAge = 110;
         public const int minAge = 1;
 
@@ -80,13 +87,14 @@ namespace Model
         {
             if (age < minAge || age > maxAge)
             {
-                throw new Exception("Возраст должен быть в диапазоне" +
-                    " от 1 до 110");
+                throw new Exception($"The age should be in range" +
+                    $" of {minAge} to {maxAge}");
             }
             else
             {
                 return age;
             }
         }
+
     }
 }

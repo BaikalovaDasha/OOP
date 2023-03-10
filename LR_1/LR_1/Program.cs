@@ -21,16 +21,16 @@ namespace LR_1
 
             var arrayOne = new Person[]
             {
-                new Person("Дарья", "Байкалова", 23, Gender.Male),
-                new Person("Алина", "Жиркова", 15, Gender.Male),
-                new Person("Катерина", "Фирсова", 55, Gender.Male),
+                RandomPersonGenerator.GetRandomPerson(),
+                RandomPersonGenerator.GetRandomPerson(),
+                RandomPersonGenerator.GetRandomPerson(),
             };
 
             var arrayTwo = new Person[]
             {
-                new Person("Алексей", "Прохоров", 43, Gender.Female),
-                new Person("Никита", "Килин", 23, Gender.Female),
-                new Person("Дмитрий", "Бондарев", 20, Gender.Female),
+                RandomPersonGenerator.GetRandomPerson(),
+                RandomPersonGenerator.GetRandomPerson(),
+                RandomPersonGenerator.GetRandomPerson(),
             };
 
             listOne.AddPersonInArray(arrayOne);
@@ -87,6 +87,7 @@ namespace LR_1
             ConsolePerson.ShowPersonList(listOne);
             Console.WriteLine("\t\t\tСписок 2.");
             ConsolePerson.ShowPersonList(listTwo);
+            Console.ReadKey();
         }
 
     }
