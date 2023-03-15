@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public enum Landuage
+    public enum Language
     {
+        /// <summary>
+        /// Russian landuage.
+        /// </summary>
         Russian,
+
+        /// <summary>
+        /// English landuage.
+        /// </summary>
         English
     }
 }

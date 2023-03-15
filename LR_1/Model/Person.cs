@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.WebSockets;
+using System.Text.RegularExpressions;
 
 namespace Model
 {
@@ -10,14 +11,52 @@ namespace Model
     {
 
         /// <summary>
-        /// Gets or sets Имя.
+        /// Name of person.
         /// </summary>
-        public string _name { get; set; }
+        private string _name;
 
         /// <summary>
-        /// Gets or sets Фамилия.
+        /// Reading and writing the name.
         /// </summary>
-        public string _surname { get; set; }
+        public string Name
+        {
+            get 
+            { 
+                return _name; 
+            }
+            set 
+            {
+                _name = ChekingNullorEmpty(value, nameof(Name));
+                //if (_name != null)
+                //{
+                //    CheckLanguage(_name, _surname);
+                //}
+            }
+        }
+
+        /// <summary>
+        /// Surname of person.
+        /// </summary>
+        private string _surname;
+
+        /// <summary>
+        /// Reading and writing the surname.
+        /// </summary>
+        public string Surname
+        {
+            get
+            {
+                return _surname;
+            }
+            set
+            {
+                _surname = ChekingNullorEmpty(value, nameof(Surname));
+                //if (_surname != null)
+                //{
+                //    CheckLanguage(_name, _surname);
+                //}
+            }
+        }
 
         /// <summary>
         /// Возраст персоны.
@@ -39,10 +78,9 @@ namespace Model
         }
 
         /// <summary>
-        /// Gets or sets Пол.
+        /// Gender of person.
         /// </summary>
-        public Gender _gender;
-
+        public Gender Gender { get; set; }
 
         /// <summary>
         /// Метод возвращает информацию о человеке в виде строки.
@@ -50,7 +88,7 @@ namespace Model
         /// <returns>Информацию о человеке в виде строки.</returns>
         public string GetInfo()
         {
-            return $"Имя: {_name}, Фамилия: {_surname}, Возраст: {Age}, Пол: {_gender}.";
+            return $"Имя: {_name}, Фамилия: {_surname}, Возраст: {Age}, Пол: {Gender}.";
         }
 
         /// <summary>
@@ -64,8 +102,8 @@ namespace Model
         {
             _name = name;
             _surname = surname;
-            Age = age;
-            _gender = gender;
+            _age = age;
+            Gender = gender;
         }
 
         /// <summary>
@@ -75,6 +113,78 @@ namespace Model
         {
         }
 
+        /// <summary>
+        /// Cheking null or empty string. 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="propertiname"></param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentException"></exception>
+        private static string ChekingNullorEmpty(string value, string propertiname)
+        {
+            if (value == null)
+            {
+                throw new System.ArgumentNullException($"{propertiname} " +
+                    $"is not be null!");
+            }
+
+            if (value == String.Empty)
+            {
+                throw new System.ArgumentException($"{propertiname} " +
+                    $"is not be empty!");
+            }
+
+            return value;
+        }
+
+        //"[А-ЯЁа-яё]+(((-| )?([А-ЯЁа-яё])+))?$"
+
+        ///// <summary>
+        ///// Cheking Russian and English symbols.
+        ///// </summary>
+        ///// <param name="value"></param>
+        ///// <returns></returns>
+        //private static Language IsNameAndSurnameCorrectSymbol(string value)
+        //{
+        //    var symbolsRussian = new Regex("[А-я]");
+        //    var symbolsEnglish = new Regex("[A-z]");
+
+
+        //    if (symbolsRussian.IsMatch(value))
+        //    {
+        //        return Language.Russian;
+        //    }
+        //    else if (symbolsEnglish.IsMatch(value))
+        //    {
+        //        return Language.English;
+        //    }
+        //    else
+        //    {
+        //        throw new ArgumentException("Please correct the language. " +
+        //            "Only Russian or English characters are allowed" +
+        //            " to be entered.");
+        //    }
+
+        //}
+
+        ///// <summary>
+        ///// checking for the same language of the name and surname.
+        ///// </summary>
+        ///// <param name="name"></param>
+        ///// <param name="surname"></param>
+        //private static void CheckLanguage(string name, string surname)
+        //{
+        //    Language nameLanguage = IsNameAndSurnameCorrectSymbol(name);
+        //    Language surnameLanguage = IsNameAndSurnameCorrectSymbol(surname);
+
+        //    if (nameLanguage != surnameLanguage)
+        //    {
+        //        throw new ArgumentException("The language of the name and " +
+        //            "surname must match.");
+        //    }
+
+        //}
+
         public const int maxAge = 110;
         public const int minAge = 1;
 
@@ -83,7 +193,7 @@ namespace Model
         /// </summary>
         /// <param name="age">Возраст для проверки</param>
         /// <returns>Корректный возраст</returns>
-        public static int CheckingAge(int age)
+        private static int CheckingAge(int age)
         {
             if (age < minAge || age > maxAge)
             {

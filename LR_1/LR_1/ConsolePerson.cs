@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LR_1
@@ -12,6 +13,28 @@ namespace LR_1
     /// </summary>
     public static class ConsolePerson
     {
+
+        /// <summary>
+        /// Checking the words entered by the user.
+        /// </summary>
+        /// <param name="value">entered name/surname.</param>
+        /// <returns>return name/surname.</returns>
+        /// <exception cref="ArgumentException">error output.</exception>
+        public static string CheckString(string value)
+        {
+            Regex words = new(@"^[A-z,А-ЯЁ,а-яё,-]+$");
+
+            if (!words.IsMatch(value))
+            {
+                throw new ArgumentException("It is allowed to enter only " +
+                    "letters and dashes");
+            }
+            else
+            {
+                return value;
+            }
+        }
+
         /// <summary>
         /// Добавление персоны через консоль.
         /// </summary>
@@ -23,7 +46,7 @@ namespace LR_1
             Action actionName = new Action(() =>
             {
                 Console.Write($"Name: ");
-                newPerson._name = Console.ReadLine();
+                newPerson.Name = CheckString(Console.ReadLine());
 
             });
             ActionHandler(actionName, "Name");
@@ -31,7 +54,7 @@ namespace LR_1
             Action actionSurname = new Action(() =>
             {
                 Console.Write($"Surname: ");
-                newPerson._surname = Console.ReadLine();
+                newPerson.Surname = CheckString(Console.ReadLine());
 
             });
             ActionHandler(actionSurname, "Surname");
@@ -57,7 +80,7 @@ namespace LR_1
                     ? Gender.Male
                     : Gender.Female;
 
-                newPerson._gender = realGender;
+                newPerson.Gender = realGender;
             });
             ActionHandler(actionGender, "Gender");
 
