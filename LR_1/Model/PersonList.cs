@@ -65,17 +65,25 @@ namespace Model
         {
             var newArray = new Person[_innerPersonArray.Length - 1];
 
-            for (int i = 0; i < index; i++)
+            if (index >= 0 && index < _innerPersonArray.Length)
             {
-                newArray[i] = _innerPersonArray[i];
-            }
+                for (int i = 0; i < index; i++)
+                {
+                    newArray[i] = _innerPersonArray[i];
+                }
 
-            for (int i = index + 1; i < _innerPersonArray.Length; i++)
+                for (int i = index + 1; i < _innerPersonArray.Length; i++)
+                {
+                    newArray[i - 1] = _innerPersonArray[i];
+                }
+
+                _innerPersonArray = newArray;
+            }
+            else
             {
-                newArray[i - 1] = _innerPersonArray[i];
+                throw new ArgumentOutOfRangeException("Вы ввели индекс" +
+                    " персоны, которого нет в списке");
             }
-
-            _innerPersonArray = newArray;
         }
 
         /// <summary>
@@ -101,7 +109,8 @@ namespace Model
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Такого индекса нет в списке.");
+                    throw new ArgumentOutOfRangeException("Вы ввели индекс" +
+                        " персоны, которого нет в списке");
                 }
             }
             set

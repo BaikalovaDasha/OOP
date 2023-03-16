@@ -16,6 +16,7 @@ namespace LR_1
             Console.WriteLine("Для отображения списков нажмите любую клавишу.");
             Console.ReadKey();
             Console.WriteLine();
+
             var listOne = new PersonList();
             var listTwo = new PersonList();
 
@@ -36,10 +37,10 @@ namespace LR_1
             listOne.AddPersonInArray(arrayOne);
             listTwo.AddPersonInArray(arrayTwo);
 
-            Console.WriteLine("\t\t\tСписок 1.");
+            Console.WriteLine("\t\t\tСписок 1.\n");
             ConsolePerson.ShowPersonList(listOne);
             Console.WriteLine();
-            Console.WriteLine("\t\t\tСписок 2.");
+            Console.WriteLine("\t\t\tСписок 2.\n");
             ConsolePerson.ShowPersonList(listTwo);
             Console.WriteLine();
             Console.WriteLine("Добавим персону в 1-ый список. Для продолжения" +
@@ -47,35 +48,55 @@ namespace LR_1
             Console.ReadKey();
             Console.WriteLine();
             listOne.AddPerson(ConsolePerson.AddPersonConsole());
-            Console.WriteLine("\t\t\tСписок 1.");
+            Console.WriteLine("\t\t\tСписок 1.\n");
             ConsolePerson.ShowPersonList(listOne);
             Console.WriteLine();
-            Console.Write("Введите индекс персоны, которую необходимо" +
-                " скопировать из первого списка во второй: ");
-            int indexCopy = int.Parse(Console.ReadLine());
-            Console.WriteLine();
-            try
+
+            while (true)
             {
-                listTwo.AddPerson(listOne[indexCopy - 1]);
-            }
-            catch (ArgumentOutOfRangeException ar)
-            {
-                Console.WriteLine($"Ошибка: {ar.Message}");
+                Console.Write("Введите индекс персоны, которую необходимо " +
+                    "скопировать из первого списка во второй: ");
+                int indexCopy = int.Parse(Console.ReadLine());
+                Console.WriteLine();
+                try
+                {
+
+                    listTwo.AddPerson(listOne[indexCopy - 1]);
+                    break;
+                }
+                catch (ArgumentOutOfRangeException ar)
+                {
+                    Console.WriteLine($"Ошибка: {ar.Message}");
+                }
+
             }
 
-            Console.WriteLine("\t\t\tСписок 1.");
+            Console.WriteLine("\t\t\tСписок 1.\n");
             ConsolePerson.ShowPersonList(listOne);
-            Console.WriteLine("\t\t\tСписок 2.");
+            Console.WriteLine("\t\t\tСписок 2.\n");
             ConsolePerson.ShowPersonList(listTwo);
             Console.WriteLine();
-            Console.Write("Введите индекс персоны, которую необходимо" +
-                " удалить из первого списка: ");
-            int indexDelete = int.Parse(Console.ReadLine());
-            Console.WriteLine();
-            listOne.DeleteByIndex(ref arrayOne, indexDelete - 1);
-            Console.WriteLine("\t\t\tСписок 1.");
+
+            while (true)
+            {
+                Console.Write("Введите индекс персоны, которую необходимо" +
+                                " удалить из первого списка: ");
+                int indexDelete = int.Parse(Console.ReadLine());
+                Console.WriteLine();
+                try
+                {
+                    listOne.DeleteByIndex(ref arrayOne, indexDelete - 1);
+                    break;
+                }
+                catch (ArgumentOutOfRangeException ar)
+                {
+                    Console.WriteLine($"Ошибка: {ar.Message}");
+                }
+            }
+
+            Console.WriteLine("\t\t\tСписок 1.\n");
             ConsolePerson.ShowPersonList(listOne);
-            Console.WriteLine("\t\t\tСписок 2.");
+            Console.WriteLine("\t\t\tСписок 2.\n");
             ConsolePerson.ShowPersonList(listTwo);
             Console.WriteLine();
             Console.Write("Следующее нажатие клавиши приведёт к отчистке второго списка.");
@@ -83,9 +104,9 @@ namespace LR_1
             Console.WriteLine();
             Console.ReadKey();
             Console.WriteLine();
-            Console.WriteLine("\t\t\tСписок 1.");
+            Console.WriteLine("\t\t\tСписок 1.\n");
             ConsolePerson.ShowPersonList(listOne);
-            Console.WriteLine("\t\t\tСписок 2.");
+            Console.WriteLine("\t\t\tСписок 2.\n");
             ConsolePerson.ShowPersonList(listTwo);
             Console.ReadKey();
         }
