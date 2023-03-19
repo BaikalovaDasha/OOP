@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.WebSockets;
 using System.Text.RegularExpressions;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Model
 {
@@ -188,17 +189,28 @@ namespace Model
         /// <summary>
         /// sdflhfdg.
         /// </summary>
-        /// <param name="sours"></param>
+        /// <param name="newWord"></param>
         /// <returns></returns>
-        public static string ToUpperFirstLetter(string sours)
+        public static string ToUpperFirstLetter(string newWord)
         {
-            if (string.IsNullOrEmpty(sours))
+            newWord = char.ToUpper(newWord[0]) + newWord[1..].ToLower();
+
+            Regex upperReg = new(@"[-]");
+
+            if (upperReg.IsMatch(newWord))
             {
-                return string.Empty;
+                string[] words = newWord.Split(new char[] { '-' });
+
+                string newWords1 = words[0];
+                string newWords2 = words[1];
+
+                newWords1 = char.ToUpper(newWords1[0]) + newWords1[1..].ToLower();
+                newWords2 = char.ToUpper(newWords2[0]) + newWords1[1..].ToLower();
+
+                newWord = newWords1 + ("-") + newWords2;
             }
-            char[] letters = sours.ToCharArray();
-            letters[0] = char.ToUpper(letters[0]);
-            return new string(letters);
+            
+            return newWord;
         }
 
         public const int maxAge = 110;
