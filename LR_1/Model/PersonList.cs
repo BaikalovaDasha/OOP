@@ -24,7 +24,7 @@ namespace Model
         {
             var newArray = _innerPersonArray;
 
-            _innerPersonArray = new Person[newArray.Length + 1 ];
+            _innerPersonArray = new Person[newArray.Length + 1];
 
             for (int i = 0; i < newArray.Length; i++)
             {
@@ -46,6 +46,7 @@ namespace Model
             }
         }
         
+        //TODO: rename
         /// <summary>
         /// Количество персон.
         /// </summary>
@@ -67,7 +68,18 @@ namespace Model
 
             if (index >= 0 && index < _innerPersonArray.Length)
             {
-                for (int i = 0; i < index; i++)
+                //TODO: fix
+                //for (var i = 0; i < _innerPersonArray.Length; i++)
+                //{
+                //    if (i == index) continue;
+                //
+                //    var newIndex = i <= index
+                //        ? i
+                //        : i - 1;
+                //    newArray[newIndex] = _innerPersonArray[i];
+                //}
+
+                for (int i = 0; i < _innerPersonArray.Length; i++)
                 {
                     newArray[i] = _innerPersonArray[i];
                 }
@@ -102,19 +114,20 @@ namespace Model
         public Person this[int index]
         {
             get 
-            { 
-                if (index >= 0 && index < _innerPersonArray.Length)
-                {
-                    return _innerPersonArray[index];
-                }
-                else
+            {
+                //TODO: duplication
+                if (index < 0 || index >= _innerPersonArray.Length)
                 {
                     throw new ArgumentOutOfRangeException("Вы ввели индекс" +
                         " персоны, которого нет в списке");
                 }
+                
+                return _innerPersonArray[index];
+                
             }
             set
             {
+                //TODO: add exception generation
                 if (index >= 0 && index < _innerPersonArray.Length)
                 {
                     _innerPersonArray[index] = value;

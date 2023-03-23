@@ -37,6 +37,7 @@ namespace LR_1
             listOne.AddPersonInArray(arrayOne);
             listTwo.AddPersonInArray(arrayTwo);
 
+            //TODO: choose language
             Console.WriteLine("\t\t\tСписок 1.\n");
             ConsolePerson.ShowPersonList(listOne);
             Console.WriteLine();
@@ -52,6 +53,7 @@ namespace LR_1
             ConsolePerson.ShowPersonList(listOne);
             Console.WriteLine();
 
+            //TODO: duplication
             while (true)
             {
                 Console.Write("Введите индекс персоны, которую необходимо " +
@@ -77,6 +79,7 @@ namespace LR_1
             ConsolePerson.ShowPersonList(listTwo);
             Console.WriteLine();
 
+            //TODO: duplication
             while (true)
             {
                 Console.Write("Введите индекс персоны, которую необходимо" +
@@ -110,7 +113,5 @@ namespace LR_1
             ConsolePerson.ShowPersonList(listTwo);
             Console.ReadKey();
         }
-
     }
-
 }

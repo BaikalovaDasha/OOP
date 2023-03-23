@@ -12,11 +12,11 @@ namespace Model
     public static class RandomPersonGenerator
     {
         /// <summary>
-        /// 
+        /// //TODO: XML
         /// </summary>
         public static Person GetRandomPerson()
         {
-
+            //TODO: RSDN
                 string[] _maleNames = new string[]
                 {
                     "Alisha", "Amanda", "Amelia", "Anaya", "Anna",

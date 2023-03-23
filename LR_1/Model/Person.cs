@@ -123,6 +123,13 @@ namespace Model
         /// <exception cref="System.ArgumentException"></exception>
         private static string ChekingNullorEmpty(string value, string propertiname)
         {
+            //TODO: fix
+            //if (string.IsNullOrEmpty(value))
+            //{
+            //    throw new System.ArgumentNullException($"{propertiname} " +
+            //        $"should not be null or empty!");
+            //}
+
             if (value == null)
             {
                 throw new System.ArgumentNullException($"{propertiname} " +
@@ -212,7 +219,8 @@ namespace Model
             
             return newWord;
         }
-
+        //TODO: RSDN
+        //TODO: XML
         public const int maxAge = 110;
         public const int minAge = 1;
 

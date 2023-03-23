@@ -88,6 +88,7 @@ namespace LR_1
 
         }
 
+        //TODO: XML
         private static void ActionHandler(Action action, string propertyName)
         {
             while (true)
