@@ -15,10 +15,10 @@ namespace LR_1
     {
 
         /// <summary>
-        /// Checking the words entered by the user.
+        /// Проверка введённых слова пользователем.
         /// </summary>
-        /// <param name="value">entered name/surname.</param>
-        /// <returns>return name/surname.</returns>
+        /// <param name="value">введённое имя/фамилия.</param>
+        /// <returns>return имя/фамлию.</returns>
         /// <exception cref="ArgumentException">error output.</exception>
         public static string CheckString(string value)
         {
@@ -26,8 +26,8 @@ namespace LR_1
 
             if (!words.IsMatch(value))
             {
-                throw new ArgumentException("It is allowed to enter only " +
-                    "letters and dashes");
+                throw new ArgumentException("разрешено вводить только" +
+                    " буквы и дефис");
             }
             else
             {
@@ -43,33 +43,33 @@ namespace LR_1
         {
             var newPerson = new Person();
 
-            Action actionName = new Action(() =>
+            Action actionName = new(() =>
             {
-                Console.Write($"Name: ");
+                Console.Write($"Введите имя: ");
                 newPerson.Name = CheckString(Console.ReadLine());
 
             });
-            ActionHandler(actionName, "Name");
+            ActionHandler(actionName, "имя");
 
-            Action actionSurname = new Action(() =>
+            Action actionSurname = new(() =>
             {
-                Console.Write($"Surname: ");
+                Console.Write($"Введите фамилию: ");
                 newPerson.Surname = CheckString(Console.ReadLine());
 
             });
-            ActionHandler(actionSurname, "Surname");
+            ActionHandler(actionSurname, "фамилия");
 
-            Action actionAge = new Action(() =>
+            Action actionAge = new(() =>
             {
-                Console.Write($"Age: ");
+                Console.Write($"Введите возраст: ");
                 _ = int.TryParse(Console.ReadLine(), out int tmpAge);
                 newPerson.Age = tmpAge;
             });
-            ActionHandler(actionAge, "Age");
+            ActionHandler(actionAge, "возраст");
 
-            Action actionGender = new Action(() =>
+            Action actionGender = new(() =>
             {
-                Console.Write($"Enter person gender (1 - Male or 2 - Female): ");
+                Console.Write($"Введите пол человека (1 - Мужской или 2 - Женский): ");
                 _ = int.TryParse(Console.ReadLine(), out int tmpGender);
                 if (tmpGender < 1 || tmpGender > 2)
                 {
@@ -77,18 +77,22 @@ namespace LR_1
                 }
 
                 var realGender = tmpGender == 1
-                    ? Gender.Male
-                    : Gender.Female;
+                    ? Gender.Мужской
+                    : Gender.Женский;
 
                 newPerson.Gender = realGender;
             });
-            ActionHandler(actionGender, "Gender");
+            ActionHandler(actionGender, "пол");
 
             return newPerson;
 
         }
 
-        //TODO: XML
+        /// <summary>
+        /// Ввод параметра персоны в список введённого пользователем.
+        /// </summary>
+        /// <param name="action">Action.</param>
+        /// <param name="propertyName">параметр персоны.</param>
         private static void ActionHandler(Action action, string propertyName)
         {
             while (true)
@@ -100,8 +104,9 @@ namespace LR_1
                 }
                 catch (Exception exception)
                 {
-                    Console.WriteLine($"Incorrect {propertyName}. Error: {exception.Message}. " +
-                        $"Please, enter the {propertyName} again.");
+                    Console.WriteLine($"Введённый параметр персоны ({propertyName})" +
+                        $" некорректен ({exception.Message}).\n" +
+                        $"Введите {propertyName} ещё раз.");
                 }
             }
         }
@@ -113,7 +118,7 @@ namespace LR_1
         public static void ShowPersonList(PersonList personsList)
         {
 
-            for (int i = 0; i < personsList.CountOfPerson; i++)
+            for (int i = 0; i < personsList.Count; i++)
             {
                 Console.WriteLine(personsList[i].GetInfo());
             }

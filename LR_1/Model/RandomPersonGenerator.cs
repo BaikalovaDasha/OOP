@@ -12,51 +12,60 @@ namespace Model
     public static class RandomPersonGenerator
     {
         /// <summary>
-        /// //TODO: XML
+        /// //TODO: XML +
         /// </summary>
         public static Person GetRandomPerson()
         {
-            //TODO: RSDN
-                string[] _maleNames = new string[]
+            string[] femaleNames = new string[]
                 {
-                    "Alisha", "Amanda", "Amelia", "Anaya", "Anna",
-                    "Joslyn", "Natla", "Kristina", "Lara", "Pimiko",
-                    "Samantha", "Jessica", "Ashley", "Ellen",
+                    "Алина", "Дуняша", "Женя", "Зоя",
+                    "Инеж", "Марья", "Нина", "Тамара", "Надя",
+                    "Танте", "Татьяна",
                 };
 
-                string[] _femaleNames = new string[]
-                {
-                    "Alex", "Alister", "Anfus", "Winston", "Vladimir",
-                    "Werner", "James", "Jerome", "Zip", "Jonah",
-                    "Kin", "Claudio", "Conrad", "Constantine",
-                };
+            string[] femaleSuranames = new string[]
+            {
+                    "Старкова", "Лазарева", "Сафина", "Назяленская",
+                    "Гафа", "Хендрикс", "Зеник", "Кир-Батаар", "Хелен",
+                    "Ланцова",
+            };
 
-                string[] _suranames = new string[]
-                {
-                    "Weiss", "Fletcher", "Reyes", "Evert", "Croft",
-                    "Croft", "Grimaldi", "Smith", "Rutland", "Whitman",
-                    "Johnson", "Reyes", "Jaquelline", "Kade", "Roth", 
-                };
+            string[] maleNames = new string[]
+            {
+                    "Бо", "Василий", "Давид", "Александр", "Джаспер",
+                    "Илья", "Каз", "Колм", "Корнелис", "Пекка", "Пер",
+                    "Мальен", "Матиас", "Николай", "Сергей", "Толя",
+            };
 
-                Random random = new Random();
-                string name;
-                Gender gender = (Gender)random.Next(0, 2);
-                switch (gender)
-                {
-                    case Gender.Male:
-                        name = _maleNames[random.Next(_maleNames.Length)];
-                        break;
-                    case Gender.Female:
-                        name = _femaleNames[random.Next(_femaleNames.Length)];
-                        break;
-                    default:
-                        return new Person("Default", "Person", 0, Gender.Male);
-                }
+            string[] maleSuranames = new string[]
+            {
+                    "Юл-Баюр", "Ланцов", "Костюк", "Морозов", "Фахи",
+                    "Бреккер", "Фахи", "Смит", "Оретцев", "Хельвар",
+                    "Роллинс", "Хаскель", "Безников", "Юл-Батаар",
+            };
 
-                string surename = _suranames[random.Next(_suranames.Length)];
-                int age = random.Next(0, Person.maxAge);
+            Random random = new();
+            string name;
+            string surname;
+            Gender gender = (Gender)random.Next(0, 2);
+            switch (gender)
+            {
+                case Gender.Мужской:
+                    name = maleNames[random.Next(maleNames.Length)];
+                    surname = maleSuranames[random.Next(maleSuranames.Length)];
+                    break;
+                case Gender.Женский:
+                    name = femaleNames[random.Next(femaleNames.Length)];
+                    surname = femaleSuranames[random.Next(femaleSuranames.Length)];
+                    break;
+                default:
+                    return new Person("Default", "Person", 0, Gender.Мужской);
+            }
 
-                return new Person(name, surename, age, gender);
+            int age = random.Next(0, 110);
+
+            return new Person(name, surname, age, gender);
+
         }
     }
 }

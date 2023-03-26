@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    //TODO: XML
+    /// <summary>
+    /// Перечисление для определения языка.
+    /// </summary>
     public enum Language
     {
         /// <summary>
-        /// Russian landuage.
+        /// Русский язык.
         /// </summary>
-        Russian,
+        Русский,
 
         /// <summary>
-        /// English landuage.
+        /// Английский язык.
         /// </summary>
-        English
+        Английский
     }
 }

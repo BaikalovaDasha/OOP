@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,11 +47,11 @@ namespace Model
             }
         }
         
-        //TODO: rename
+        //TODO: rename + 
         /// <summary>
         /// Количество персон.
         /// </summary>
-        public int CountOfPerson
+        public int Count
         { 
             get
             {
@@ -68,18 +69,8 @@ namespace Model
 
             if (index >= 0 && index < _innerPersonArray.Length)
             {
-                //TODO: fix
-                //for (var i = 0; i < _innerPersonArray.Length; i++)
-                //{
-                //    if (i == index) continue;
-                //
-                //    var newIndex = i <= index
-                //        ? i
-                //        : i - 1;
-                //    newArray[newIndex] = _innerPersonArray[i];
-                //}
-
-                for (int i = 0; i < _innerPersonArray.Length; i++)
+                // TODO: fix +               
+                for (int i = 0; i < index; i++)
                 {
                     newArray[i] = _innerPersonArray[i];
                 }
@@ -90,11 +81,12 @@ namespace Model
                 }
 
                 _innerPersonArray = newArray;
+
+                
             }
             else
             {
-                throw new ArgumentOutOfRangeException("Вы ввели индекс" +
-                    " персоны, которого нет в списке");
+                CheckIndex(index);
             }
         }
 
@@ -115,23 +107,25 @@ namespace Model
         {
             get 
             {
-                //TODO: duplication
-                if (index < 0 || index >= _innerPersonArray.Length)
-                {
-                    throw new ArgumentOutOfRangeException("Вы ввели индекс" +
-                        " персоны, которого нет в списке");
-                }
-                
+                //TODO: duplication + 
+                CheckIndex(index);
                 return _innerPersonArray[index];
                 
             }
             set
             {
-                //TODO: add exception generation
-                if (index >= 0 && index < _innerPersonArray.Length)
-                {
-                    _innerPersonArray[index] = value;
-                }
+                //TODO: add exception generation + 
+                CheckIndex(index);
+                _innerPersonArray[index] = value;
+            }
+        }
+
+        public void CheckIndex(int index)
+        {
+            if (index < 0 || index >= _innerPersonArray.Length)
+            {
+                throw new IndexOutOfRangeException("Вы ввели индекс" +
+                    " персоны, которого нет в списке");
             }
         }
 

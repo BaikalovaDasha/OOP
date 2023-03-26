@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    //TODO: XML
+    /// <summary>
+    /// Перечисление для определения гендера.
+    /// </summary>
     public enum Gender
     {
         /// <summary>
-        /// Male gender.
+        /// Мужской пол.
         /// </summary>
-        Male,
+        Мужской,
 
         /// <summary>
-        /// Female gender
+        /// Женский пол.
         /// </summary>
-        Female
+        Женский
     }
 }

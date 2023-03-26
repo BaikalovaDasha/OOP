@@ -12,12 +12,12 @@ namespace Model
     {
 
         /// <summary>
-        /// Name of person.
+        /// Имя персоны.
         /// </summary>
         private string _name;
 
         /// <summary>
-        /// Reading and writing the name.
+        /// Чтение и запись имени персоны.
         /// </summary>
         public string Name
         {
@@ -27,7 +27,8 @@ namespace Model
             }
             set 
             {
-                _name = ToUpperFirstLetter(ChekingNullorEmpty(value, nameof(Name)));
+                _name = ToUpperFirstLetter
+                    (ChekingNullorEmpty(value, nameof(Name)));
                 if (_surname != null)
                 {
                     CheckLanguage(_name, _surname);
@@ -36,12 +37,12 @@ namespace Model
         }
 
         /// <summary>
-        /// Surname of person.
+        /// фамилия персоны.
         /// </summary>
         private string _surname;
 
         /// <summary>
-        /// Reading and writing the surname.
+        /// Чтение и запись фамилии персоны.
         /// </summary>
         public string Surname
         {
@@ -51,7 +52,8 @@ namespace Model
             }
             set
             {
-                _surname = ToUpperFirstLetter(ChekingNullorEmpty(value, nameof(Surname)));
+                _surname = ToUpperFirstLetter
+                    (ChekingNullorEmpty(value, nameof(Surname)));
                 if (_name != null)
                 {
                     CheckLanguage(_name, _surname);
@@ -79,14 +81,14 @@ namespace Model
         }
 
         /// <summary>
-        /// Gender of person.
+        /// Пол персоны.
         /// </summary>
         public Gender Gender { get; set; }
 
         /// <summary>
         /// Метод возвращает информацию о человеке в виде строки.
         /// </summary>
-        /// <returns>Информацию о человеке в виде строки.</returns>
+        /// <returns>информация о персоне.</returns>
         public string GetInfo()
         {
             return $"Имя: {_name}, Фамилия: {_surname}, Возраст: {Age}, Пол: {Gender}.";
@@ -115,7 +117,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Cheking null or empty string. 
+        /// Проверка на null и empty. 
         /// </summary>
         /// <param name="value"></param>
         /// <param name="propertiname"></param>
@@ -123,35 +125,21 @@ namespace Model
         /// <exception cref="System.ArgumentException"></exception>
         private static string ChekingNullorEmpty(string value, string propertiname)
         {
-            //TODO: fix
-            //if (string.IsNullOrEmpty(value))
-            //{
-            //    throw new System.ArgumentNullException($"{propertiname} " +
-            //        $"should not be null or empty!");
-            //}
-
-            if (value == null)
+            //TODO: fix +
+            if (string.IsNullOrEmpty(value))
             {
-                throw new System.ArgumentNullException($"{propertiname} " +
-                    $"is not be null!");
-            }
-
-            if (value == String.Empty)
-            {
-                throw new System.ArgumentException($"{propertiname} " +
-                    $"is not be empty!");
+                throw new System.ArgumentNullException($"Введённый параметр" +
+                    $"({propertiname}) не может быть пустым.");
             }
 
             return value;
         }
 
-        //"[А-ЯЁа-яё]+(((-| )?([А-ЯЁа-яё])+))?$"
-
         /// <summary>
-        /// Cheking Russian and English symbols.
+        /// Проверка на русские и английские символы.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">введнные символы.</param>
+        /// <returns>введённые символы.</returns>
         private static Language IsCorrectSymbol(string value)
         {
             var symbolsRussian = new Regex("[А-я]");
@@ -160,26 +148,26 @@ namespace Model
 
             if (symbolsRussian.IsMatch(value))
             {
-                return Language.Russian;
+                return Language.Русский;
             }
             else if (symbolsEnglish.IsMatch(value))
             {
-                return Language.English;
+                return Language.Английский;
             }
             else
             {
-                throw new ArgumentException("Please correct the language. " +
-                    "Only Russian or English characters are allowed" +
-                    " to be entered.");
+                throw new ArgumentException("Введённый параметр персоны должен" +
+                    " содержать только символы русской и английской раскладки." +
+                    " Пожалуйста исправьте введённые символы.");
             }
 
         }
 
         /// <summary>
-        /// checking for the same language of the name and surname.
+        /// Проверка одинакового языка имени и фамилии..
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="surname"></param>
+        /// <param name="name">имя персоны.</param>
+        /// <param name="surname">фамилия персоны.</param>
         private static void CheckLanguage(string name, string surname)
         {
             Language nameLanguage = IsCorrectSymbol(name);
@@ -187,14 +175,15 @@ namespace Model
 
             if (nameLanguage != surnameLanguage)
             {
-                throw new ArgumentException("The language of the name and " +
-                    "surname must match");
+                throw new ArgumentException("Язык имени и фамилии " +
+                    "должны быть одинаковыми");
             }
 
         }
 
         /// <summary>
-        /// sdflhfdg.
+        /// Преобразует первую букву имени/фамилии в заглавную, ...
+        /// ... остальные прописные.
         /// </summary>
         /// <param name="newWord"></param>
         /// <returns></returns>
@@ -219,10 +208,17 @@ namespace Model
             
             return newWord;
         }
-        //TODO: RSDN
-        //TODO: XML
-        public const int maxAge = 110;
-        public const int minAge = 1;
+        //TODO: RSDN +
+        //TODO: XML +
+        /// <summary>
+        /// Максимальный возраст
+        /// </summary>
+        private const int maxAge = 110;
+
+        /// <summary>
+        /// Минимальный возраст.
+        /// </summary>
+        private const int minAge = 1;
 
         /// <summary>
         /// Проверка для ввода возраста
@@ -233,8 +229,8 @@ namespace Model
         {
             if (age < minAge || age > maxAge)
             {
-                throw new Exception($"The age should be in range" +
-                    $" of {minAge} to {maxAge}");
+                throw new Exception($"Возраст должен находится в диапазоне" +
+                    $" от {minAge} до {maxAge}");
             }
             else
             {
