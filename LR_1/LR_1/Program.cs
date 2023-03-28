@@ -54,11 +54,13 @@ namespace LR_1
             ConsolePerson.ShowPersonList(listOne);
             Console.WriteLine();
 
+            int index;
+
             // TODO: duplication +
             Action copyPerson = new(() =>
             {
-                int indexCopy = int.Parse(Console.ReadLine());
-                listTwo.AddPerson(listOne[indexCopy - 1]);
+                index = int.Parse(Console.ReadLine());
+                listTwo.AddPerson(listOne[index - 1]);
             });
             ActionHandler(copyPerson, "скопировать");
 
@@ -71,8 +73,8 @@ namespace LR_1
             // TODO: duplication +
             Action deletePerson = new(() =>
             {
-                int indexDelete = int.Parse(Console.ReadLine());
-                listOne.DeleteByIndex(ref arrayOne, indexDelete - 1);
+                index = int.Parse(Console.ReadLine());
+                listOne.DeleteByIndex(ref arrayOne, index - 1);
             });
             ActionHandler(deletePerson, "удалить");
 

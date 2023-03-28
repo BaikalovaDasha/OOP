@@ -120,6 +120,11 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Проверка на входимость индекса в массив.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <exception cref="IndexOutOfRangeException"></exception>
         public void CheckIndex(int index)
         {
             if (index < 0 || index >= _innerPersonArray.Length)
