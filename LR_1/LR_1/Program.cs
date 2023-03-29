@@ -35,7 +35,6 @@ namespace LR_1
             listOne.AddPersonInArray(arrayOne);
             listTwo.AddPersonInArray(arrayTwo);
 
-            // TODO: choose language +
             Console.WriteLine("\t\t\tСписок 1.\n");
             ConsolePerson.ShowPersonList(listOne);
             Console.WriteLine();
@@ -56,7 +55,6 @@ namespace LR_1
 
             int index;
 
-            // TODO: duplication +
             Action copyPerson = new(() =>
             {
                 index = int.Parse(Console.ReadLine());
@@ -70,7 +68,6 @@ namespace LR_1
             ConsolePerson.ShowPersonList(listTwo);
             Console.WriteLine();
 
-            // TODO: duplication +
             Action deletePerson = new(() =>
             {
                 index = int.Parse(Console.ReadLine());

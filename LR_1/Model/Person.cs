@@ -125,7 +125,6 @@ namespace Model
         /// <exception cref="System.ArgumentException"></exception>
         private static string ChekingNullorEmpty(string value, string propertiname)
         {
-            //TODO: fix +
             if (string.IsNullOrEmpty(value))
             {
                 throw new System.ArgumentNullException($"Введённый параметр" +
@@ -208,8 +207,7 @@ namespace Model
             
             return newWord;
         }
-        //TODO: RSDN +
-        //TODO: XML +
+
         /// <summary>
         /// Максимальный возраст
         /// </summary>

@@ -11,7 +11,6 @@ namespace Model
     /// </summary>
     public static class RandomPersonGenerator
     {
-        //TODO: XML +
         /// <summary>
         /// Метод создания рандомной персоны
         /// </summary>

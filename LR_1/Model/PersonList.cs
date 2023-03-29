@@ -47,7 +47,6 @@ namespace Model
             }
         }
         
-        //TODO: rename + 
         /// <summary>
         /// Количество персон.
         /// </summary>
@@ -68,8 +67,7 @@ namespace Model
             var newArray = new Person[_innerPersonArray.Length - 1];
 
             if (index >= 0 && index < _innerPersonArray.Length)
-            {
-                // TODO: fix +               
+            {          
                 for (int i = 0; i < index; i++)
                 {
                     newArray[i] = _innerPersonArray[i];
@@ -80,9 +78,7 @@ namespace Model
                     newArray[i - 1] = _innerPersonArray[i];
                 }
 
-                _innerPersonArray = newArray;
-
-                
+                _innerPersonArray = newArray;                
             }
             else
             {
@@ -107,14 +103,12 @@ namespace Model
         {
             get 
             {
-                //TODO: duplication + 
                 CheckIndex(index);
                 return _innerPersonArray[index];
                 
             }
             set
             {
-                //TODO: add exception generation + 
                 CheckIndex(index);
                 _innerPersonArray[index] = value;
             }
