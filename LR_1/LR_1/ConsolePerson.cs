@@ -36,6 +36,26 @@ namespace LR_1
         }
 
         /// <summary>
+        /// Проверка на ввод имени или фамилии на одном языке.
+        /// </summary>
+        /// <param name="nameOrSurname">имя или фамилия персоны.</param>
+        /// <returns>проверенный параметр персоны.</returns>
+        /// <exception cref="FormatException">вапоа.</exception>
+        public static string CheckNameSurname(string nameOrSurname)
+        {
+            Regex nameLanguage = new("(^[А-я]+(-[А-я])?[А-я]*$)" +
+                "|(^[A-z]+(-[A-z])?[A-z]*$)");
+
+            if (!nameLanguage.IsMatch(nameOrSurname))
+            {
+                throw new FormatException("Введёное слово не распознано." +
+                    " Введите еще раз!");
+            }
+
+            return nameOrSurname;
+        }
+
+        /// <summary>
         /// Добавление персоны через консоль.
         /// </summary>
         /// <returns>Новая персона.</returns>
@@ -46,16 +66,16 @@ namespace LR_1
             Action actionName = new(() =>
             {
                 Console.Write($"Введите имя: ");
-                newPerson.Name = CheckString(Console.ReadLine());
-
+                string name = CheckString(Console.ReadLine());
+                newPerson.Name = CheckNameSurname(name);
             });
             ActionHandler(actionName, "имя");
 
             Action actionSurname = new(() =>
             {
                 Console.Write($"Введите фамилию: ");
-                newPerson.Surname = CheckString(Console.ReadLine());
-
+                string surname = CheckString(Console.ReadLine());
+                newPerson.Surname = CheckNameSurname(surname);
             });
             ActionHandler(actionSurname, "фамилия");
 
@@ -77,8 +97,8 @@ namespace LR_1
                 }
 
                 var realGender = tmpGender == 1
-                    ? Gender.Мужской
-                    : Gender.Женский;
+                    ? Gender.Male
+                    : Gender.Female;
 
                 newPerson.Gender = realGender;
             });

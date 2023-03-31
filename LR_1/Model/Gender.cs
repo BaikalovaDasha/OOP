@@ -15,11 +15,11 @@ namespace Model
         /// <summary>
         /// Мужской пол.
         /// </summary>
-        Мужской,
+        Male,
 
         /// <summary>
         /// Женский пол.
         /// </summary>
-        Женский
+        Female
     }
 }

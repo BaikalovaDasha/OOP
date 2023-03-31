@@ -11,6 +11,7 @@ namespace Model
     /// </summary>
     public static class RandomPersonGenerator
     {
+        //TODO: XML +
         /// <summary>
         /// Метод создания рандомной персоны
         /// </summary>
@@ -50,16 +51,16 @@ namespace Model
             Gender gender = (Gender)random.Next(0, 2);
             switch (gender)
             {
-                case Gender.Мужской:
+                case Gender.Male:
                     name = maleNames[random.Next(maleNames.Length)];
                     surname = maleSuranames[random.Next(maleSuranames.Length)];
                     break;
-                case Gender.Женский:
+                case Gender.Female:
                     name = femaleNames[random.Next(femaleNames.Length)];
                     surname = femaleSuranames[random.Next(femaleSuranames.Length)];
                     break;
                 default:
-                    return new Person("Default", "Person", 0, Gender.Мужской);
+                    return new Person("Default", "Person", 0, Gender.Male);
             }
 
             int age = random.Next(0, 110);

@@ -15,11 +15,11 @@ namespace Model
         /// <summary>
         /// Русский язык.
         /// </summary>
-        Русский,
+        Russian,
 
         /// <summary>
         /// Английский язык.
         /// </summary>
-        Английский
+        English
     }
 }

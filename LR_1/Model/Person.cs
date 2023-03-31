@@ -141,23 +141,22 @@ namespace Model
         /// <returns>введённые символы.</returns>
         private static Language IsCorrectSymbol(string value)
         {
-            var symbolsRussian = new Regex("[А-я]");
+            var symbolsRussian = new Regex("[А-ЯЁ, а-яё]");
             var symbolsEnglish = new Regex("[A-z]");
-
 
             if (symbolsRussian.IsMatch(value))
             {
-                return Language.Русский;
+                return Language.Russian;
             }
             else if (symbolsEnglish.IsMatch(value))
             {
-                return Language.Английский;
+                return Language.English;
             }
             else
             {
                 throw new ArgumentException("Введённый параметр персоны должен" +
-                    " содержать только символы русской и английской раскладки." +
-                    " Пожалуйста исправьте введённые символы.");
+                    " содержать только символы русской или английской раскладки." +
+                    " Пожалуйста исправьте введённый параметр.");
             }
 
         }
@@ -185,7 +184,7 @@ namespace Model
         /// ... остальные прописные.
         /// </summary>
         /// <param name="newWord"></param>
-        /// <returns></returns>
+        /// <returns>фамилию с правильным регистром.</returns>
         public static string ToUpperFirstLetter(string newWord)
         {
             newWord = char.ToUpper(newWord[0]) + newWord[1..].ToLower();
