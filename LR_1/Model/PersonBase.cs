@@ -8,7 +8,7 @@ namespace Model
     /// <summary>
     /// Класс персоны.
     /// </summary>
-    public class Person
+    public class PersonBase
     {
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Model
         /// <param name="surname"></param>
         /// <param name="age"></param>
         /// <param name="gender"></param>
-        public Person(string name, string surname, int age, Gender gender)
+        public PersonBase(string name, string surname, int age, Gender gender)
         {
             _name = name;
             _surname = surname;
@@ -112,7 +112,7 @@ namespace Model
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
-        public Person()
+        public PersonBase()
         {
         }
 

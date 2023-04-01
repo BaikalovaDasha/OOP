@@ -15,7 +15,7 @@ namespace Model
         /// <summary>
         /// Метод создания рандомной персоны
         /// </summary>
-        public static Person GetRandomPerson()
+        public static PersonBase GetRandomPerson()
         {
             string[] femaleNames = new string[]
                 {
@@ -60,12 +60,12 @@ namespace Model
                     surname = femaleSuranames[random.Next(femaleSuranames.Length)];
                     break;
                 default:
-                    return new Person("Default", "Person", 0, Gender.Male);
+                    return new PersonBase("Default", "Person", 0, Gender.Male);
             }
 
             int age = random.Next(0, 110);
 
-            return new Person(name, surname, age, gender);
+            return new PersonBase(name, surname, age, gender);
 
         }
     }

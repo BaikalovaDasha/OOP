@@ -15,17 +15,17 @@ namespace Model
         /// <summary>
         /// Массив из списка людей.
         /// </summary>
-        private Person[] _innerPersonArray = new Person[0];
+        private PersonBase[] _innerPersonArray = new PersonBase[0];
 
         /// <summary>
         /// Добавление человека в список
         /// </summary>
         /// <param name="person">Экземпляр класса Person.</param>
-        public void AddPerson(Person person)
+        public void AddPerson(PersonBase person)
         {
             var newArray = _innerPersonArray;
 
-            _innerPersonArray = new Person[newArray.Length + 1];
+            _innerPersonArray = new PersonBase[newArray.Length + 1];
 
             for (int i = 0; i < newArray.Length; i++)
             {
@@ -39,9 +39,9 @@ namespace Model
         /// Добавление списка людей в массив.
         /// </summary>
         /// <param name="persons">массив людей.</param>
-        public void AddPersonInArray(Person[] persons)
+        public void AddPersonInArray(PersonBase[] persons)
         {
-            foreach (Person person in persons)
+            foreach (PersonBase person in persons)
             {
                 AddPerson(person);
             }
@@ -62,9 +62,9 @@ namespace Model
         /// Удаление персоны по индексу.
         /// </summary>
         /// <param name="person"></param>
-        public void DeleteByIndex(ref Person[] person, int index)
+        public void DeleteByIndex(ref PersonBase[] person, int index)
         {
-            var newArray = new Person[_innerPersonArray.Length - 1];
+            var newArray = new PersonBase[_innerPersonArray.Length - 1];
 
             if (index >= 0 && index < _innerPersonArray.Length)
             {          
@@ -99,7 +99,7 @@ namespace Model
         /// </summary>
         /// <param name="index">Индекс персоны.</param>
         /// <returns>Индекс персоны.</returns>
-        public Person this[int index]
+        public PersonBase this[int index]
         {
             get 
             {

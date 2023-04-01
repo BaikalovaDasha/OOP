@@ -39,15 +39,15 @@ namespace LR_1
         /// Добавление персоны через консоль.
         /// </summary>
         /// <returns>Новая персона.</returns>
-        public static Person AddPersonConsole()
+        public static PersonBase AddPersonConsole()
         {
-            var newPerson = new Person();
+            var newPerson = new PersonBase();
 
             Action actionName = new(() =>
             {
                 Console.Write($"Введите имя: ");
                 string name = CheckString(Console.ReadLine());
-                newPerson.Name = Person.CheckNameSurname(name);
+                newPerson.Name = PersonBase.CheckNameSurname(name);
             });
             ActionHandler(actionName, "имя");
 
@@ -55,7 +55,7 @@ namespace LR_1
             {
                 Console.Write($"Введите фамилию: ");
                 string surname = CheckString(Console.ReadLine());
-                newPerson.Surname = Person.CheckNameSurname(surname);
+                newPerson.Surname = PersonBase.CheckNameSurname(surname);
             });
             ActionHandler(actionSurname, "фамилия");
 
