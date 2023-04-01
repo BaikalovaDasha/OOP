@@ -36,26 +36,6 @@ namespace LR_1
         }
 
         /// <summary>
-        /// Проверка на ввод имени или фамилии на одном языке.
-        /// </summary>
-        /// <param name="nameOrSurname">имя или фамилия персоны.</param>
-        /// <returns>проверенный параметр персоны.</returns>
-        /// <exception cref="FormatException">вапоа.</exception>
-        public static string CheckNameSurname(string nameOrSurname)
-        {
-            Regex nameLanguage = new("(^[А-я]+(-[А-я])?[А-я]*$)" +
-                "|(^[A-z]+(-[A-z])?[A-z]*$)");
-
-            if (!nameLanguage.IsMatch(nameOrSurname))
-            {
-                throw new FormatException("Введёное слово не распознано." +
-                    " Введите еще раз!");
-            }
-
-            return nameOrSurname;
-        }
-
-        /// <summary>
         /// Добавление персоны через консоль.
         /// </summary>
         /// <returns>Новая персона.</returns>
@@ -67,7 +47,7 @@ namespace LR_1
             {
                 Console.Write($"Введите имя: ");
                 string name = CheckString(Console.ReadLine());
-                newPerson.Name = CheckNameSurname(name);
+                newPerson.Name = Person.CheckNameSurname(name);
             });
             ActionHandler(actionName, "имя");
 
@@ -75,7 +55,7 @@ namespace LR_1
             {
                 Console.Write($"Введите фамилию: ");
                 string surname = CheckString(Console.ReadLine());
-                newPerson.Surname = CheckNameSurname(surname);
+                newPerson.Surname = Person.CheckNameSurname(surname);
             });
             ActionHandler(actionSurname, "фамилия");
 

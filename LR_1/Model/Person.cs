@@ -162,6 +162,26 @@ namespace Model
         }
 
         /// <summary>
+        /// Проверка на ввод имени или фамилии на одном языке.
+        /// </summary>
+        /// <param name="nameOrSurname">имя или фамилия персоны.</param>
+        /// <returns>проверенный параметр персоны.</returns>
+        /// <exception cref="FormatException">вапоа.</exception>
+        public static string CheckNameSurname(string nameOrSurname)
+        {
+            Regex nameLanguage = new("(^[А-я]+(-[А-я])?[А-я]*$)" +
+                "|(^[A-z]+(-[A-z])?[A-z]*$)");
+
+            if (!nameLanguage.IsMatch(nameOrSurname))
+            {
+                throw new FormatException("Введёное слово не распознано." +
+                    " Введите еще раз!");
+            }
+
+            return nameOrSurname;
+        }
+
+        /// <summary>
         /// Проверка одинакового языка имени и фамилии..
         /// </summary>
         /// <param name="name">имя персоны.</param>
