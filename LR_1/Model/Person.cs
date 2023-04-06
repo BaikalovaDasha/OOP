@@ -28,6 +28,7 @@ namespace Model
             }
             set 
             {
+                //TODO: 
                 _name = ToUpperFirstLetter
                     (ChekingNullorEmpty(value, nameof(Name)));
                 if (_surname != null)
@@ -53,6 +54,7 @@ namespace Model
             }
             set
             {
+                //TODO: 
                 _surname = ToUpperFirstLetter
                     (ChekingNullorEmpty(value, nameof(Surname)));
                 if (_name != null)
@@ -104,6 +106,7 @@ namespace Model
         /// <param name="gender"></param>
         public Person(string name, string surname, int age, Gender gender)
         {
+            //TODO: to properties
             _name = name;
             _surname = surname;
             _age = age;

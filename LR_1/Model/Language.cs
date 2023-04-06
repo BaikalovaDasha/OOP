@@ -11,7 +11,6 @@ namespace Model
     /// </summary>
     public enum Language
     {
-        //TODO
         /// <summary>
         /// Русский язык.
         /// </summary>
