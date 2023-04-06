@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.WebSockets;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -205,6 +206,25 @@ namespace Model
             }
             
             return newWord;
+        }
+
+        /// <summary>
+        /// Проверка на ввод имени или фамилии на одном языке.
+        /// </summary>
+        /// <param name="nameOrSurname">имя или фамилия персоны.</param>
+        /// <returns>проверенный параметр персоны.</returns>
+        /// <exception cref="FormatException">вапоа.</exception>
+        public static string CheckNameSurname(string nameOrSurname)
+        {
+            Regex nameLanguage = new("^[А-я]+(-)?[А-я]*$|^[A-z]+(-)?[A-z]*$");
+
+            if (!nameLanguage.IsMatch(nameOrSurname))
+            {
+                throw new FormatException("Введёный параметр должен содержать" +
+                    " только символы кириллицы и латиницы.");
+            }
+
+            return nameOrSurname;
         }
 
         /// <summary>
