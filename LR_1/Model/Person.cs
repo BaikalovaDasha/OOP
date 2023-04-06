@@ -28,12 +28,12 @@ namespace Model
             }
             set 
             {
-                //TODO: 
+                //TODO: +
                 string tmpName = ToUpperFirstLetter
                     (ChekingNullorEmpty(value, nameof(Name)));
                 if (_surname != null)
                 {
-                    CheckLanguage(_name, _surname);
+                    CheckLanguage(tmpName, _surname);
                 }
                 _name = tmpName;
             }
@@ -55,14 +55,15 @@ namespace Model
             }
             set
             {
-                //TODO: 
-                _surname = ToUpperFirstLetter
+                //TODO: +
+                string tmpSurname = ToUpperFirstLetter
                     (ChekingNullorEmpty(value, nameof(Surname)));
                 if (_name != null)
                 {
-                    CheckLanguage(_name, _surname);
+                    CheckLanguage(_name, tmpSurname);
                 }
 
+                _surname = tmpSurname;
             }
         }
 
@@ -108,7 +109,7 @@ namespace Model
         /// <param name="gender">Гендер персоны.</param>
         public Person(string name, string surname, int age, Gender gender)
         {
-            //TODO: to properties
+            //TODO: to properties + 
             Name = name;
             Surname = surname;
             Age = age;
