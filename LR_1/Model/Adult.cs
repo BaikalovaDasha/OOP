@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    internal class Adult : PersonBase
+    public class Adult : PersonBase
     {
+         
         /// <summary>
         /// Паспортные данные персоны (серия и номер).
         /// </summary>
@@ -19,13 +20,13 @@ namespace Model
         public int SeriesAndNumber
         {
             get
-            { 
-                return _seriesAndNumber; 
-            } 
-            set 
-            { 
-                _seriesAndNumber = value; 
-            } 
+            {
+                return _seriesAndNumber;
+            }
+            set
+            {
+                _seriesAndNumber = value;
+            }
         }
 
         /// <summary>
@@ -42,5 +43,18 @@ namespace Model
         /// Место работы персоны.
         /// </summary>
         public string Job { get; set; }
+
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="surname"></param>
+        /// <param name="age"></param>
+        /// <param name="gender"></param>
+        public Adult(string name, string surname, int age, Gender gender)
+            : base (name, surname, age, gender)
+        {
+
+        }
     }
 }
