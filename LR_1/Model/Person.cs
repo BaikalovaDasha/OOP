@@ -29,12 +29,13 @@ namespace Model
             set 
             {
                 //TODO: 
-                _name = ToUpperFirstLetter
+                string tmpName = ToUpperFirstLetter
                     (ChekingNullorEmpty(value, nameof(Name)));
                 if (_surname != null)
                 {
                     CheckLanguage(_name, _surname);
                 }
+                _name = tmpName;
             }
         }
 
@@ -61,6 +62,7 @@ namespace Model
                 {
                     CheckLanguage(_name, _surname);
                 }
+
             }
         }
 
@@ -94,22 +96,22 @@ namespace Model
         /// <returns>информация о персоне.</returns>
         public string GetInfo()
         {
-            return $"Имя: {_name}, Фамилия: {_surname}, Возраст: {Age}, Пол: {Gender}.";
+            return $"Имя: {Name}, Фамилия: {Surname}, Возраст: {Age}, Пол: {Gender}.";
         }
 
         /// <summary>
         /// Конструктор.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="surname"></param>
-        /// <param name="age"></param>
-        /// <param name="gender"></param>
+        /// <param name="name">имя персоны.</param>
+        /// <param name="surname">Фамилия персоны.</param>
+        /// <param name="age">Возраст персоны.</param>
+        /// <param name="gender">Гендер персоны.</param>
         public Person(string name, string surname, int age, Gender gender)
         {
             //TODO: to properties
-            _name = name;
-            _surname = surname;
-            _age = age;
+            Name = name;
+            Surname = surname;
+            Age = age;
             Gender = gender;
         }
 

@@ -17,11 +17,11 @@ namespace Model
         public static Person GetRandomPerson()
         {
             string[] femaleNames = new string[]
-                {
+            {
                     "Алина", "Дуняша", "Женя", "Зоя",
                     "Инеж", "Марья", "Нина", "Тамара", "Надя",
                     "Танте", "Татьяна",
-                };
+            };
 
             string[] femaleSuranames = new string[]
             {
