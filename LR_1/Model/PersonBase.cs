@@ -8,13 +8,46 @@ namespace Model
     /// <summary>
     /// Класс персоны.
     /// </summary>
-    public class PersonBase
+    public abstract class PersonBase
     {
 
         /// <summary>
         /// Имя персоны.
         /// </summary>
         private string _name;
+
+        /// <summary>
+        /// фамилия персоны.
+        /// </summary>
+        private string _surname;
+
+                /// <summary>
+        /// Возраст персоны.
+        /// </summary>
+        private int _age;
+
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="surname"></param>
+        /// <param name="age"></param>
+        /// <param name="gender"></param>
+        public PersonBase(string name, string surname, int age, Gender gender)
+        {
+            _name = name;
+            _surname = surname;
+            _age = age;
+            Gender = gender;
+        }
+
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
+        public PersonBase()
+        {
+        }
+
 
         /// <summary>
         /// Чтение и запись имени персоны.
@@ -37,11 +70,6 @@ namespace Model
         }
 
         /// <summary>
-        /// фамилия персоны.
-        /// </summary>
-        private string _surname;
-
-        /// <summary>
         /// Чтение и запись фамилии персоны.
         /// </summary>
         public string Surname
@@ -60,11 +88,6 @@ namespace Model
                 }
             }
         }
-
-        /// <summary>
-        /// Возраст персоны.
-        /// </summary>
-        private int _age;
 
         /// <summary>
         /// Чтение и запись возраста персоны.
@@ -89,31 +112,9 @@ namespace Model
         /// Метод возвращает информацию о человеке в виде строки.
         /// </summary>
         /// <returns>информация о персоне.</returns>
-        public string GetInfo()
+        public virtual string GetInfo() 
         {
             return $"Имя: {_name}, Фамилия: {_surname}, Возраст: {Age}, Пол: {Gender}.";
-        }
-
-        /// <summary>
-        /// Конструктор.
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="surname"></param>
-        /// <param name="age"></param>
-        /// <param name="gender"></param>
-        public PersonBase(string name, string surname, int age, Gender gender)
-        {
-            _name = name;
-            _surname = surname;
-            _age = age;
-            Gender = gender;
-        }
-
-        /// <summary>
-        /// Конструктор по умолчанию.
-        /// </summary>
-        public PersonBase()
-        {
         }
 
         /// <summary>
@@ -228,32 +229,11 @@ namespace Model
         }
 
         /// <summary>
-        /// Максимальный возраст
-        /// </summary>
-        private const int maxAge = 110;
-
-        /// <summary>
-        /// Минимальный возраст.
-        /// </summary>
-        private const int minAge = 1;
-
-        /// <summary>
         /// Проверка для ввода возраста
         /// </summary>
         /// <param name="age">Возраст для проверки</param>
         /// <returns>Корректный возраст</returns>
-        private static int CheckingAge(int age)
-        {
-            if (age < minAge || age > maxAge)
-            {
-                throw new Exception($"Возраст должен находится в диапазоне" +
-                    $" от {minAge} до {maxAge}");
-            }
-            else
-            {
-                return age;
-            }
-        }
+        protected abstract int CheckingAge(int age);
 
     }
 }

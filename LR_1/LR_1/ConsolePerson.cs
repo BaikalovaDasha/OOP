@@ -41,7 +41,7 @@ namespace LR_1
         /// <returns>Новая персона.</returns>
         public static PersonBase AddPersonConsole()
         {
-            var newPerson = new PersonBase();
+            var newPerson = new Adult();
 
             Action actionName = new(() =>
             {

@@ -18,11 +18,11 @@ namespace Model
         public static PersonBase GetRandomPerson()
         {
             string[] femaleNames = new string[]
-                {
+            {
                     "Алина", "Дуняша", "Женя", "Зоя",
                     "Инеж", "Марья", "Нина", "Тамара", "Надя",
                     "Танте", "Татьяна",
-                };
+            };
 
             string[] femaleSuranames = new string[]
             {
@@ -60,12 +60,12 @@ namespace Model
                     surname = femaleSuranames[random.Next(femaleSuranames.Length)];
                     break;
                 default:
-                    return new PersonBase("Default", "Person", 0, Gender.Male);
+                    return new Adult("Default", "Person", 0, Gender.Male);
             }
 
             int age = random.Next(0, 110);
 
-            return new PersonBase(name, surname, age, gender);
+            return new Adult(name, surname, age, gender);
 
         }
     }
