@@ -112,9 +112,12 @@ namespace Model
         /// Метод возвращает информацию о человеке в виде строки.
         /// </summary>
         /// <returns>информация о персоне.</returns>
-        public virtual string GetInfo() 
+        public virtual string GetInfo 
         {
-            return $"Имя: {_name}, Фамилия: {_surname}, Возраст: {Age}, Пол: {Gender}.";
+            get
+            {
+                return $"Имя: {_name}, Фамилия: {_surname}, Возраст: {Age}, Пол: {Gender}.";
+            }
         }
 
         /// <summary>

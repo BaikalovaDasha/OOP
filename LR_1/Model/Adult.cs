@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -14,9 +15,32 @@ namespace Model
     {
 
         /// <summary>
+        /// Максимальное количество символов паспорта.
+        /// </summary>
+        private const int maxSymbol = 10;
+
+        /// <summary>
+        /// Поле паспортных данных
+        /// </summary>
+        private string _pasport;
+
+        /// <summary>
         /// Чтение и запись паспортных данных.
         /// </summary>
-        public int SeriesAndNumber { get; set; }
+        public string Pasport
+        { 
+            get => _pasport; 
+            set
+            {
+                const string pattern = @"\D";
+                Regex regex = new(pattern);
+                if (value.Length != maxSymbol || regex.IsMatch(value.ToString()) == true)
+                {
+                    throw new ArgumentException("Паспорт должен содержать 10 символов!");
+                }
+                _pasport = value;
+            }
+        }
 
         /// <summary>
         /// Чтение и запись состояние брака.
@@ -34,23 +58,24 @@ namespace Model
         public string Job { get; set; }
 
         /// <summary>
-        /// Конструктор.
+        /// Вывод информации о взрослом человеке.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="surname"></param>
-        /// <param name="age"></param>
-        /// <param name="gender"></param>
-        public Adult(string name, string surname, int age, Gender gender)
-            : base(name, surname, age, gender)
+        public override string GetInfo
         {
-
+            get
+            {
+                var personInfo = base.GetInfo + 
+                    $"\nПаспорт: {Pasport}" + 
+                    $"\nСостояние брака: {StateOfMarriage}";
+                if (StateOfMarriage == StateOfMarriage.married)
+                {
+                    personInfo += $"\nСупруг(а): {Spouse.Name} {Spouse.Surname}";
+                }
+                personInfo += $"\nМесто работы: {Job}";
+                return personInfo;
+            }
         }
 
-        /// <summary>
-        /// Конструктор по умолчанию.
-        /// </summary>
-        public Adult()
-        { }
 
         /// <summary>
         /// Метод проверки возраста взрослого.
@@ -71,15 +96,6 @@ namespace Model
             {
                 return age;
             }
-        }
-
-        /// <summary>
-        /// Метод возвращает информацию об взрослом в виде строки.
-        /// </summary>
-        /// <returns></returns>
-        public override string GetInfo()
-        {
-            return base.GetInfo() + "Вы очень близки к смерти!";
         }
     }
 }

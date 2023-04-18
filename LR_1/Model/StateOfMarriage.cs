@@ -25,10 +25,5 @@ namespace Model
         /// Состояние брака: замужем / женат
         /// </summary>
         married,
-
-        /// <summary>
-        /// Состояние брака: гражданский брак
-        /// </summary>
-        civilMarriage
     }
 }

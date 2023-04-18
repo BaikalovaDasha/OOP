@@ -14,30 +14,18 @@ namespace Model
         /// <summary>
         /// Мама.
         /// </summary>
-        public Adult Mother { get; set; }
+        public Adult ParentOne { get; set; }
 
         /// <summary>
         /// папа
         /// </summary>
-        public Adult Father { get; set; }
+        public Adult ParentTwo { get; set; }
 
         /// <summary>
         /// Информация о детском саду или школе.
         /// </summary>
         public string JobChild { get; set; }
 
-        /// <summary>
-        /// Конструктор.
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="surname"></param>
-        /// <param name="age"></param>
-        /// <param name="gender"></param>
-        public Child(string name, string surname, int age, Gender gender)
-            : base(name, surname, age, gender)
-        {
-
-        }
 
         /// <summary>
         /// Метод проверки возраста ребёнка.
@@ -61,12 +49,28 @@ namespace Model
         }
 
         /// <summary>
-        /// Метод возвращает информацию о ребёнке в виде строки.
+        /// Вывод информации о ребёнке.
         /// </summary>
-        /// <returns></returns>
-        public override string GetInfo()
+        public override string GetInfo
         {
-            return base.GetInfo() + "вам ещё до смерти далеко, живите!";
+            get
+            {
+                var personInfo = base.GetInfo;
+                if (ParentOne != null && ParentTwo != null)
+                {
+                    personInfo += $"\nРодители: {ParentOne.Name} {ParentOne.Surname}" +
+                        $" и {ParentTwo.Name} {ParentTwo.Surname}";
+                }
+                if (ParentOne == null && ParentTwo == null)
+                {
+                    personInfo += $"\nРебёнок сирота.";
+                }
+                if (JobChild != null)
+                {
+                    personInfo += $"\nШкола/детский сад: {JobChild}";
+                }
+                return personInfo;
+            }
         }
     }
 }
