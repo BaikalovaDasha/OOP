@@ -76,6 +76,15 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Минимальный возраст взрослого человека.
+        /// </summary>
+        public const int minAge = 18;
+
+        /// <summary>
+        /// Максимальный возраст взрослого человека.
+        /// </summary>
+        public const int maxAge = 110;
 
         /// <summary>
         /// Метод проверки возраста взрослого.
@@ -85,8 +94,7 @@ namespace Model
         /// <exception cref="Exception"></exception>
         protected override int CheckingAge(int age)
         {
-            const int minAge = 18;
-            const int maxAge = 110;
+
             if (age < minAge || age > maxAge)
             {
                 throw new Exception($"Возраст взрослого должен находится в диапазоне" +

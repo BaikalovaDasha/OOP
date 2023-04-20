@@ -60,12 +60,13 @@ namespace Model
             }
             set 
             {
-                _name = ToUpperFirstLetter
+                string tmpName = ToUpperFirstLetter
                     (ChekingNullorEmpty(value, nameof(Name)));
                 if (_surname != null)
                 {
-                    CheckLanguage(_name, _surname);
+                    CheckLanguage(tmpName, _surname);
                 }
+                _name = tmpName;
             }
         }
 
@@ -80,12 +81,13 @@ namespace Model
             }
             set
             {
-                _surname = ToUpperFirstLetter
+                string tmpSurname = ToUpperFirstLetter
                     (ChekingNullorEmpty(value, nameof(Surname)));
                 if (_name != null)
                 {
-                    CheckLanguage(_name, _surname);
+                    CheckLanguage(_name, tmpSurname);
                 }
+                _surname = tmpSurname;
             }
         }
 

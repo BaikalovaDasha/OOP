@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace LR_1
+namespace LR_2
 {
     /// <summary>
     /// Класс для добавления персоны через консоль и вывода в консоль.
@@ -111,6 +111,7 @@ namespace LR_1
             }
         }
 
+        /*
         /// <summary>
         /// Вывод списка персон.
         /// </summary>
@@ -122,6 +123,6 @@ namespace LR_1
             {
                 Console.WriteLine(personsList[i].GetInfo());
             }
-        }
+        }*/
     }
 }

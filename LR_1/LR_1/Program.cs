@@ -1,7 +1,7 @@
 ﻿using Model;
 using System;
 
-namespace LR_1
+namespace LR_2
 {
     /// <summary>
     /// Класс с функциями.
@@ -13,26 +13,13 @@ namespace LR_1
         /// </summary>
         public static void Main()
         {
-            var listPerson = new PersonList();
+            PersonList personlist = new PersonList();
 
             for (int i = 0; i < 7; i++)
             {
-                listPerson.AddPerson(RandomPersonGenerator.);
+                personlist.AddPerson(RandomPersonGenerator.CreateRandomAdult());
             }
 
-            foreach (var personTmp in listPerson)
-            {
-                switch (personTmp)
-                {
-                    case Child child:
-                        break;
-                    case Adult adult:
-                        break;
-
-                }
-
-                Console.WriteLine($"Текущая персона: {personTmp.GetInfo()}");
-            }
         }
     }
 }

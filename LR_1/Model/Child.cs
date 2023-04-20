@@ -26,6 +26,15 @@ namespace Model
         /// </summary>
         public string JobChild { get; set; }
 
+        /// <summary>
+        /// Минимальный возраст ребёнка.
+        /// </summary>
+        public const int minAge = 1;
+
+        /// <summary>
+        /// Максимальный возраст ребёнка.
+        /// </summary>
+        public const int maxAge = 17;
 
         /// <summary>
         /// Метод проверки возраста ребёнка.
@@ -35,8 +44,7 @@ namespace Model
         /// <exception cref="Exception"></exception>
         protected override int CheckingAge(int age)
         {
-            const int minAge = 1;
-            const int maxAge = 17;
+
             if (age < minAge || age > maxAge)
             {
                 throw new Exception($"Возраст ребёнка должен находится в диапазоне" +

@@ -70,24 +70,90 @@ namespace Model
             switch (gender)
             {
                 case Gender.Male:
-                {
-                    person.Name = _maleNames
-                            [_randompPerson.Next(_maleNames.Length)];
-                    person.Surname = _maleSuranames
-                            [_randompPerson.Next(_maleSuranames.Length)];
-                    break;
-                } 
+                    {
+                        person.Name = _maleNames
+                                [_randompPerson.Next(_maleNames.Length)];
+                        person.Surname = _maleSuranames
+                                [_randompPerson.Next(_maleSuranames.Length)];
+                        break;
+                    }
                 case Gender.Female:
-                {
-                    person.Name = _femaleNames
-                            [_randompPerson.Next(_femaleNames.Length)];
-                    person.Surname = _femaleSuranames
-                            [_randompPerson.Next(_femaleSuranames.Length)];
-                    break;
-                }
+                    {
+                        person.Name = _femaleNames
+                                [_randompPerson.Next(_femaleNames.Length)];
+                        person.Surname = _femaleSuranames
+                                [_randompPerson.Next(_femaleSuranames.Length)];
+                        break;
+                    }
             }
         }
 
+        /// <summary>
+        /// Генерация 
+        /// </summary>
+        /// <param name="gender">Пол взрослого.</param>
+        /// <param name="spouse"></param>
+        /// <param name="state"></param>
+        /// <returns></returns>
+        public static Adult CreateRandomAdult(Gender gender,
+            Adult? spouse = null,
+            StateOfMarriage state = StateOfMarriage.notMarried)
+        {
+            var randomAdult = new Adult();
+
+            RandomPersonBase(randomAdult);
+
+            randomAdult.Age =
+                _randompPerson.Next(Adult.minAge, Adult.maxAge);
+
+            StateOfMarriage married =
+                (StateOfMarriage)_randompPerson.Next(0, 1);
+
+            switch (married)
+            {
+                case StateOfMarriage.married:
+                    {
+                        if (randomAdult.Gender == Gender.Female)
+                        {
+                            randomAdult.Spouse = CreateRandomAdult(Gender.Male,
+                                randomAdult, StateOfMarriage.married);
+                        }
+                        else
+                        {
+                            randomAdult.Spouse = CreateRandomAdult(Gender.Female,
+                                randomAdult, StateOfMarriage.married);
+                        }
+                        break;
+                    }
+
+                case StateOfMarriage.notMarried:
+                    {
+                        randomAdult.StateOfMarriage = state;
+                        break;
+                    }
+            }
+
+            string[] jobs = new string[]
+            {
+                "Охотник", "Следопыт", "Гриш", "Прислуга",
+            };
+
+            randomAdult.Job = jobs[_randompPerson.Next(0, jobs.Length)];
+
+            string validChars = "0123456789";
+            char[] chars = new char[validChars.Length];
+
+            for (int i = 0; i < validChars.Length; i++)
+            {
+                chars[i] = validChars[_randompPerson.Next(0, validChars.Length)];
+            }
+
+            randomAdult.Pasport = new string(chars);
+
+            return randomAdult;
+        }
+
+        /*
         /// <summary>
         /// генерация паспортных данных.
         /// </summary>
@@ -104,21 +170,20 @@ namespace Model
             }
 
             return adult.Pasport = new string(chars);
+        }*/
+
+
+        public static Child CreateRandomChild()
+        {
+            var randomChild = new Child();
+
+            RandomPersonBase(randomChild);
+
+            randomChild.Age =
+                _randompPerson.Next(Child.minAge, Child.maxAge);
+
+            return randomChild;
         }
 
-        /// <summary>
-        /// Генерация случайного человека: взрослый или ребёнок.
-        /// </summary>
-        public static PersonBase CreateRandomperson()
-        {
-            if (_randompPerson.Next(0, 2) != 0)
-            {
-                return ;
-            }
-            else
-            {
-                return ;
-            }
-        }
     }
 }

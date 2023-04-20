@@ -19,6 +19,11 @@ namespace Model
         /// <summary>
         /// Женский пол.
         /// </summary>
-        Female
+        Female,
+
+        /// <summary>
+        /// Деволное значение пола.
+        /// </summary>
+        Defult,
     }
 }

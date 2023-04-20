@@ -17,11 +17,6 @@ namespace Model
         notMarried,
 
         /// <summary>
-        /// Состояние брака: разведена / разведён
-        /// </summary>
-        divorced,
-
-        /// <summary>
         /// Состояние брака: замужем / женат
         /// </summary>
         married,
