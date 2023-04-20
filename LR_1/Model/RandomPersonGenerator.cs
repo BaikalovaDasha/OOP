@@ -63,28 +63,29 @@ namespace Model
         /// Заполнение базовых параметров (имени и фамилии) персоны.
         /// </summary>
         /// <param name="person">Персона.</param>
-        public static void RandomPersonBase(PersonBase person)
+        public static void RandomPersonBase(PersonBase person, Gender gender = Gender.Defult)
         {
-            Gender gender = (Gender)_randompPerson.Next(0, 2);
+            Gender tmpGender = Gender.Defult == 0
+                ? Gender.Male : Gender.Female;
 
             switch (gender)
             {
                 case Gender.Male:
-                    {
-                        person.Name = _maleNames
-                                [_randompPerson.Next(_maleNames.Length)];
-                        person.Surname = _maleSuranames
-                                [_randompPerson.Next(_maleSuranames.Length)];
-                        break;
-                    }
+                {
+                    person.Name = _maleNames
+                            [_randompPerson.Next(_maleNames.Length)];
+                    person.Surname = _maleSuranames
+                            [_randompPerson.Next(_maleSuranames.Length)];
+                    break;
+                }
                 case Gender.Female:
-                    {
-                        person.Name = _femaleNames
-                                [_randompPerson.Next(_femaleNames.Length)];
-                        person.Surname = _femaleSuranames
-                                [_randompPerson.Next(_femaleSuranames.Length)];
-                        break;
-                    }
+                {
+                    person.Name = _femaleNames
+                            [_randompPerson.Next(_femaleNames.Length)];
+                    person.Surname = _femaleSuranames
+                            [_randompPerson.Next(_femaleSuranames.Length)];
+                    break;
+                }
             }
         }
 
@@ -95,7 +96,7 @@ namespace Model
         /// <param name="spouse"></param>
         /// <param name="state"></param>
         /// <returns></returns>
-        public static Adult CreateRandomAdult(Gender gender,
+        public static Adult CreateRandomAdult(Gender gender = Gender.Defult,
             Adult? spouse = null,
             StateOfMarriage state = StateOfMarriage.notMarried)
         {
@@ -109,29 +110,6 @@ namespace Model
             StateOfMarriage married =
                 (StateOfMarriage)_randompPerson.Next(0, 1);
 
-            switch (married)
-            {
-                case StateOfMarriage.married:
-                    {
-                        if (randomAdult.Gender == Gender.Female)
-                        {
-                            randomAdult.Spouse = CreateRandomAdult(Gender.Male,
-                                randomAdult, StateOfMarriage.married);
-                        }
-                        else
-                        {
-                            randomAdult.Spouse = CreateRandomAdult(Gender.Female,
-                                randomAdult, StateOfMarriage.married);
-                        }
-                        break;
-                    }
-
-                case StateOfMarriage.notMarried:
-                    {
-                        randomAdult.StateOfMarriage = state;
-                        break;
-                    }
-            }
 
             string[] jobs = new string[]
             {
@@ -181,6 +159,8 @@ namespace Model
 
             randomChild.Age =
                 _randompPerson.Next(Child.minAge, Child.maxAge);
+
+
 
             return randomChild;
         }
