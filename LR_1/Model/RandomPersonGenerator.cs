@@ -54,84 +54,30 @@ namespace Model
         /// </summary>
         private static readonly string[] _maleSuranames = new string[]
         {
-                "Юл-Баюр", "Ланцов", "Костюк", "Морозов", "Фахи",
+                "Ланцов", "Костюк", "Морозов", "Фахи", "Юл-Батаар",
                 "Бреккер", "Фахи", "Смит", "Оретцев", "Хельвар",
-                "Роллинс", "Хаскель", "Безников", "Юл-Батаар",
+                "Роллинс", "Хаскель", "Безников",
         };
 
         /// <summary>
         /// Заполнение базовых параметров (имени и фамилии) персоны.
         /// </summary>
         /// <param name="person">Персона.</param>
-        public static void RandomPersonBase(PersonBase person, Gender gender = Gender.Defult)
+        public static void RandomPersonBase(PersonBase person, Gender gender = Gender.Default)
         {
-            Gender tmpGender = Gender.Defult == 0
-                ? Gender.Male : Gender.Female;
+            person.Gender = gender == Gender.Default 
+                ? (Gender)_randompPerson.Next(2) 
+                : gender;
 
-            switch (gender)
-            {
-                case Gender.Male:
-                {
-                    person.Name = _maleNames
-                            [_randompPerson.Next(_maleNames.Length)];
-                    person.Surname = _maleSuranames
-                            [_randompPerson.Next(_maleSuranames.Length)];
-                    break;
-                }
-                case Gender.Female:
-                {
-                    person.Name = _femaleNames
-                            [_randompPerson.Next(_femaleNames.Length)];
-                    person.Surname = _femaleSuranames
-                            [_randompPerson.Next(_femaleSuranames.Length)];
-                    break;
-                }
-            }
+            person.Name = person.Gender == Gender.Female
+                ? _femaleNames[_randompPerson.Next(_femaleNames.Length)]
+                : _maleNames[_randompPerson.Next(_maleNames.Length)];
+
+            person.Surname = person.Gender == Gender.Female
+                ? _femaleSuranames[_randompPerson.Next(_femaleSuranames.Length)]
+                : _maleSuranames[_randompPerson.Next(_maleSuranames.Length)];
         }
 
-        /// <summary>
-        /// Генерация 
-        /// </summary>
-        /// <param name="gender">Пол взрослого.</param>
-        /// <param name="spouse"></param>
-        /// <param name="state"></param>
-        /// <returns></returns>
-        public static Adult CreateRandomAdult(Gender gender = Gender.Defult,
-            Adult? spouse = null,
-            StateOfMarriage state = StateOfMarriage.notMarried)
-        {
-            var randomAdult = new Adult();
-
-            RandomPersonBase(randomAdult);
-
-            randomAdult.Age =
-                _randompPerson.Next(Adult.minAge, Adult.maxAge);
-
-            StateOfMarriage married =
-                (StateOfMarriage)_randompPerson.Next(0, 1);
-
-
-            string[] jobs = new string[]
-            {
-                "Охотник", "Следопыт", "Гриш", "Прислуга",
-            };
-
-            randomAdult.Job = jobs[_randompPerson.Next(0, jobs.Length)];
-
-            string validChars = "0123456789";
-            char[] chars = new char[validChars.Length];
-
-            for (int i = 0; i < validChars.Length; i++)
-            {
-                chars[i] = validChars[_randompPerson.Next(0, validChars.Length)];
-            }
-
-            randomAdult.Pasport = new string(chars);
-
-            return randomAdult;
-        }
-
-        /*
         /// <summary>
         /// генерация паспортных данных.
         /// </summary>
@@ -148,8 +94,56 @@ namespace Model
             }
 
             return adult.Pasport = new string(chars);
-        }*/
+        }
 
+        /// <summary>
+        /// Генерация 
+        /// </summary>
+        /// <param name="gender">Пол взрослого.</param>
+        /// <param name="spouse">супруг / супруга.</param>
+        /// <param name="state">Семейное положение.</param>
+        /// <returns></returns>
+        public static Adult CreateRandomAdult(Gender gender = Gender.Default,
+            Adult? spouse = null,
+            StateOfMarriage state = StateOfMarriage.NotMarried)
+        {
+            var randomAdult = new Adult();
+
+            RandomPersonBase(randomAdult, gender);
+
+            randomAdult.Age =
+                _randompPerson.Next(Adult.minAge, Adult.maxAge);
+
+            StateOfMarriage maritalstatus = (StateOfMarriage)_randompPerson.Next(0, 2);
+
+            randomAdult.StateOfMarriage = maritalstatus;
+
+            if (maritalstatus == StateOfMarriage.Married)
+            {
+                randomAdult.Spouse = randomAdult.Gender == Gender.Male
+                    ? CreateRandomAdult(Gender.Female,
+                        randomAdult, StateOfMarriage.Married)
+                    : CreateRandomAdult(Gender.Male,
+                        randomAdult, StateOfMarriage.Married);
+            }
+            else
+            {
+                randomAdult.StateOfMarriage = state;
+            }
+
+            string[] jobs = new string[]
+            {
+                "Инкассатор", "Налоговый инспектор", "Анестезиолог",
+                "Нарколог", "Химик", "Робототехник", "Инженер-химик",
+                "Диспетчер", "Авиадиспетчер", "Гример", "Парикмахер",
+            };
+
+            randomAdult.Job = jobs[_randompPerson.Next(0, jobs.Length)];
+
+            CreateRandomPassword(randomAdult);
+
+            return randomAdult;
+        }
 
         public static Child CreateRandomChild()
         {
@@ -160,7 +154,33 @@ namespace Model
             randomChild.Age =
                 _randompPerson.Next(Child.minAge, Child.maxAge);
 
+            bool mother = _randompPerson.Next(0, 2) != 0;
 
+            if (mother)
+            {
+                randomChild.Mother = CreateRandomAdult();
+            }
+
+            bool father = _randompPerson.Next(0, 2) != 0;
+
+            if (father)
+            {
+                randomChild.Father = CreateRandomAdult();
+            }
+
+            string[] kindergarten = new string[]
+            {
+                "Солнышко", "Ласточка", "Ромашка", "Облачко",
+            };
+
+            string[] school = new string[]
+            {
+                "СОШ №12", "Гимназия", "Лицей", "Обучение на дому",
+            };
+
+            randomChild.JobChild = randomChild.Age < 8
+                ? kindergarten[_randompPerson.Next(kindergarten.Length)]
+                : school[_randompPerson.Next(school.Length)];
 
             return randomChild;
         }

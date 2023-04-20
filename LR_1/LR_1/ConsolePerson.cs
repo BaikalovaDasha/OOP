@@ -111,7 +111,6 @@ namespace LR_2
             }
         }
 
-        /*
         /// <summary>
         /// Вывод списка персон.
         /// </summary>
@@ -121,8 +120,8 @@ namespace LR_2
 
             for (int i = 0; i < personsList.Count; i++)
             {
-                Console.WriteLine(personsList[i].GetInfo());
+                Console.WriteLine(personsList[i].GetInfo);
             }
-        }*/
+        }
     }
 }

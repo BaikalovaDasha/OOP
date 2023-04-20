@@ -22,8 +22,8 @@ namespace Model
         Female,
 
         /// <summary>
-        /// Деволное значение пола.
+        /// Дефолтное значение пола.
         /// </summary>
-        Defult,
+        Default,
     }
 }

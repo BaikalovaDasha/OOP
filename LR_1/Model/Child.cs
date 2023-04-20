@@ -14,12 +14,12 @@ namespace Model
         /// <summary>
         /// Мама.
         /// </summary>
-        public Adult ParentOne { get; set; }
+        public Adult Father { get; set; }
 
         /// <summary>
         /// папа
         /// </summary>
-        public Adult ParentTwo { get; set; }
+        public Adult Mother { get; set; }
 
         /// <summary>
         /// Информация о детском саду или школе.
@@ -57,6 +57,20 @@ namespace Model
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parent">Родитель.</param>
+        /// <param name="gender">Пол родителя.</param>
+        /// <returns></returns>
+        private static void CheckParents(Adult parent, Gender gender = Gender.Default)
+        {
+            if (gender == Gender.Female)
+            {
+
+            }
+        }
+
+        /// <summary>
         /// Вывод информации о ребёнке.
         /// </summary>
         public override string GetInfo
@@ -64,19 +78,22 @@ namespace Model
             get
             {
                 var personInfo = base.GetInfo;
-                if (ParentOne != null && ParentTwo != null)
+
+                if (Father != null && Mother != null)
                 {
-                    personInfo += $"\nРодители: {ParentOne.Name} {ParentOne.Surname}" +
-                        $" и {ParentTwo.Name} {ParentTwo.Surname}";
+                    personInfo += $"\nРодители: {Father.Name} {Father.Surname}" +
+                        $" и {Mother.Name} {Mother.Surname}";
                 }
-                if (ParentOne == null && ParentTwo == null)
+                else
                 {
                     personInfo += $"\nРебёнок сирота.";
                 }
+
                 if (JobChild != null)
                 {
-                    personInfo += $"\nШкола/детский сад: {JobChild}";
+                    personInfo += $"\nРебёнок находится в: {JobChild}";
                 }
+
                 return personInfo;
             }
         }

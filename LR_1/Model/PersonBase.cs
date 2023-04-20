@@ -33,18 +33,18 @@ namespace Model
         /// <param name="surname"></param>
         /// <param name="age"></param>
         /// <param name="gender"></param>
-        public PersonBase(string name, string surname, int age, Gender gender)
+        protected PersonBase(string name, string surname, int age, Gender gender)
         {
-            _name = name;
-            _surname = surname;
-            _age = age;
+            Name = name;
+            Surname = surname;
+            Age = age;
             Gender = gender;
         }
 
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
-        public PersonBase()
+        protected PersonBase()
         {
         }
 
@@ -118,7 +118,17 @@ namespace Model
         {
             get
             {
-                return $"Имя: {_name}, Фамилия: {_surname}, Возраст: {Age}, Пол: {Gender}.";
+                var personBase = $"{Name} {Surname}, Возраст: {Age},";
+                if (Gender == Gender.Male)
+                {
+                    personBase += $"Пол: Мужской";
+                }
+                else
+                {
+                    personBase += $"Пол: Женский";
+                }
+                
+                return personBase;
             }
         }
 

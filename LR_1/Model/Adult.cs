@@ -65,13 +65,27 @@ namespace Model
             get
             {
                 var personInfo = base.GetInfo + 
-                    $"\nПаспорт: {Pasport}" + 
-                    $"\nСостояние брака: {StateOfMarriage}";
-                if (StateOfMarriage == StateOfMarriage.married)
-                {
-                    personInfo += $"\nСупруг(а): {Spouse.Name} {Spouse.Surname}";
-                }
+                    $"\nПаспорт: {Pasport}";
                 personInfo += $"\nМесто работы: {Job}";
+                if (StateOfMarriage == StateOfMarriage.Married)
+                {
+                    personInfo += Gender == Gender.Male
+                        ? $"\nСостояние брака: Женат"
+                        : $"\nСостояние брака: Замужем";
+                }
+                else
+                {
+                    personInfo += Gender == Gender.Male
+                        ? $"\nСостояние брака: Не женат"
+                        : $"\nСостояние брака: Не замужем";
+                }
+
+                if (StateOfMarriage == StateOfMarriage.Married)
+                {
+                    personInfo += Gender == Gender.Female
+                        ? $"\nСупруга: {Spouse.Name} {Spouse.Surname}"
+                        : $"\nСупруг: {Spouse.Name} {Spouse.Surname}";
+                }
                 return personInfo;
             }
         }

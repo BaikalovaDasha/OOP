@@ -12,13 +12,13 @@ namespace Model
     public enum StateOfMarriage
     {
         /// <summary>
-        /// Состояние брака: не замужем / не женат
+        /// Состояние брака: не замужем / не женат(а)
         /// </summary>
-        notMarried,
+        NotMarried,
 
         /// <summary>
         /// Состояние брака: замужем / женат
         /// </summary>
-        married,
+        Married,
     }
 }

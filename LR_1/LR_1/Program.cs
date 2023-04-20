@@ -13,11 +13,18 @@ namespace LR_2
         /// </summary>
         public static void Main()
         {
-            PersonList personlist = new PersonList();
+            var personlist = new PersonList();
 
             for (int i = 0; i < 7; i++)
             {
-                personlist.AddPerson(RandomPersonGenerator.CreateRandomAdult());
+                personlist.AddPerson(RandomPersonGenerator.CreateRandomChild());
+            }
+
+            for (int i = 0; i < personlist.Count; i++)
+            {
+                Console.WriteLine($"\tПерсона №{i + 1}");
+                Console.WriteLine(personlist[i].GetInfo);
+                Console.WriteLine();
             }
 
         }
