@@ -28,13 +28,12 @@ namespace Model
             }
             set 
             {
-                string tmpName = ToUpperFirstLetter
+                _name = ToUpperFirstLetter
                     (ChekingNullorEmpty(value, nameof(Name)));
                 if (_surname != null)
                 {
-                    CheckLanguage(tmpName, _surname);
+                    CheckLanguage(_name, _surname);
                 }
-                _name = tmpName;
             }
         }
 
@@ -54,14 +53,12 @@ namespace Model
             }
             set
             {
-                string tmpSurname = ToUpperFirstLetter
+                _surname = ToUpperFirstLetter
                     (ChekingNullorEmpty(value, nameof(Surname)));
                 if (_name != null)
                 {
-                    CheckLanguage(_name, tmpSurname);
+                    CheckLanguage(_name, _surname);
                 }
-
-                _surname = tmpSurname;
             }
         }
 
@@ -188,7 +185,7 @@ namespace Model
         /// ... остальные прописные.
         /// </summary>
         /// <param name="newWord"></param>
-        /// <returns>фамилию с правильным регистром.</returns>
+        /// <returns>фамилию / имя с правильным регистром.</returns>
         public static string ToUpperFirstLetter(string newWord)
         {
             newWord = char.ToUpper(newWord[0]) + newWord[1..].ToLower();
@@ -197,13 +194,13 @@ namespace Model
 
             if (upperReg.IsMatch(newWord))
             {
-                string[] words = newWord.Split(new char[] { '-' });
+                string[] words = newWord.Split(new char[] {'-'});
 
                 string newWords1 = words[0];
                 string newWords2 = words[1];
 
                 newWords1 = char.ToUpper(newWords1[0]) + newWords1[1..].ToLower();
-                newWords2 = char.ToUpper(newWords2[0]) + newWords1[1..].ToLower();
+                newWords2 = char.ToUpper(newWords2[0]) + newWords2[1..].ToLower();
 
                 newWord = newWords1 + ("-") + newWords2;
             }
