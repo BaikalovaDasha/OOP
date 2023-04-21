@@ -91,7 +91,9 @@ namespace Model
 
                 if (JobChild != null)
                 {
-                    personInfo += $"\nРебёнок находится в: {JobChild}";
+                    personInfo += Age < 8
+                        ? $"\nРебёнок ходит в садик: {JobChild}"
+                        : $"\nРебёнок учится в школе: {JobChild}";
                 }
 
                 return personInfo;

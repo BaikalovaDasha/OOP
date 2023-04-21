@@ -35,8 +35,7 @@ namespace Model
         private static readonly string[] _femaleSuranames = new string[]
         {
                 "Старкова", "Лазарева", "Сафина", "Назяленская",
-                "Гафа", "Хендрикс", "Зеник", "Кир-Батаар", "Хелен",
-                "Ланцова",
+                "Гафа", "Хендрикс", "Зеник", "Хелен", "Ланцова",
         };
 
         /// <summary>
@@ -90,7 +89,7 @@ namespace Model
 
             for (int i = 0; i < validChars.Length; i++)
             {
-                chars[i] = validChars[_randompPerson.Next(0, validChars.Length)];
+                chars[i] = validChars[_randompPerson.Next(validChars.Length)];
             }
 
             return adult.Pasport = new string(chars);
@@ -104,7 +103,7 @@ namespace Model
         /// <param name="state">Семейное положение.</param>
         /// <returns></returns>
         public static Adult CreateRandomAdult(Gender gender = Gender.Default,
-            Adult? spouse = null,
+            Adult spouse = null,
             StateOfMarriage state = StateOfMarriage.NotMarried)
         {
             var randomAdult = new Adult();
@@ -114,7 +113,7 @@ namespace Model
             randomAdult.Age =
                 _randompPerson.Next(Adult.minAge, Adult.maxAge);
 
-            StateOfMarriage maritalstatus = (StateOfMarriage)_randompPerson.Next(0, 2);
+            StateOfMarriage maritalstatus = (StateOfMarriage)_randompPerson.Next(2);
 
             randomAdult.StateOfMarriage = maritalstatus;
 
@@ -154,14 +153,14 @@ namespace Model
             randomChild.Age =
                 _randompPerson.Next(Child.minAge, Child.maxAge);
 
-            bool mother = _randompPerson.Next(0, 2) != 0;
+            bool mother = _randompPerson.Next(2) != 0;
 
             if (mother)
             {
                 randomChild.Mother = CreateRandomAdult();
             }
 
-            bool father = _randompPerson.Next(0, 2) != 0;
+            bool father = _randompPerson.Next(2) != 0;
 
             if (father)
             {
@@ -175,7 +174,7 @@ namespace Model
 
             string[] school = new string[]
             {
-                "СОШ №12", "Гимназия", "Лицей", "Обучение на дому",
+                "СОШ №12", "Гимназия", "Лицей",
             };
 
             randomChild.JobChild = randomChild.Age < 8
