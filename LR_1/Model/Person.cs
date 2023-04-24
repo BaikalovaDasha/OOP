@@ -11,11 +11,52 @@ namespace Model
     /// </summary>
     public class Person
     {
+        /// <summary>
+        /// Минимальный возраст.
+        /// </summary>
+        private const int minAge = 1;
+
+        /// <summary>
+        /// Максимальный возраст
+        /// </summary>
+        private const int maxAge = 110;
 
         /// <summary>
         /// Имя персоны.
         /// </summary>
         private string _name;
+
+        /// <summary>
+        /// фамилия персоны.
+        /// </summary>
+        private string _surname;
+
+        /// <summary>
+        /// Возраст персоны.
+        /// </summary>
+        private int _age;
+
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
+        /// <param name="name">имя персоны.</param>
+        /// <param name="surname">Фамилия персоны.</param>
+        /// <param name="age">Возраст персоны.</param>
+        /// <param name="gender">Гендер персоны.</param>
+        public Person(string name, string surname, int age, Gender gender)
+        {
+            Name = name;
+            Surname = surname;
+            Age = age;
+            Gender = gender;
+        }
+
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
+        public Person()
+        {
+        }
 
         /// <summary>
         /// Чтение и запись имени персоны.
@@ -28,19 +69,9 @@ namespace Model
             }
             set 
             {
-                _name = ToUpperFirstLetter
-                    (ChekingNullorEmpty(value, nameof(Name)));
-                if (_surname != null)
-                {
-                    CheckLanguage(_name, _surname);
-                }
+                _name = AllCheck(value, _surname);
             }
         }
-
-        /// <summary>
-        /// фамилия персоны.
-        /// </summary>
-        private string _surname;
 
         /// <summary>
         /// Чтение и запись фамилии персоны.
@@ -53,19 +84,9 @@ namespace Model
             }
             set
             {
-                _surname = ToUpperFirstLetter
-                    (ChekingNullorEmpty(value, nameof(Surname)));
-                if (_name != null)
-                {
-                    CheckLanguage(_name, _surname);
-                }
+                _surname = AllCheck(value, _name);
             }
         }
-
-        /// <summary>
-        /// Возраст персоны.
-        /// </summary>
-        private int _age;
 
         /// <summary>
         /// Чтение и запись возраста персоны.
@@ -96,25 +117,17 @@ namespace Model
         }
 
         /// <summary>
-        /// Конструктор.
+        /// Проверка на один язык имени и фамилии и праивльное...
+        /// ... выполнение регистра.
         /// </summary>
-        /// <param name="name">имя персоны.</param>
-        /// <param name="surname">Фамилия персоны.</param>
-        /// <param name="age">Возраст персоны.</param>
-        /// <param name="gender">Гендер персоны.</param>
-        public Person(string name, string surname, int age, Gender gender)
+        /// <param name="value"></param>
+        /// <param name="varForComparison"></param>
+        /// <returns></returns>
+        private static string AllCheck(string value, string varForComparison)
         {
-            Name = name;
-            Surname = surname;
-            Age = age;
-            Gender = gender;
-        }
-
-        /// <summary>
-        /// Конструктор по умолчанию.
-        /// </summary>
-        public Person()
-        {
+            CheckLanguage(value, varForComparison);
+            ChekingNullorEmpty(value);
+            return ToUpperFirstLetter(value);
         }
 
         /// <summary>
@@ -124,14 +137,13 @@ namespace Model
         /// <param name="propertiname"></param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentException"></exception>
-        private static string ChekingNullorEmpty(string value, string propertiname)
+        private static string ChekingNullorEmpty(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new System.ArgumentNullException($"Введённый параметр" +
-                    $"({propertiname}) не может быть пустым.");
+                throw new Exception($"Введённый параметр" +
+                    $" не может быть пустым.");
             }
-
             return value;
         }
 
@@ -145,20 +157,24 @@ namespace Model
             var symbolsRussian = new Regex("[А-ЯЁ, а-яё]");
             var symbolsEnglish = new Regex("[A-z]");
 
-            if (symbolsRussian.IsMatch(value))
+            if (string.IsNullOrEmpty(value) == false)
             {
-                return Language.Russian;
-            }
-            else if (symbolsEnglish.IsMatch(value))
-            {
-                return Language.English;
-            }
-            else
-            {
-                throw new ArgumentException("Введённый параметр персоны должен" +
+                if (symbolsRussian.IsMatch(value))
+                {
+                    return Language.Russian;
+                }
+                else if (symbolsEnglish.IsMatch(value))
+                {
+                    return Language.English;
+                }
+                else
+                {
+                    throw new ArgumentException("Введённый параметр персоны должен" +
                     " содержать только символы русской или английской раскладки." +
                     " Пожалуйста исправьте введённый параметр.");
+                }
             }
+            return Language.Default;
 
         }
 
@@ -169,14 +185,18 @@ namespace Model
         /// <param name="surname">фамилия персоны.</param>
         private static void CheckLanguage(string name, string surname)
         {
-            Language nameLanguage = IsCorrectSymbol(name);
-            Language surnameLanguage = IsCorrectSymbol(surname);
-
-            if (nameLanguage != surnameLanguage)
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname))
             {
-                throw new ArgumentException("Язык имени и фамилии " +
-                    "должны быть одинаковыми");
+                Language nameLanguage = IsCorrectSymbol(name);
+                Language surnameLanguage = IsCorrectSymbol(surname);
+
+                if (nameLanguage != surnameLanguage)
+                {
+                    throw new ArgumentException("Имя и фамилия " +
+                        "должны быть на одинаковом языке");
+                }
             }
+            
 
         }
 
@@ -204,38 +224,8 @@ namespace Model
 
                 newWord = newWords1 + ("-") + newWords2;
             }
-            
             return newWord;
         }
-
-        /// <summary>
-        /// Проверка на ввод имени или фамилии на одном языке.
-        /// </summary>
-        /// <param name="nameOrSurname">имя или фамилия персоны.</param>
-        /// <returns>проверенный параметр персоны.</returns>
-        /// <exception cref="FormatException">вапоа.</exception>
-        public static string CheckNameSurname(string nameOrSurname)
-        {
-            Regex nameLanguage = new("^[А-я]+(-)?[А-я]*$|^[A-z]+(-)?[A-z]*$");
-
-            if (!nameLanguage.IsMatch(nameOrSurname))
-            {
-                throw new FormatException("Введёный параметр должен содержать" +
-                    " только символы кириллицы и латиницы.");
-            }
-
-            return nameOrSurname;
-        }
-
-        /// <summary>
-        /// Максимальный возраст
-        /// </summary>
-        private const int maxAge = 110;
-
-        /// <summary>
-        /// Минимальный возраст.
-        /// </summary>
-        private const int minAge = 1;
 
         /// <summary>
         /// Проверка для ввода возраста
