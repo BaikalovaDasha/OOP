@@ -83,8 +83,8 @@ namespace Model
                 if (StateOfMarriage == StateOfMarriage.Married)
                 {
                     personInfo += Gender == Gender.Female
-                        ? $"\nСупруга: {Spouse.Name} {Spouse.Surname}"
-                        : $"\nСупруг: {Spouse.Name} {Spouse.Surname}";
+                        ? $"\nСупруг: {Spouse.Name} {Spouse.Surname}"
+                        : $"\nСупруга: {Spouse.Name} {Spouse.Surname}";
                 }
                 return personInfo;
             }

@@ -14,10 +14,14 @@ namespace LR_2
         public static void Main()
         {
             var personlist = new PersonList();
+            var randomList = new Random();
 
-            for (int i = 0; i < 7; i++)
+            for (var i = 0; i < 8; i++)
             {
-                personlist.AddPerson(RandomPersonGenerator.CreateRandomChild());
+                PersonBase rndPerson = randomList.Next(2) == 0
+                    ? RandomPersonGenerator.CreateRandomAdult()
+                    : RandomPersonGenerator.CreateRandomChild();
+                personlist.AddPerson(rndPerson);
             }
 
             for (int i = 0; i < personlist.Count; i++)

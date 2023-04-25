@@ -22,12 +22,18 @@ namespace LR_2
         /// <exception cref="ArgumentException">error output.</exception>
         public static string CheckString(string value)
         {
-            Regex words = new(@"^[A-z,А-ЯЁ,а-яё,-]+$");
+            Regex checkWordOne = new(@"(^[А-яA-z]*(-)?[А-яA-z]*$)");
+            Regex checkWordTwo = new("^[А-я]+(-)?[А-я]*$|^[A-z]+(-)?[A-z]*$");
 
-            if (!words.IsMatch(value))
+            if (!checkWordOne.IsMatch(value))
             {
-                throw new ArgumentException("разрешено вводить только" +
-                    " буквы и дефис");
+                throw new ArgumentException("Разрешено вводить только" +
+                    " буквы и один дефис");
+            }
+            else if (!checkWordTwo.IsMatch(value))
+            {
+                throw new FormatException("Введёный параметр должен содержать" +
+                    " только символы кириллицы и латиницы.");
             }
             else
             {
@@ -46,16 +52,14 @@ namespace LR_2
             Action actionName = new(() =>
             {
                 Console.Write($"Введите имя: ");
-                string name = CheckString(Console.ReadLine());
-                newPerson.Name = PersonBase.CheckNameSurname(name);
+                newPerson.Name = CheckString(Console.ReadLine());
             });
             ActionHandler(actionName, "имя");
 
             Action actionSurname = new(() =>
             {
                 Console.Write($"Введите фамилию: ");
-                string surname = CheckString(Console.ReadLine());
-                newPerson.Surname = PersonBase.CheckNameSurname(surname);
+                newPerson.Surname = CheckString(Console.ReadLine());
             });
             ActionHandler(actionSurname, "фамилия");
 

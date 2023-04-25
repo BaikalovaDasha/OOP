@@ -19,6 +19,8 @@ namespace Model
         /// <summary>
         /// Английский язык.
         /// </summary>
-        English
+        English, 
+
+        Default
     }
 }

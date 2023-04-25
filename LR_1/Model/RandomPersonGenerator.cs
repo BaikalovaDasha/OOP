@@ -144,6 +144,7 @@ namespace Model
             return randomAdult;
         }
 
+
         public static Child CreateRandomChild()
         {
             var randomChild = new Child();
@@ -157,14 +158,14 @@ namespace Model
 
             if (mother)
             {
-                randomChild.Mother = CreateRandomAdult();
+                randomChild.Mother = CreateRandomAdult(Gender.Female);
             }
 
             bool father = _randompPerson.Next(2) != 0;
 
             if (father)
             {
-                randomChild.Father = CreateRandomAdult();
+                randomChild.Father = CreateRandomAdult(Gender.Male);
             }
 
             string[] kindergarten = new string[]

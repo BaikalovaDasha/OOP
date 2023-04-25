@@ -12,14 +12,38 @@ namespace Model
     public class Child : PersonBase
     {
         /// <summary>
-        /// Мама.
+        /// Папа ребёнка.
         /// </summary>
-        public Adult Father { get; set; }
+        private Adult _father;
 
         /// <summary>
-        /// папа
+        /// мама ребёнка.
         /// </summary>
-        public Adult Mother { get; set; }
+        private Adult _mother;
+
+        /// <summary>
+        /// Чтение и запись папы ребёнка.
+        /// </summary>
+        public Adult Father 
+        { 
+            get => _father; 
+            set
+            {
+                _father = value;
+            } 
+        }
+
+        /// <summary>
+        /// Чтение и запись мамы ребёнка.
+        /// </summary>
+        public Adult Mother
+        {
+            get => _mother;
+            set
+            {
+                _mother = value;
+            }
+        }
 
         /// <summary>
         /// Информация о детском саду или школе.
@@ -57,20 +81,6 @@ namespace Model
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="parent">Родитель.</param>
-        /// <param name="gender">Пол родителя.</param>
-        /// <returns></returns>
-        private static void CheckParents(Adult parent, Gender gender = Gender.Default)
-        {
-            if (gender == Gender.Female)
-            {
-
-            }
-        }
-
-        /// <summary>
         /// Вывод информации о ребёнке.
         /// </summary>
         public override string GetInfo
@@ -79,14 +89,21 @@ namespace Model
             {
                 var personInfo = base.GetInfo;
 
-                if (Father != null && Mother != null)
+                if (Father != null)
                 {
-                    personInfo += $"\nРодители: {Father.Name} {Father.Surname}" +
-                        $" и {Mother.Name} {Mother.Surname}";
+                    personInfo += $"\nОтец: {Father.Name} {Father.Surname}";
                 }
                 else
                 {
-                    personInfo += $"\nРебёнок сирота.";
+                    personInfo += $"\nИнформации об отце нет!";
+                }
+                if (Mother != null)
+                {
+                    personInfo += $"\nМать: {Mother.Name} {Mother.Surname}";
+                }
+                else
+                {
+                    personInfo += $"\nИнформации о матери нет!";
                 }
 
                 if (JobChild != null)

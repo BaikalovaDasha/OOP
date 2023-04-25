@@ -60,13 +60,7 @@ namespace Model
             }
             set 
             {
-                string tmpName = ToUpperFirstLetter
-                    (ChekingNullorEmpty(value, nameof(Name)));
-                if (_surname != null)
-                {
-                    CheckLanguage(tmpName, _surname);
-                }
-                _name = tmpName;
+                _name = AllCheck(value, _surname);
             }
         }
 
@@ -81,13 +75,7 @@ namespace Model
             }
             set
             {
-                string tmpSurname = ToUpperFirstLetter
-                    (ChekingNullorEmpty(value, nameof(Surname)));
-                if (_name != null)
-                {
-                    CheckLanguage(_name, tmpSurname);
-                }
-                _surname = tmpSurname;
+                _surname = AllCheck(value, _name);
             }
         }
 
@@ -133,20 +121,33 @@ namespace Model
         }
 
         /// <summary>
+        /// Проверка на один язык имени и фамилии и праивльное...
+        /// ... выполнение регистра.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="varForComparison"></param>
+        /// <returns></returns>
+        private static string AllCheck(string value, string varForComparison)
+        {
+            CheckLanguage(value, varForComparison);
+            ChekingNullorEmpty(value);
+            return ToUpperFirstLetter(value);
+        }
+
+        /// <summary>
         /// Проверка на null и empty. 
         /// </summary>
         /// <param name="value"></param>
         /// <param name="propertiname"></param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentException"></exception>
-        private static string ChekingNullorEmpty(string value, string propertiname)
+        private static string ChekingNullorEmpty(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new System.ArgumentNullException($"Введённый параметр" +
-                    $"({propertiname}) не может быть пустым.");
+                throw new Exception($"Введённый параметр" +
+                    $" не может быть пустым.");
             }
-
             return value;
         }
 
@@ -160,41 +161,25 @@ namespace Model
             var symbolsRussian = new Regex("[А-ЯЁ, а-яё]");
             var symbolsEnglish = new Regex("[A-z]");
 
-            if (symbolsRussian.IsMatch(value))
+            if (string.IsNullOrEmpty(value) == false)
             {
-                return Language.Russian;
-            }
-            else if (symbolsEnglish.IsMatch(value))
-            {
-                return Language.English;
-            }
-            else
-            {
-                throw new ArgumentException("Введённый параметр персоны должен" +
+                if (symbolsRussian.IsMatch(value))
+                {
+                    return Language.Russian;
+                }
+                else if (symbolsEnglish.IsMatch(value))
+                {
+                    return Language.English;
+                }
+                else
+                {
+                    throw new ArgumentException("Введённый параметр персоны должен" +
                     " содержать только символы русской или английской раскладки." +
                     " Пожалуйста исправьте введённый параметр.");
+                }
             }
+            return Language.Default;
 
-        }
-
-        /// <summary>
-        /// Проверка на ввод имени или фамилии на одном языке.
-        /// </summary>
-        /// <param name="nameOrSurname">имя или фамилия персоны.</param>
-        /// <returns>проверенный параметр персоны.</returns>
-        /// <exception cref="FormatException">вапоа.</exception>
-        public static string CheckNameSurname(string nameOrSurname)
-        {
-            Regex nameLanguage = new("(^[А-я]+(-[А-я])?[А-я]*$)" +
-                "|(^[A-z]+(-[A-z])?[A-z]*$)");
-
-            if (!nameLanguage.IsMatch(nameOrSurname))
-            {
-                throw new FormatException("Введёное слово не распознано." +
-                    " Введите еще раз!");
-            }
-
-            return nameOrSurname;
         }
 
         /// <summary>
@@ -204,15 +189,17 @@ namespace Model
         /// <param name="surname">фамилия персоны.</param>
         private static void CheckLanguage(string name, string surname)
         {
-            Language nameLanguage = IsCorrectSymbol(name);
-            Language surnameLanguage = IsCorrectSymbol(surname);
-
-            if (nameLanguage != surnameLanguage)
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname))
             {
-                throw new ArgumentException("Язык имени и фамилии " +
-                    "должны быть одинаковыми");
-            }
+                Language nameLanguage = IsCorrectSymbol(name);
+                Language surnameLanguage = IsCorrectSymbol(surname);
 
+                if (nameLanguage != surnameLanguage)
+                {
+                    throw new ArgumentException("Имя и фамилия " +
+                        "должны быть на одинаковом языке");
+                }
+            }
         }
 
         /// <summary>
