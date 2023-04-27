@@ -121,6 +121,19 @@ namespace Model
         }
 
         /// <summary>
+        /// Метод возвращает информацию о человеке в виде строки.
+        /// </summary>
+        /// <returns>информация о персоне.</returns>
+        public virtual string GetInfoPerson
+        {
+            get
+            {
+                var personBase = $"{Name} {Surname}";
+                return personBase;
+            }
+        }
+
+        /// <summary>
         /// Проверка на один язык имени и фамилии и праивльное...
         /// ... выполнение регистра.
         /// </summary>
@@ -222,7 +235,7 @@ namespace Model
                 string newWords2 = words[1];
 
                 newWords1 = char.ToUpper(newWords1[0]) + newWords1[1..].ToLower();
-                newWords2 = char.ToUpper(newWords2[0]) + newWords1[1..].ToLower();
+                newWords2 = char.ToUpper(newWords2[0]) + newWords2[1..].ToLower();
 
                 newWord = newWords1 + ("-") + newWords2;
             }

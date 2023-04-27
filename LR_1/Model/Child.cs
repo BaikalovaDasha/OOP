@@ -116,5 +116,25 @@ namespace Model
                 return personInfo;
             }
         }
+
+        /// <summary>
+        /// Метод указывает какой мультик смотрит ребёнок.
+        /// </summary>
+        /// <returns>Просматриваемый мультик.</returns>
+        public static string WatchingCartoons()
+        {
+            var rnd = new Random();
+
+            string[] cartoons =
+            {
+                "Король лев", "Тайна Коко", "Балто", "Как приручить дракона",
+                "Спирит", "Корпорация монстров", "Шрэк", "Бэмби", "Братец Медвежонок",
+                "Похождения императора", "В поисках немо", "Атландита: Затерянный мир"
+            };
+
+            var selectCartoon = cartoons[rnd.Next(cartoons.Length)];
+
+            return $"Любимый мультик: {selectCartoon}";
+        }
     }
 }

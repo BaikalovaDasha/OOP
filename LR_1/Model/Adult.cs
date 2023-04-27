@@ -119,5 +119,26 @@ namespace Model
                 return age;
             }
         }
+
+        /// <summary>
+        /// Метод указывает какой мультик смотрит ребёнок.
+        /// </summary>
+        /// <returns>Просматриваемый мультик.</returns>
+        public static string WatchingMovie()
+        {
+            var rnd = new Random();
+
+            string[] movie =
+            {
+                "1+1", "ТНазад в будущее", "Джентльмены", "Престиж",
+                "Матрица", "Зелёная книга", "Пираты Карибского моря",
+                "Молчание ягнят", "Тревожный вызов", "Невидимая сторона",
+                "Малышка на миллион", "Шерлок Холмс"
+            };
+
+            var selectMovie = movie[rnd.Next(movie.Length)];
+
+            return $"Любимый фильм: {selectMovie}";
+        }
     }
 }

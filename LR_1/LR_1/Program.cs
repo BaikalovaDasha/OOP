@@ -14,7 +14,7 @@ namespace LR_2
         public static void Main()
         {
             Console.WriteLine("Создание списка из 7 человек, состоящего из детей" +
-                " и взрослых.\n Для вывода информации о персоны нажмите любую клавишу.");
+                " и взрослых.\nДля вывода информации о персоне нажмите любую клавишу.");
             Console.WriteLine();
             Console.ReadKey();
             var personlist = new PersonList();
@@ -36,10 +36,23 @@ namespace LR_2
                 Console.ReadKey();
             }
 
-            Console.WriteLine("Вывод информации о 4 человека в списке");
-            Console.WriteLine();
-            Console.WriteLine(personlist[3].GetInfo);
+            Console.WriteLine($"Вывод информации о 4 человека в списке.\n" +
+                $"Это {personlist[3].GetInfoPerson}.");
+            var person = personlist[3];
 
+            switch (person)
+            {
+                case Adult:
+                    Console.WriteLine(Adult.WatchingMovie());
+                    break;
+                case Child:
+                    Console.WriteLine(Child.WatchingCartoons());
+                    break;
+                default:
+                    break;
+            }
+
+            Console.ReadKey();
         }
     }
 }
