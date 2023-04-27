@@ -36,20 +36,23 @@ namespace LR_2
                 Console.ReadKey();
             }
 
-            Console.WriteLine($"Вывод информации о 4 человека в списке.\n" +
+            Console.WriteLine($"Вывод информации о четвёртом человеке из списка.\n" +
                 $"Это {personlist[3].GetInfoPerson}.");
-            var person = personlist[3];
 
-            switch (person)
+            switch (personlist[3])
             {
                 case Adult:
+                {
                     Console.WriteLine(Adult.WatchingMovie());
                     break;
+                }
+
                 case Child:
+                {
                     Console.WriteLine(Child.WatchingCartoons());
                     break;
-                default:
-                    break;
+                }
+
             }
 
             Console.ReadKey();

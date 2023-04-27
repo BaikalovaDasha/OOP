@@ -154,16 +154,13 @@ namespace Model
             randomChild.Age =
                 _randompPerson.Next(Child.minAge, Child.maxAge);
 
-            bool mother = _randompPerson.Next(2) != 0;
+            bool parent = _randompPerson.Next(2) != 0;
 
-            if (mother)
+            if (parent)
             {
                 randomChild.Mother = CreateRandomAdult(Gender.Female);
             }
-
-            bool father = _randompPerson.Next(2) != 0;
-
-            if (father)
+            else
             {
                 randomChild.Father = CreateRandomAdult(Gender.Male);
             }

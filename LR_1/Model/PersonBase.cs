@@ -54,11 +54,8 @@ namespace Model
         /// </summary>
         public string Name
         {
-            get 
-            { 
-                return _name; 
-            }
-            set 
+            get => _name;
+            set
             {
                 _name = AllCheck(value, _surname);
             }
