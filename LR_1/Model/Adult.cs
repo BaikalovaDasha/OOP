@@ -22,23 +22,24 @@ namespace Model
         /// <summary>
         /// Поле паспортных данных
         /// </summary>
-        private string _pasport;
+        private string _passport;
 
         /// <summary>
         /// Чтение и запись паспортных данных.
         /// </summary>
         public string Pasport
         { 
-            get => _pasport; 
+            get => _passport; 
             set
             {
+                // TODO: Длинные строки
                 const string pattern = @"\D";
                 Regex regex = new(pattern);
-                if (value.Length != maxSymbol || regex.IsMatch(value.ToString()) == true)
+                if (value.Length != maxSymbol || regex.IsMatch(value.ToString()))
                 {
                     throw new ArgumentException("Паспорт должен содержать 10 символов!");
                 }
-                _pasport = value;
+                _passport = value;
             }
         }
 
@@ -57,6 +58,7 @@ namespace Model
         /// </summary>
         public string Job { get; set; }
 
+        // TODO: Это должен быть метод
         /// <summary>
         /// Вывод информации о взрослом человеке.
         /// </summary>
@@ -64,6 +66,7 @@ namespace Model
         {
             get
             {
+                // TODO: Ненужно вызывать базовый метод
                 var personInfo = base.GetInfo + 
                     $"\nПаспорт: {Pasport}";
                 personInfo += $"\nМесто работы: {Job}";
@@ -100,6 +103,7 @@ namespace Model
         /// </summary>
         public const int maxAge = 110;
 
+        // TODO: Заполнить, длинная строка
         /// <summary>
         /// Метод проверки возраста взрослого.
         /// </summary>
@@ -108,16 +112,12 @@ namespace Model
         /// <exception cref="Exception"></exception>
         protected override int CheckingAge(int age)
         {
-
             if (age < minAge || age > maxAge)
             {
                 throw new Exception($"Возраст взрослого должен находится в диапазоне" +
                     $" от {minAge} до {maxAge}");
             }
-            else
-            {
-                return age;
-            }
+            return age; 
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace Model
 
             string[] movie =
             {
-                "1+1", "ТНазад в будущее", "Джентльмены", "Престиж",
+                "1+1", "Назад в будущее", "Джентльмены", "Престиж",
                 "Матрица", "Зелёная книга", "Пираты Карибского моря",
                 "Молчание ягнят", "Тревожный вызов", "Невидимая сторона",
                 "Малышка на миллион", "Шерлок Холмс"

@@ -62,10 +62,11 @@ namespace Model
         /// Удаление персоны по индексу.
         /// </summary>
         /// <param name="person"></param>
-        public void DeleteByIndex(ref PersonBase[] person, int index)
+        public void DeleteByIndex(int index)
         {
             var newArray = new PersonBase[_innerPersonArray.Length - 1];
 
+            // TODO: Дублирование проверки на индекс
             if (index >= 0 && index < _innerPersonArray.Length)
             {          
                 for (int i = 0; i < index; i++)

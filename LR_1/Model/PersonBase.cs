@@ -17,15 +17,16 @@ namespace Model
         private string _name;
 
         /// <summary>
-        /// фамилия персоны.
+        /// Фамилия персоны.
         /// </summary>
         private string _surname;
 
-                /// <summary>
+        /// <summary>
         /// Возраст персоны.
         /// </summary>
         private int _age;
 
+        // TODO: Заполнить
         /// <summary>
         /// Конструктор.
         /// </summary>
@@ -95,6 +96,7 @@ namespace Model
         /// </summary>
         public Gender Gender { get; set; }
 
+        // TODO: Переделать свойство в абстрактный метод
         /// <summary>
         /// Метод возвращает информацию о человеке в виде строки.
         /// </summary>
@@ -117,6 +119,7 @@ namespace Model
             }
         }
 
+        // TODO: Переделать свойство в абстрактный метод
         /// <summary>
         /// Метод возвращает информацию о человеке в виде строки.
         /// </summary>
@@ -130,8 +133,9 @@ namespace Model
             }
         }
 
+        // TODO: Заполнить
         /// <summary>
-        /// Проверка на один язык имени и фамилии и праивльное...
+        /// Проверка на один язык имени и фамилии и правильное...
         /// ... выполнение регистра.
         /// </summary>
         /// <param name="value"></param>
@@ -144,6 +148,7 @@ namespace Model
             return ToUpperFirstLetter(value);
         }
 
+        // TODO: Заполнить
         /// <summary>
         /// Проверка на null и empty. 
         /// </summary>
@@ -161,6 +166,9 @@ namespace Model
             return value;
         }
 
+        // TODO: Дублирование проверки на пустую строку
+        // TODO: Метод должен формировать исключение, если язык не русский и не английский
+        // TODO: GetLanguage
         /// <summary>
         /// Проверка на русские и английские символы.
         /// </summary>
@@ -192,6 +200,7 @@ namespace Model
 
         }
 
+        // TODO: Дублирование проверки на пустую строку
         /// <summary>
         /// Проверка одинакового языка имени и фамилии..
         /// </summary>
@@ -212,6 +221,7 @@ namespace Model
             }
         }
 
+        // TODO: Заполнить
         /// <summary>
         /// Преобразует первую букву имени/фамилии в заглавную, ...
         /// ... остальные прописные.

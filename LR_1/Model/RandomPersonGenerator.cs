@@ -32,7 +32,7 @@ namespace Model
         /// <summary>
         /// Строковый массив женских фамилий.
         /// </summary>
-        private static readonly string[] _femaleSuranames = new string[]
+        private static readonly string[] _femaleSurnames = new string[]
         {
                 "Старкова", "Лазарева", "Сафина", "Назяленская",
                 "Гафа", "Хендрикс", "Зеник", "Хелен", "Ланцова",
@@ -51,13 +51,14 @@ namespace Model
         /// <summary>
         /// Строковый массив мужских фамилий.
         /// </summary>
-        private static readonly string[] _maleSuranames = new string[]
+        private static readonly string[] _maleSurnames = new string[]
         {
                 "Ланцов", "Костюк", "Морозов", "Фахи", "Юл-Батаар",
                 "Бреккер", "Фахи", "Смит", "Оретцев", "Хельвар",
                 "Роллинс", "Хаскель", "Безников",
         };
 
+        // TODO: Длинные строки
         /// <summary>
         /// Заполнение базовых параметров (имени и фамилии) персоны.
         /// </summary>
@@ -73,8 +74,8 @@ namespace Model
                 : _maleNames[_randompPerson.Next(_maleNames.Length)];
 
             person.Surname = person.Gender == Gender.Female
-                ? _femaleSuranames[_randompPerson.Next(_femaleSuranames.Length)]
-                : _maleSuranames[_randompPerson.Next(_maleSuranames.Length)];
+                ? _femaleSurnames[_randompPerson.Next(_femaleSurnames.Length)]
+                : _maleSurnames[_randompPerson.Next(_maleSurnames.Length)];
         }
 
         /// <summary>

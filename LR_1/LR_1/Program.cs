@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 
+// TODO: Длинные строки
 namespace LR_2
 {
     /// <summary>
@@ -37,7 +38,7 @@ namespace LR_2
             }
 
             Console.WriteLine($"Вывод информации о четвёртом человеке из списка.\n" +
-                $"Это {personlist[3].GetInfoPerson}.");
+                $"Это {personlist[3].GetInfo}.");
 
             switch (personlist[3])
             {
