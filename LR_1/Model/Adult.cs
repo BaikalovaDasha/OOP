@@ -32,12 +32,14 @@ namespace Model
             get => _passport; 
             set
             {
-                // TODO: Длинные строки
+                // TODO: Длинные строки + 
                 const string pattern = @"\D";
                 Regex regex = new(pattern);
-                if (value.Length != maxSymbol || regex.IsMatch(value.ToString()))
+                if (value.Length != maxSymbol || 
+                    regex.IsMatch(value.ToString()))
                 {
-                    throw new ArgumentException("Паспорт должен содержать 10 символов!");
+                    throw new ArgumentException
+                        ("Паспорт должен содержать 10 символов!");
                 }
                 _passport = value;
             }
@@ -114,14 +116,14 @@ namespace Model
         {
             if (age < minAge || age > maxAge)
             {
-                throw new Exception($"Возраст взрослого должен находится в диапазоне" +
-                    $" от {minAge} до {maxAge}");
+                throw new Exception($"Возраст взрослого должен находится" +
+                    $" в диапазоне от {minAge} до {maxAge}");
             }
             return age; 
         }
 
         /// <summary>
-        /// Метод указывает какой мультик смотрит ребёнок.
+        /// Метод указывает какой любимый фильм у взрослого.
         /// </summary>
         /// <returns>Просматриваемый мультик.</returns>
         public static string WatchingMovie()

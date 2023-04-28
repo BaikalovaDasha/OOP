@@ -20,10 +20,5 @@ namespace Model
         /// Английский язык.
         /// </summary>
         English,
-
-        /// <summary>
-        /// Дефолтное значение языка.
-        /// </summary>
-        Default
     }
 }

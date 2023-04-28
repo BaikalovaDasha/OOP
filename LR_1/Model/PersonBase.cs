@@ -26,14 +26,14 @@ namespace Model
         /// </summary>
         private int _age;
 
-        // TODO: Заполнить
+        // TODO: Заполнить + 
         /// <summary>
         /// Конструктор.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="surname"></param>
-        /// <param name="age"></param>
-        /// <param name="gender"></param>
+        /// <param name="name">имя персоны.</param>
+        /// <param name="surname">фамилия персоны.</param>
+        /// <param name="age">возраст персоны.</param>
+        /// <param name="gender">пол персоны.</param>
         protected PersonBase(string name, string surname, int age, Gender gender)
         {
             Name = name;
@@ -138,9 +138,9 @@ namespace Model
         /// Проверка на один язык имени и фамилии и правильное...
         /// ... выполнение регистра.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="varForComparison"></param>
-        /// <returns></returns>
+        /// <param name="value">имя/фамилия.</param>
+        /// <param name="varForComparison">фамилия/имя.</param>
+        /// <returns>проверенное имя.</returns>
         private static string AllCheck(string value, string varForComparison)
         {
             CheckLanguage(value, varForComparison);
@@ -152,8 +152,7 @@ namespace Model
         /// <summary>
         /// Проверка на null и empty. 
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="propertiname"></param>
+        /// <param name="value">параметр персоны.</param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentException"></exception>
         private static string ChekingNullorEmpty(string value)
@@ -174,7 +173,7 @@ namespace Model
         /// </summary>
         /// <param name="value">введнные символы.</param>
         /// <returns>введённые символы.</returns>
-        private static Language IsCorrectSymbol(string value)
+        private static Language GetLanguage(string value)
         {
             var symbolsRussian = new Regex("[А-ЯЁ, а-яё]");
             var symbolsEnglish = new Regex("[A-z]");
@@ -210,8 +209,8 @@ namespace Model
         {
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname))
             {
-                Language nameLanguage = IsCorrectSymbol(name);
-                Language surnameLanguage = IsCorrectSymbol(surname);
+                Language nameLanguage = GetLanguage(name);
+                Language surnameLanguage = GetLanguage(surname);
 
                 if (nameLanguage != surnameLanguage)
                 {

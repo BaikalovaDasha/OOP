@@ -58,12 +58,13 @@ namespace Model
                 "Роллинс", "Хаскель", "Безников",
         };
 
-        // TODO: Длинные строки
+        // TODO: Длинные строки +
         /// <summary>
         /// Заполнение базовых параметров (имени и фамилии) персоны.
         /// </summary>
         /// <param name="person">Персона.</param>
-        public static void RandomPersonBase(PersonBase person, Gender gender = Gender.Default)
+        public static void RandomPersonBase
+            (PersonBase person, Gender gender = Gender.Default)
         {
             person.Gender = gender == Gender.Default 
                 ? (Gender)_randompPerson.Next(2) 
@@ -146,6 +147,10 @@ namespace Model
         }
 
 
+        /// <summary>
+        /// Метод рандомно создаёт параметры персоны (ребёнка).
+        /// </summary>
+        /// <returns></returns>
         public static Child CreateRandomChild()
         {
             var randomChild = new Child();
@@ -155,13 +160,15 @@ namespace Model
             randomChild.Age =
                 _randompPerson.Next(Child.minAge, Child.maxAge);
 
-            bool parent = _randompPerson.Next(2) != 0;
+            bool father = _randompPerson.Next(2) != 0;
 
-            if (parent)
+            if (father)
             {
                 randomChild.Mother = CreateRandomAdult(Gender.Female);
             }
-            else
+            bool mother = _randompPerson.Next(2) != 0;
+
+            if (mother)
             {
                 randomChild.Father = CreateRandomAdult(Gender.Male);
             }
