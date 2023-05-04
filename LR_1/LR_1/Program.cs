@@ -1,7 +1,7 @@
 ﻿using Model;
 using System;
 
-// TODO: Длинные строки
+// TODO: Длинные строки +
 namespace LR_2
 {
     /// <summary>
@@ -14,8 +14,9 @@ namespace LR_2
         /// </summary>
         public static void Main()
         {
-            Console.WriteLine("Создание списка из 7 человек, состоящего из детей" +
-                " и взрослых.\nДля вывода информации о персоне нажмите любую клавишу.");
+            Console.WriteLine("Создание списка из 7 человек," +
+                " состоящего из детей  и взрослых." +
+                "\nДля вывода информации о персоне нажмите любую клавишу.");
             Console.WriteLine();
             Console.ReadKey();
             var personlist = new PersonList();
@@ -37,8 +38,9 @@ namespace LR_2
                 Console.ReadKey();
             }
 
-            Console.WriteLine($"Вывод информации о четвёртом человеке из списка.\n" +
-                $"Это {personlist[3].GetInfo}.");
+            Console.WriteLine($"Вывод информации о четвёртом" +
+                $" человеке из списка." +
+                $"\nЭто {personlist[3].GetInfo}.");
 
             switch (personlist[3])
             {

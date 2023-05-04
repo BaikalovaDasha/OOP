@@ -66,7 +66,7 @@ namespace Model
         {
             var newArray = new PersonBase[_innerPersonArray.Length - 1];
 
-            // TODO: Дублирование проверки на индекс
+            // TODO: Дублирование проверки на индекс (разные проверки)
             if (index >= 0 && index < _innerPersonArray.Length)
             {          
                 for (int i = 0; i < index; i++)

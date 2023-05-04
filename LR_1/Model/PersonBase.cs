@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Net.WebSockets;
 using System.Text.RegularExpressions;
 using static System.Net.Mime.MediaTypeNames;
@@ -96,44 +97,39 @@ namespace Model
         /// </summary>
         public Gender Gender { get; set; }
 
-        // TODO: Переделать свойство в абстрактный метод
+        // TODO: Переделать свойство в абстрактный метод +
         /// <summary>
         /// Метод возвращает информацию о человеке в виде строки.
         /// </summary>
         /// <returns>информация о персоне.</returns>
-        public virtual string GetInfo 
+        public virtual string GetInfo()
         {
-            get
+            var personBase = $"{Name} {Surname}, Возраст: {Age},";
+
+            if (Gender == Gender.Male)
             {
-                var personBase = $"{Name} {Surname}, Возраст: {Age},";
-                if (Gender == Gender.Male)
-                {
-                    personBase += $"Пол: Мужской";
-                }
-                else
-                {
-                    personBase += $"Пол: Женский";
-                }
-                
-                return personBase;
+                personBase += $"Пол: Мужской";
             }
+            else
+            {
+                personBase += $"Пол: Женский";
+            }
+
+            return personBase;
         }
 
-        // TODO: Переделать свойство в абстрактный метод
+        // TODO: Переделать свойство в абстрактный метод +
         /// <summary>
         /// Метод возвращает информацию о человеке в виде строки.
         /// </summary>
         /// <returns>информация о персоне.</returns>
-        public virtual string GetInfoPerson
+        public virtual string GetInfoPerson()
         {
-            get
-            {
-                var personBase = $"{Name} {Surname}";
-                return personBase;
-            }
+            var personBase = $"{Name} {Surname}";
+            return personBase;
         }
 
-        // TODO: Заполнить
+        // TODO: Заполнить + 
         /// <summary>
         /// Проверка на один язык имени и фамилии и правильное...
         /// ... выполнение регистра.
@@ -148,13 +144,14 @@ namespace Model
             return ToUpperFirstLetter(value);
         }
 
-        // TODO: Заполнить
+        // TODO: Заполнить + 
         /// <summary>
         /// Проверка на null и empty. 
         /// </summary>
         /// <param name="value">параметр персоны.</param>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentException"></exception>
+        /// <exception cref="System.ArgumentException">исключает ввод...
+        /// ...пустой строки.</exception>
         private static string ChekingNullorEmpty(string value)
         {
             if (string.IsNullOrEmpty(value))
@@ -165,9 +162,9 @@ namespace Model
             return value;
         }
 
-        // TODO: Дублирование проверки на пустую строку
-        // TODO: Метод должен формировать исключение, если язык не русский и не английский
-        // TODO: GetLanguage
+        // TODO: Дублирование проверки на пустую строку +
+        // TODO: Метод должен формировать исключение, если язык не русский и не английский +
+        // TODO: GetLanguage + 
         /// <summary>
         /// Проверка на русские и английские символы.
         /// </summary>
@@ -178,28 +175,24 @@ namespace Model
             var symbolsRussian = new Regex("[А-ЯЁ, а-яё]");
             var symbolsEnglish = new Regex("[A-z]");
 
-            if (string.IsNullOrEmpty(value) == false)
+            if (symbolsRussian.IsMatch(value))
             {
-                if (symbolsRussian.IsMatch(value))
-                {
-                    return Language.Russian;
-                }
-                else if (symbolsEnglish.IsMatch(value))
-                {
-                    return Language.English;
-                }
-                else
-                {
-                    throw new ArgumentException("Введённый параметр персоны должен" +
-                    " содержать только символы русской или английской раскладки." +
-                    " Пожалуйста исправьте введённый параметр.");
-                }
+                return Language.Russian;
             }
-            return Language.Default;
+            else if (symbolsEnglish.IsMatch(value))
+            {
+                return Language.English;
+            }
+            else
+            {
+                throw new ArgumentException("Введённый параметр персоны должен" +
+                " содержать только символы русской или английской раскладки." +
+                " Пожалуйста исправьте введённый параметр.");
+            }
 
         }
 
-        // TODO: Дублирование проверки на пустую строку
+        // TODO: Дублирование проверки на пустую строку +
         /// <summary>
         /// Проверка одинакового языка имени и фамилии..
         /// </summary>
@@ -207,26 +200,23 @@ namespace Model
         /// <param name="surname">фамилия персоны.</param>
         private static void CheckLanguage(string name, string surname)
         {
-            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname))
-            {
-                Language nameLanguage = GetLanguage(name);
-                Language surnameLanguage = GetLanguage(surname);
+            Language nameLanguage = GetLanguage(name);
+            Language surnameLanguage = GetLanguage(surname);
 
-                if (nameLanguage != surnameLanguage)
-                {
-                    throw new ArgumentException("Имя и фамилия " +
-                        "должны быть на одинаковом языке");
-                }
+            if (nameLanguage != surnameLanguage)
+            {
+                throw new ArgumentException("Имя и фамилия " +
+                    "должны быть на одинаковом языке");
             }
         }
 
-        // TODO: Заполнить
+        // TODO: Заполнить +
         /// <summary>
         /// Преобразует первую букву имени/фамилии в заглавную, ...
         /// ... остальные прописные.
         /// </summary>
-        /// <param name="newWord"></param>
-        /// <returns>фамилию с правильным регистром.</returns>
+        /// <param name="newWord">имя/фамилия.</param>
+        /// <returns>имя/фамилия с правельным регистром.</returns>
         public static string ToUpperFirstLetter(string newWord)
         {
             newWord = char.ToUpper(newWord[0]) + newWord[1..].ToLower();

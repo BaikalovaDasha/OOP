@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,38 +84,35 @@ namespace Model
         /// <summary>
         /// Вывод информации о ребёнке.
         /// </summary>
-        public override string GetInfo
+        public override string GetInfo()
         {
-            get
+            var personInfo = base.GetInfo();
+
+            if (Father != null)
             {
-                var personInfo = base.GetInfo;
-
-                if (Father != null)
-                {
-                    personInfo += $"\nОтец: {Father.Name} {Father.Surname}";
-                }
-                else
-                {
-                    personInfo += $"\nИнформации об отце нет!";
-                }
-                if (Mother != null)
-                {
-                    personInfo += $"\nМать: {Mother.Name} {Mother.Surname}";
-                }
-                else
-                {
-                    personInfo += $"\nИнформации о матери нет!";
-                }
-
-                if (JobChild != null)
-                {
-                    personInfo += Age < 8
-                        ? $"\nРебёнок ходит в садик: {JobChild}"
-                        : $"\nРебёнок учится в школе: {JobChild}";
-                }
-
-                return personInfo;
+                personInfo += $"\nОтец: {Father.Name} {Father.Surname}";
             }
+            else
+            {
+                personInfo += $"\nИнформации об отце нет!";
+            }
+            if (Mother != null)
+            {
+                personInfo += $"\nМать: {Mother.Name} {Mother.Surname}";
+            }
+            else
+            {
+                personInfo += $"\nИнформации о матери нет!";
+            }
+            
+            if (JobChild != null)
+            {
+                personInfo += Age < 8
+                    ? $"\nРебёнок ходит в садик: {JobChild}"
+                    : $"\nРебёнок учится в школе: {JobChild}";
+            }
+            
+            return personInfo;
         }
 
         /// <summary>

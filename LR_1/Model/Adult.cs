@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,39 +61,36 @@ namespace Model
         /// </summary>
         public string Job { get; set; }
 
-        // TODO: Это должен быть метод
+        // TODO: Это должен быть метод +
         /// <summary>
         /// Вывод информации о взрослом человеке.
         /// </summary>
-        public override string GetInfo
+        public override string GetInfo()
         {
-            get
-            {
-                // TODO: Ненужно вызывать базовый метод
-                var personInfo = base.GetInfo + 
-                    $"\nПаспорт: {Pasport}";
-                personInfo += $"\nМесто работы: {Job}";
-                if (StateOfMarriage == StateOfMarriage.Married)
-                {
-                    personInfo += Gender == Gender.Male
-                        ? $"\nСостояние брака: Женат"
-                        : $"\nСостояние брака: Замужем";
-                }
-                else
-                {
-                    personInfo += Gender == Gender.Male
-                        ? $"\nСостояние брака: Не женат"
-                        : $"\nСостояние брака: Не замужем";
-                }
+            // TODO: Ненужно вызывать базовый метод ?
+            var personInfo = base.GetInfo() + $"\nПаспорт: {Pasport}";
 
-                if (StateOfMarriage == StateOfMarriage.Married)
-                {
-                    personInfo += Gender == Gender.Female
-                        ? $"\nСупруг: {Spouse.Name} {Spouse.Surname}"
-                        : $"\nСупруга: {Spouse.Name} {Spouse.Surname}";
-                }
-                return personInfo;
+            personInfo += $"\nМесто работы: {Job}";
+            if (StateOfMarriage == StateOfMarriage.Married)
+            {
+                personInfo += Gender == Gender.Male
+                ? $"\nСостояние брака: Женат"
+                : $"\nСостояние брака: Замужем";
             }
+            else
+            {
+                personInfo += Gender == Gender.Male
+                    ? $"\nСостояние брака: Не женат"
+                    : $"\nСостояние брака: Не замужем";
+            }
+
+            if (StateOfMarriage == StateOfMarriage.Married)
+            {
+                personInfo += Gender == Gender.Female
+                    ? $"\nСупруг: {Spouse.Name} {Spouse.Surname}"
+                    : $"\nСупруга: {Spouse.Name} {Spouse.Surname}";
+            }
+            return personInfo;
         }
 
         /// <summary>
@@ -105,13 +103,14 @@ namespace Model
         /// </summary>
         public const int maxAge = 110;
 
-        // TODO: Заполнить, длинная строка
+        // TODO: Заполнить, длинная строка + 
         /// <summary>
         /// Метод проверки возраста взрослого.
         /// </summary>
         /// <param name="age">Возраст взрослого.</param>
         /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception">исключает неподходящий...
+        /// ...возраст.</exception>
         protected override int CheckingAge(int age)
         {
             if (age < minAge || age > maxAge)
