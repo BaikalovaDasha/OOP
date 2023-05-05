@@ -1,7 +1,6 @@
 ﻿using Model;
 using System;
 
-// TODO: Длинные строки +
 namespace LR_2
 {
     /// <summary>
@@ -33,14 +32,14 @@ namespace LR_2
             for (int i = 0; i < personlist.Count; i++)
             {
                 Console.WriteLine($"\tПерсона №{i + 1}");
-                Console.WriteLine(personlist[i].GetInfo);
+                Console.WriteLine(personlist[i].GetInfo());
                 Console.WriteLine();
                 Console.ReadKey();
             }
 
             Console.WriteLine($"Вывод информации о четвёртом" +
                 $" человеке из списка." +
-                $"\nЭто {personlist[3].GetInfo}.");
+                $"\nЭто {personlist[3].GetInfo()}.");
 
             switch (personlist[3])
             {

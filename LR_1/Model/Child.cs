@@ -86,7 +86,7 @@ namespace Model
         /// </summary>
         public override string GetInfo()
         {
-            var personInfo = base.GetInfo();
+            var personInfo = GetBasePerson();
 
             if (Father != null)
             {

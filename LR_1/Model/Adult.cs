@@ -33,7 +33,6 @@ namespace Model
             get => _passport; 
             set
             {
-                // TODO: Длинные строки + 
                 const string pattern = @"\D";
                 Regex regex = new(pattern);
                 if (value.Length != maxSymbol || 
@@ -61,14 +60,12 @@ namespace Model
         /// </summary>
         public string Job { get; set; }
 
-        // TODO: Это должен быть метод +
         /// <summary>
         /// Вывод информации о взрослом человеке.
         /// </summary>
         public override string GetInfo()
         {
-            // TODO: Ненужно вызывать базовый метод ?
-            var personInfo = base.GetInfo() + $"\nПаспорт: {Pasport}";
+            var personInfo = GetBasePerson() + $"\nПаспорт: {Pasport}";
 
             personInfo += $"\nМесто работы: {Job}";
             if (StateOfMarriage == StateOfMarriage.Married)
@@ -103,12 +100,11 @@ namespace Model
         /// </summary>
         public const int maxAge = 110;
 
-        // TODO: Заполнить, длинная строка + 
         /// <summary>
         /// Метод проверки возраста взрослого.
         /// </summary>
         /// <param name="age">Возраст взрослого.</param>
-        /// <returns></returns>
+        /// <returns>Введенный возраст.</returns>
         /// <exception cref="Exception">исключает неподходящий...
         /// ...возраст.</exception>
         protected override int CheckingAge(int age)

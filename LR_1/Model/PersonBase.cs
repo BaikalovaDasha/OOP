@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Microsoft.VisualBasic;
+using Model;
 using System;
 using System.Net.WebSockets;
 using System.Text.RegularExpressions;
@@ -27,7 +28,6 @@ namespace Model
         /// </summary>
         private int _age;
 
-        // TODO: Заполнить + 
         /// <summary>
         /// Конструктор.
         /// </summary>
@@ -35,7 +35,8 @@ namespace Model
         /// <param name="surname">фамилия персоны.</param>
         /// <param name="age">возраст персоны.</param>
         /// <param name="gender">пол персоны.</param>
-        protected PersonBase(string name, string surname, int age, Gender gender)
+        protected PersonBase(
+            string name, string surname, int age, Gender gender)
         {
             Name = name;
             Surname = surname;
@@ -81,10 +82,10 @@ namespace Model
         /// <summary>
         /// Чтение и запись возраста персоны.
         /// </summary>
-        public int Age 
-        { 
+        public int Age
+        {
             get { return _age; }
-            
+
             set
             {
                 CheckingAge(value);
@@ -97,12 +98,17 @@ namespace Model
         /// </summary>
         public Gender Gender { get; set; }
 
-        // TODO: Переделать свойство в абстрактный метод +
         /// <summary>
         /// Метод возвращает информацию о человеке в виде строки.
         /// </summary>
         /// <returns>информация о персоне.</returns>
-        public virtual string GetInfo()
+        public abstract string GetInfo();
+
+        /// <summary>
+        /// Метод возвращает информацию о человеке в виде строки.
+        /// </summary>
+        /// <returns>информация о персоне.</returns>
+        public string GetBasePerson()
         {
             var personBase = $"{Name} {Surname}, Возраст: {Age},";
 
@@ -118,18 +124,6 @@ namespace Model
             return personBase;
         }
 
-        // TODO: Переделать свойство в абстрактный метод +
-        /// <summary>
-        /// Метод возвращает информацию о человеке в виде строки.
-        /// </summary>
-        /// <returns>информация о персоне.</returns>
-        public virtual string GetInfoPerson()
-        {
-            var personBase = $"{Name} {Surname}";
-            return personBase;
-        }
-
-        // TODO: Заполнить + 
         /// <summary>
         /// Проверка на один язык имени и фамилии и правильное...
         /// ... выполнение регистра.
@@ -139,17 +133,19 @@ namespace Model
         /// <returns>проверенное имя.</returns>
         private static string AllCheck(string value, string varForComparison)
         {
-            CheckLanguage(value, varForComparison);
+            if (!string.IsNullOrEmpty(varForComparison))
+            {
+                CheckLanguage(value, varForComparison);
+            }
             ChekingNullorEmpty(value);
             return ToUpperFirstLetter(value);
         }
 
-        // TODO: Заполнить + 
         /// <summary>
         /// Проверка на null и empty. 
         /// </summary>
         /// <param name="value">параметр персоны.</param>
-        /// <returns></returns>
+        /// <returns>Введенный параметр.</returns>
         /// <exception cref="System.ArgumentException">исключает ввод...
         /// ...пустой строки.</exception>
         private static string ChekingNullorEmpty(string value)
@@ -162,9 +158,6 @@ namespace Model
             return value;
         }
 
-        // TODO: Дублирование проверки на пустую строку +
-        // TODO: Метод должен формировать исключение, если язык не русский и не английский +
-        // TODO: GetLanguage + 
         /// <summary>
         /// Проверка на русские и английские символы.
         /// </summary>
@@ -192,7 +185,6 @@ namespace Model
 
         }
 
-        // TODO: Дублирование проверки на пустую строку +
         /// <summary>
         /// Проверка одинакового языка имени и фамилии..
         /// </summary>
@@ -210,7 +202,6 @@ namespace Model
             }
         }
 
-        // TODO: Заполнить +
         /// <summary>
         /// Преобразует первую букву имени/фамилии в заглавную, ...
         /// ... остальные прописные.

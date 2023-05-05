@@ -65,26 +65,20 @@ namespace Model
         public void DeleteByIndex(int index)
         {
             var newArray = new PersonBase[_innerPersonArray.Length - 1];
-
-            // TODO: Дублирование проверки на индекс (разные проверки)
-            if (index >= 0 && index < _innerPersonArray.Length)
-            {          
-                for (int i = 0; i < index; i++)
-                {
-                    newArray[i] = _innerPersonArray[i];
-                }
-
-                for (int i = index + 1; i < _innerPersonArray.Length; i++)
-                {
-                    newArray[i - 1] = _innerPersonArray[i];
-                }
-
-                _innerPersonArray = newArray;                
-            }
-            else
+            
+            CheckIndex(index);
+        
+            for (int i = 0; i < index; i++)
             {
-                CheckIndex(index);
+                newArray[i] = _innerPersonArray[i];
             }
+
+            for (int i = index + 1; i < _innerPersonArray.Length; i++)
+            {
+                newArray[i - 1] = _innerPersonArray[i];
+            }
+
+            _innerPersonArray = newArray;                
         }
 
         /// <summary>

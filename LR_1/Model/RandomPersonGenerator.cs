@@ -58,7 +58,6 @@ namespace Model
                 "Роллинс", "Хаскель", "Безников",
         };
 
-        // TODO: Длинные строки +
         /// <summary>
         /// Заполнение базовых параметров (имени и фамилии) персоны.
         /// </summary>
@@ -115,7 +114,7 @@ namespace Model
             randomAdult.Age =
                 _randompPerson.Next(Adult.minAge, Adult.maxAge);
 
-            StateOfMarriage maritalstatus = (StateOfMarriage)_randompPerson.Next(2);
+            var maritalstatus = (StateOfMarriage)_randompPerson.Next(2);
 
             randomAdult.StateOfMarriage = maritalstatus;
 

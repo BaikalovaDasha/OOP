@@ -32,7 +32,8 @@ namespace LR_2
             }
             else if (!checkWordTwo.IsMatch(value))
             {
-                throw new FormatException("Введёный параметр должен содержать" +
+                throw new FormatException(
+                    "Введёный параметр должен содержать" +
                     " только символы кириллицы и латиницы.");
             }
             else
@@ -73,7 +74,8 @@ namespace LR_2
 
             Action actionGender = new(() =>
             {
-                Console.Write($"Введите пол человека (1 - Мужской или 2 - Женский): ");
+                Console.Write($"Введите пол человека " +
+                    $"(1 - Мужской или 2 - Женский): ");
                 _ = int.TryParse(Console.ReadLine(), out int tmpGender);
                 if (tmpGender < 1 || tmpGender > 2)
                 {
@@ -108,7 +110,8 @@ namespace LR_2
                 }
                 catch (Exception exception)
                 {
-                    Console.WriteLine($"Введённый параметр персоны ({propertyName})" +
+                    Console.WriteLine(
+                        $"Введённый параметр персоны ({propertyName})" +
                         $" некорректен ({exception.Message}).\n" +
                         $"Введите {propertyName} ещё раз.");
                 }
@@ -124,7 +127,7 @@ namespace LR_2
 
             for (int i = 0; i < personsList.Count; i++)
             {
-                Console.WriteLine(personsList[i].GetInfo);
+                Console.WriteLine(personsList[i].GetInfo());
             }
         }
     }
