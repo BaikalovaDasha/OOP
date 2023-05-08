@@ -17,7 +17,7 @@ namespace LR_3
     public static class ConsoleAddExercises
     {
         /// <summary>
-        /// Метод добавления вида упражнения.
+        /// Метод добавления вида упражнения: плавание.
         /// </summary>
         /// <exception cref="ArgumentException"></exception>
         public static Swimming AddingSwimming()
@@ -28,18 +28,18 @@ namespace LR_3
             {
                 (new Action(() =>
                 {
-                    Console.WriteLine("Введите вес человека, кг: ");
+                    Console.Write("Введите вес человека, кг: ");
                     swimming.Weight = ReadFromConsoleAndParse();
                 }), "вес человека"),
 
                 (new Action(() =>
                 {
-                    Console.WriteLine("Введите время плавания, мин: ");
+                    Console.Write("Введите время плавания, мин: ");
                     swimming.Time = ReadFromConsoleAndParse();
                 }), "время плавания"),
                 (new Action(() =>
                 {
-                    Console.WriteLine("Выберите стиль плавания (1 - кроль, " +
+                    Console.Write("Выберите стиль плавания (1 - кроль, " +
                         "2 - брасс, 3 - Баттерфляй, 4 - Аквааэробика):");
                     _ = int.TryParse(Console.ReadLine(), out int tmpStyle);
                     switch (tmpStyle)
@@ -74,11 +74,115 @@ namespace LR_3
 
             };
 
-            foreach (var act in action)
+            IterateList(action);
+
+            return swimming;
+        }
+
+        /// <summary>
+        /// Метод добавления вида упражнения: бег.
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
+        public static Running AddingRunning()
+        {
+            var running = new Running();
+
+            var action = new List<(Action, string)>
+            {
+                (new Action(() =>
+                {
+                    Console.Write("Введите вес человека, кг: ");
+                    running.Weight = ReadFromConsoleAndParse();
+                }), "вес человека"),
+
+                (new Action(() =>
+                {
+                    Console.Write("Введите расстояние, км: ");
+                    running.Distance = ReadFromConsoleAndParse();
+                }), "расстояние"),
+                (new Action(() =>
+                {
+                    Console.Write("Виды интенсивности: 1 - минимальная," +
+                        " 2 - слабая, 3 - средняя, 4 - высокая," +
+                        " 5 - экстра.\nВыберите интенсивность при беге: ");
+                    _ = int.TryParse(Console.ReadLine(), out int tmpIntensity);
+                    switch (tmpIntensity)
+                    {
+                        case 1:
+                        {
+                            _ = running.Intensity == RunningIntensity.Minimum;
+                            break;
+                        }
+                        case 2:
+                        {
+                            _ = running.Intensity == RunningIntensity.Weak;
+                            break;
+                        }
+                        case 3:
+                        {
+                            _ = running.Intensity == RunningIntensity.Medium;
+                            break;
+                        }
+                        case 4:
+                        {
+                            _ = running.Intensity == RunningIntensity.High;
+                            break;
+                        }
+                        case 5:
+                        {
+                            _ = running.Intensity == RunningIntensity.Extra;
+                            break;
+                        }
+                    }
+                    if (tmpIntensity < 1 || tmpIntensity > 5)
+                    {
+                        throw new ArgumentOutOfRangeException();
+                    }
+
+                }), "интенсивность бега"),
+
+            };
+
+            IterateList(action);
+
+            return running;
+        }
+
+        /// <summary>
+        /// Метод добавления вида упражнения: жим штанги.
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
+        public static BarbellPress AddingBarbellPress()
+        {
+            var barbellPress = new BarbellPress();
+
+            var action = new List<(Action, string)>
+            {
+                (new Action(() =>
+                {
+                    Console.Write("Введите вес человека, кг: ");
+                    barbellPress.Weight = ReadFromConsoleAndParse();
+                }), "вес человека"),
+
+                (new Action(() =>
+                {
+                    Console.Write("Введите количество повторений: ");
+                    barbellPress.NumerRepetitions = ReadFromConsoleAndParse();
+                }), "количество повторений"),
+
+            };
+
+            IterateList(action);
+
+            return barbellPress;
+        }
+
+        public static void IterateList(List<(Action, string)> actionList)
+        {
+            foreach (var act in actionList)
             {
                 ActionHandler(act.Item1, act.Item2);
             }
-            return swimming;
         }
 
         /// <summary>
@@ -86,7 +190,12 @@ namespace LR_3
         /// </summary>
         public static double ReadFromConsoleAndParse()
         {
-            return double.Parse(Console.ReadLine().Replace('.', ','));
+            bool tmp = double.TryParse(Console.ReadLine().Replace('.', ','), out double number);
+            if (!tmp)
+            {
+                throw new ArgumentException("Введите число!");
+            }
+            return number;
         }
 
         /// <summary>
@@ -105,7 +214,7 @@ namespace LR_3
                 }
                 catch (Exception exception)
                 {
-                    Console.WriteLine($"Ошибка: {exception.Message}. " +
+                    Console.WriteLine($"Ошибка: {exception.Message} " +
                         $"Введите {propertyname} ещё раз!");
                 }
             }

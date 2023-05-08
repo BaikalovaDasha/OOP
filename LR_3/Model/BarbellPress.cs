@@ -54,7 +54,7 @@ namespace Model
         /// <returns></returns>
         public override double CalculationCalorie()
         {
-            return Math.Round( (Weight * 0.454 / 150 ) * 5 * NumerRepetitions);
+            return Math.Round( (Weight * 0.454 / 150 ) * 5 * NumerRepetitions, 1);
         }
     }
 }

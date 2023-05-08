@@ -18,28 +18,51 @@ namespace ConsoleApp
                 " потраченных калорий в зависимости от вида упражнения.\n" +
                 "Нажмите любую кнопуку, чтобы начать.");
             Console.ReadKey();
-            GetInfoExercise(ConsoleAddExercises.AddingSwimming());
-            while (true) 
+
+            while (true)
             {
-            Console.WriteLine();
-            Console.WriteLine("Выберите вид упражнения.\n" +
-            "1 - плавание");
-            var key = Console.ReadLine();
-            switch (key) 
-            {
-            case "1":
-            {
-            GetInfoExercise(ConsoleAddExercises.AddingSwimming());
-            }
-            default:
-            {
-            Console.WriteLine("Попробуйте ещё раз.");
-            break;
-            }
-            }
+                Console.WriteLine();
+                Console.WriteLine("Выберите действие:\n"
+                    + "1 - плавание\n" + "2 - бег\n" + "3 - жим штанги\n"
+                    + "4 - Выход из программы");
+
+                var key = Console.ReadLine();
+
+                switch (key)
+                {
+                    case "1":
+                    {
+                        GetInfoExercise(ConsoleAddExercises.AddingSwimming());
+                            break;
+                    }
+                    case "2":
+                    {
+                        GetInfoExercise(ConsoleAddExercises.AddingRunning());
+                        break;
+                    }
+                    case "3":
+                    {
+                        GetInfoExercise(ConsoleAddExercises.AddingBarbellPress());
+                        break;
+                    }
+                    case "4":
+                    {
+                        Environment.Exit(0);
+                        break; ;
+                    }
+                    default:
+                    {
+                        Console.WriteLine("Попробуйте ещё раз.");
+                        break;
+                    }
+                }
             }
         }
 
+        /// <summary>
+        /// Вывод потраченных калорий.
+        /// </summary>
+        /// <param name="exercises"></param>
         public static void GetInfoExercise(ExercisesBase exercises)
         {
             Console.WriteLine($"Затратилось {exercises.CalculationCalorie()} калорий.");

@@ -63,19 +63,19 @@ namespace Model
 
             if (Style == SwimmingStyle.Crawl)
             {
-                calories = Math.Round(Weight * Time * 0.102, 2);
+                calories = Math.Round(Weight * Time * 0.102, 1);
             }
             else if (Style == SwimmingStyle.Breaststroke)
             {
-                calories = Math.Round(Weight * Time * 0.180, 2);
+                calories = Math.Round(Weight * Time * 0.180, 1);
             }
             else if (Style == SwimmingStyle.Butterfly)
             {
-                calories = Math.Round(Weight * Time * 0.242, 2);
+                calories = Math.Round(Weight * Time * 0.242, 1);
             }
             else
             {
-                calories = Math.Round(Weight * Time * 0.096, 2);
+                calories = Math.Round(Weight * Time * 0.096, 1);
             }
             return calories;
         }
