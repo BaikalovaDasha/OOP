@@ -1,6 +1,6 @@
 ﻿namespace Model
 {
-    public abstract class IExercisesBase
+    public abstract class ExercisesBase
     {
         /// <summary>
         /// Метод рассчитывающий калории в зависимости...

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Running : IExercisesBase
+    public class Running : ExercisesBase
     {
         /// <summary>
         /// Вес человека.
@@ -19,9 +19,9 @@ namespace Model
         private double _distance;
 
         /// <summary>
-        /// Интенсивность.
+        /// Чтение и запись интенсивности.
         /// </summary>
-        private int _intensity;
+        public RunningIntensity Intensity { get; set; }
 
         /// <summary>
         /// Чтение и записть веса.
@@ -54,27 +54,34 @@ namespace Model
         }
 
         /// <summary>
-        /// Чтение и запись интенсивности.
-        /// </summary>
-        public int Intensity
-        {
-            get
-            {
-                return _intensity;
-            }
-            set
-            {
-                _intensity = value;
-            }
-        }
-
-        /// <summary>
         /// Расчёт расхода калорий при беге.
         /// </summary>
         /// <returns></returns>
         public override double CalculationCalorie()
         {
-            return Math.Round(Weight * Distance * Intensity);
+            double calories;
+
+            if (Intensity == RunningIntensity.Minimum)
+            {
+                calories = Math.Round(Weight * Distance * 1.2, 1);
+            }
+            else if (Intensity == RunningIntensity.Weak)
+            {
+                calories = Math.Round(Weight * Distance * 1.375, 1);
+            }
+            else if (Intensity == RunningIntensity.Medium)
+            {
+                calories = Math.Round(Weight * Distance * 1.55, 1);
+            }
+            else if (Intensity == RunningIntensity.High)
+            {
+                calories = Math.Round(Weight * Distance * 1.725, 1);
+            }
+            else
+            {
+                calories = Math.Round(Weight * Distance * 1.9, 1);
+            }
+            return calories;
         }
     }
 }

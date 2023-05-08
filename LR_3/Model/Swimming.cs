@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Swimming : IExercisesBase
+    public class Swimming : ExercisesBase
     {
         /// <summary>
         /// Вес человека.
@@ -19,9 +19,9 @@ namespace Model
         private double _time;
 
         /// <summary>
-        /// Стиль плавания.
+        /// Чтение и запись стиля плавания.
         /// </summary>
-        private int _style;
+        public SwimmingStyle Style { get; set; }
 
         /// <summary>
         /// Чтение и записть веса.
@@ -54,27 +54,30 @@ namespace Model
         }
 
         /// <summary>
-        /// Чтение и запись стиля плавания.
-        /// </summary>
-        public int Style
-        {
-            get
-            {
-                return _style;
-            }
-            set
-            {
-                _style = value;
-            }
-        }
-
-        /// <summary>
         /// Расчёт расхода калорий при плавании.
         /// </summary>
         /// <returns></returns>
         public override double CalculationCalorie()
         {
-            return Math.Round(Weight * Time * Style);
+            double calories;
+
+            if (Style == SwimmingStyle.Crawl)
+            {
+                calories = Math.Round(Weight * Time * 0.102, 2);
+            }
+            else if (Style == SwimmingStyle.Breaststroke)
+            {
+                calories = Math.Round(Weight * Time * 0.180, 2);
+            }
+            else if (Style == SwimmingStyle.Butterfly)
+            {
+                calories = Math.Round(Weight * Time * 0.242, 2);
+            }
+            else
+            {
+                calories = Math.Round(Weight * Time * 0.096, 2);
+            }
+            return calories;
         }
     }
 }
