@@ -1,5 +1,6 @@
 ﻿namespace Model
 {
+    //TODO: XML
     public abstract class ExercisesBase
     {
         /// <summary>
@@ -9,6 +10,7 @@
         /// <returns></returns>
         public abstract double CalculationCalorie();
 
+        //TODO: почему public?
         /// <summary>
         /// Проверка параметра.
         /// </summary>

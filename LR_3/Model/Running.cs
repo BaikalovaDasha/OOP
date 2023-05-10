@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    //TODO: XML
     public class Running : ExercisesBase
     {
         /// <summary>
@@ -61,8 +62,11 @@ namespace Model
         {
             double calories;
 
+            //TODO: switch-case
+            //TODO: сделать соответствие элементам перечисления и коэффициентам
             if (Intensity == RunningIntensity.Minimum)
             {
+                //TODO: убрать тут round
                 calories = Math.Round(Weight * Distance * 1.2, 1);
             }
             else if (Intensity == RunningIntensity.Weak)

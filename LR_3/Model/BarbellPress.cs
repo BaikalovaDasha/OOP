@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    //TODO: XML
     public class BarbellPress : ExercisesBase
     {
         /// <summary>

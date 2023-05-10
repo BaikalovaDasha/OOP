@@ -44,6 +44,7 @@ namespace LR_3
                     _ = int.TryParse(Console.ReadLine(), out int tmpStyle);
                     switch (tmpStyle)
                     {
+                        //BUG: 
                         case 1:
                         {
                             _ = swimming.Style == SwimmingStyle.Crawl;
@@ -108,6 +109,7 @@ namespace LR_3
                     _ = int.TryParse(Console.ReadLine(), out int tmpIntensity);
                     switch (tmpIntensity)
                     {
+                        //BUG:
                         case 1:
                         {
                             _ = running.Intensity == RunningIntensity.Minimum;
@@ -177,6 +179,7 @@ namespace LR_3
             return barbellPress;
         }
 
+        //TODO: XML
         public static void IterateList(List<(Action, string)> actionList)
         {
             foreach (var act in actionList)

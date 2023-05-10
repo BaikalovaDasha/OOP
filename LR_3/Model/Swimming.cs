@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    //TODO: XML
     public class Swimming : ExercisesBase
     {
         /// <summary>
@@ -60,7 +61,7 @@ namespace Model
         public override double CalculationCalorie()
         {
             double calories;
-
+            //TODO: те же туду как и в running
             if (Style == SwimmingStyle.Crawl)
             {
                 calories = Math.Round(Weight * Time * 0.102, 1);
