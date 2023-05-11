@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    //TODO: XML
+    //TODO: XML + 
+    /// <summary>
+    /// Класс упражнения бега.
+    /// </summary>
     public class Running : ExercisesBase
     {
         /// <summary>
@@ -58,34 +61,20 @@ namespace Model
         /// Расчёт расхода калорий при беге.
         /// </summary>
         /// <returns></returns>
-        public override double CalculationCalorie()
+        public override int CalculationCalorie()
         {
-            double calories;
+            //TODO: switch-case + 
+            //TODO: сделать соответствие элементам перечисления и коэффициентам + 
+            var runningIntensity = new Dictionary<RunningIntensity, double>()
+            {
+                [RunningIntensity.Minimum] = 1.2,
+                [RunningIntensity.Weak] = 1.375,
+                [RunningIntensity.Medium] = 1.55,
+                [RunningIntensity.High] = 1.725,
+                [RunningIntensity.Extra] = 1.9,
+            };
 
-            //TODO: switch-case
-            //TODO: сделать соответствие элементам перечисления и коэффициентам
-            if (Intensity == RunningIntensity.Minimum)
-            {
-                //TODO: убрать тут round
-                calories = Math.Round(Weight * Distance * 1.2, 1);
-            }
-            else if (Intensity == RunningIntensity.Weak)
-            {
-                calories = Math.Round(Weight * Distance * 1.375, 1);
-            }
-            else if (Intensity == RunningIntensity.Medium)
-            {
-                calories = Math.Round(Weight * Distance * 1.55, 1);
-            }
-            else if (Intensity == RunningIntensity.High)
-            {
-                calories = Math.Round(Weight * Distance * 1.725, 1);
-            }
-            else
-            {
-                calories = Math.Round(Weight * Distance * 1.9, 1);
-            }
-            return calories;
+            return (int)(Weight * Distance * runningIntensity[Intensity]);
         }
     }
 }

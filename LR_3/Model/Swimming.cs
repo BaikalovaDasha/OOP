@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    //TODO: XML
+    //TODO: XML + 
+    /// <summary>
+    /// Класс упражнения плавание.
+    /// </summary>
     public class Swimming : ExercisesBase
     {
         /// <summary>
@@ -58,27 +61,17 @@ namespace Model
         /// Расчёт расхода калорий при плавании.
         /// </summary>
         /// <returns></returns>
-        public override double CalculationCalorie()
+        public override int CalculationCalorie()
         {
-            double calories;
-            //TODO: те же туду как и в running
-            if (Style == SwimmingStyle.Crawl)
+            var swimmingStyle = new Dictionary<SwimmingStyle, double>()
             {
-                calories = Math.Round(Weight * Time * 0.102, 1);
-            }
-            else if (Style == SwimmingStyle.Breaststroke)
-            {
-                calories = Math.Round(Weight * Time * 0.180, 1);
-            }
-            else if (Style == SwimmingStyle.Butterfly)
-            {
-                calories = Math.Round(Weight * Time * 0.242, 1);
-            }
-            else
-            {
-                calories = Math.Round(Weight * Time * 0.096, 1);
-            }
-            return calories;
+                [SwimmingStyle.Crawl] = 0.102,
+                [SwimmingStyle.Breaststroke] = 0.180,
+                [SwimmingStyle.Butterfly] = 0.242,
+                [SwimmingStyle.WaterAerobics] = 0.096,
+            };
+
+            return (int)(Weight * Time * swimmingStyle[Style]);
         }
     }
 }

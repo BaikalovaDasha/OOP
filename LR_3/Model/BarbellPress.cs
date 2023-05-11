@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    //TODO: XML
+    //TODO: XML +
+    /// <summary>
+    /// Класс упражнения жима штанги.
+    /// </summary>
     public class BarbellPress : ExercisesBase
     {
         /// <summary>
@@ -53,9 +56,9 @@ namespace Model
         /// Расчёт расхода калорий при жиме штанги.
         /// </summary>
         /// <returns></returns>
-        public override double CalculationCalorie()
+        public override int CalculationCalorie()
         {
-            return Math.Round( (Weight * 0.454 / 150 ) * 5 * NumerRepetitions, 1);
+            return (int)(Weight * 0.454 / 150 * 5 * NumerRepetitions);
         }
     }
 }

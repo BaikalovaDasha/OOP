@@ -1,6 +1,9 @@
 ﻿namespace Model
 {
-    //TODO: XML
+    //TODO: XML + 
+    /// <summary>
+    /// Класс для видов упражнений.
+    /// </summary>
     public abstract class ExercisesBase
     {
         /// <summary>
@@ -8,9 +11,9 @@
         /// ...от выполненного упражнения.
         /// </summary>
         /// <returns></returns>
-        public abstract double CalculationCalorie();
+        public abstract int CalculationCalorie();
 
-        //TODO: почему public?
+        //TODO: почему public? +
         /// <summary>
         /// Проверка параметра.
         /// </summary>
@@ -18,7 +21,7 @@
         /// <returns>проверенное число.</returns>
         /// <exception cref="ArgumentException">отбрасывает отрицательные...
         /// ...числа</exception>
-        public static double CheckingNumber(double number)
+        protected static double CheckingNumber(double number)
         {
             if (number < 0)
             {

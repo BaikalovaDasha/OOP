@@ -24,7 +24,7 @@ namespace LR_3
         {
             var swimming = new Swimming();
 
-            var action= new List<(Action, string)>
+            var actionList= new List<(Action, string)>
             {
                 (new Action(() =>
                 {
@@ -44,25 +44,25 @@ namespace LR_3
                     _ = int.TryParse(Console.ReadLine(), out int tmpStyle);
                     switch (tmpStyle)
                     {
-                        //BUG: 
+                        //BUG: + 
                         case 1:
                         {
-                            _ = swimming.Style == SwimmingStyle.Crawl;
+                            swimming.Style = SwimmingStyle.Crawl;
                             break;
                         }
                         case 2:
                         {
-                            _ = swimming.Style == SwimmingStyle.Breaststroke;
+                            swimming.Style = SwimmingStyle.Breaststroke;
                             break;
                         }
                         case 3:
                         {
-                            _ = swimming.Style == SwimmingStyle.Butterfly;
+                            swimming.Style = SwimmingStyle.Butterfly;
                             break;
                         }
                         case 4:
                         {
-                            _ = swimming.Style == SwimmingStyle.WaterAerobics;
+                            swimming.Style = SwimmingStyle.WaterAerobics;
                             break;
                         }
                     }
@@ -75,7 +75,7 @@ namespace LR_3
 
             };
 
-            IterateList(action);
+            IterateList(actionList);
 
             return swimming;
         }
@@ -88,7 +88,7 @@ namespace LR_3
         {
             var running = new Running();
 
-            var action = new List<(Action, string)>
+            var actionList = new List<(Action, string)>
             {
                 (new Action(() =>
                 {
@@ -109,30 +109,30 @@ namespace LR_3
                     _ = int.TryParse(Console.ReadLine(), out int tmpIntensity);
                     switch (tmpIntensity)
                     {
-                        //BUG:
+                        //BUG: + 
                         case 1:
                         {
-                            _ = running.Intensity == RunningIntensity.Minimum;
+                            running.Intensity = RunningIntensity.Minimum;
                             break;
                         }
                         case 2:
                         {
-                            _ = running.Intensity == RunningIntensity.Weak;
+                            running.Intensity = RunningIntensity.Weak;
                             break;
                         }
                         case 3:
                         {
-                            _ = running.Intensity == RunningIntensity.Medium;
+                            running.Intensity = RunningIntensity.Medium;
                             break;
                         }
                         case 4:
                         {
-                            _ = running.Intensity == RunningIntensity.High;
+                            running.Intensity = RunningIntensity.High;
                             break;
                         }
                         case 5:
                         {
-                            _ = running.Intensity == RunningIntensity.Extra;
+                            running.Intensity = RunningIntensity.Extra;
                             break;
                         }
                     }
@@ -145,7 +145,7 @@ namespace LR_3
 
             };
 
-            IterateList(action);
+            IterateList(actionList);
 
             return running;
         }
@@ -158,7 +158,7 @@ namespace LR_3
         {
             var barbellPress = new BarbellPress();
 
-            var action = new List<(Action, string)>
+            var actionList = new List<(Action, string)>
             {
                 (new Action(() =>
                 {
@@ -174,12 +174,16 @@ namespace LR_3
 
             };
 
-            IterateList(action);
+            IterateList(actionList);
 
             return barbellPress;
         }
 
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Перебор action при вводе вида упражнения.
+        /// </summary>
+        /// <param name="actionList"></param>
         public static void IterateList(List<(Action, string)> actionList)
         {
             foreach (var act in actionList)

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    //TODO: XML
+    //TODO: XML + 
+    /// <summary>
+    /// Перечисления интенсивности бега.
+    /// </summary>
     public enum RunningIntensity
     {
         /// <summary>
