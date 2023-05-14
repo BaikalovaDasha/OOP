@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Model
@@ -20,7 +21,7 @@ namespace Model
         /// <summary>
         /// Время плавания.
         /// </summary>
-        private double _time;
+        private int _time;
 
         /// <summary>
         /// Чтение и запись стиля плавания.
@@ -38,23 +39,55 @@ namespace Model
             }
             set
             {
-                _weight = CheckingNumber(value);
+                _weight = CheckingWeight(value);
             }
         }
 
         /// <summary>
         /// Чтение и записть времени плавания.
         /// </summary>
-        public double Time
-        {
+        public int Time 
+        { 
             get
             {
                 return _time;
-            }
+            } 
             set
             {
-                _time = CheckingNumber(value);
+                _time = CheckingTime((int)CheckingNumber(value));
             }
+        }
+
+        /// <summary>
+        /// Максимальное время плавания.
+        /// </summary>
+        private const int MaxTime = 90;
+
+        /// <summary>
+        /// Минимальное время плавания.
+        /// </summary>
+        private const double MinTime = 10;
+
+        /// <summary>
+        /// Проверка времени при плавании.
+        /// </summary>
+        /// <param name="weight">Время.</param>
+        /// <returns>Введённое время.</returns>
+        /// <exception cref="Exception">исключает неподходящее время
+        /// .</exception>
+        protected static int CheckingTime(int time)
+        {
+            if (time < MinTime)
+            {
+                throw new Exception($"Для результата необходимо проплыть" +
+                    $" хотя бы {MinTime} минут.");
+            }
+            else if (time > MaxTime)
+            {
+                throw new Exception($"Нерекомендуется плавать больше" +
+                    $" {MaxTime} минут!");
+            }
+            return time;
         }
 
         /// <summary>

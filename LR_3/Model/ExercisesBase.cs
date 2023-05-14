@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace Model
 {
     //TODO: XML + 
     /// <summary>
@@ -32,6 +34,32 @@
             {
                 return number;
             }
+        }
+
+        /// <summary>
+        /// Максимальный вес человека.
+        /// </summary>
+        public const int maxWeight = 120;
+
+        /// <summary>
+        /// Максимальный вес человека.
+        /// </summary>
+        public const int minWeight = 45;
+
+        /// <summary>
+        /// Метод проверки веса человека.
+        /// </summary>
+        /// <param name="weight">Вес человека.</param>
+        /// <returns>Введенный вес.</returns>
+        /// <exception cref="Exception">исключает неподходящий вес.</exception>
+        protected static double CheckingWeight(double weight)
+        {
+            if (weight < minWeight || weight > maxWeight)
+            {
+                throw new Exception($"Вес человека должен быть больше" +
+                    $" {minWeight} и не более {maxWeight}.");
+            }
+            return weight;
         }
 
     }

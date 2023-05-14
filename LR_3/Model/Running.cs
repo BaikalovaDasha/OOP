@@ -38,7 +38,7 @@ namespace Model
             }
             set
             {
-                _weight = CheckingNumber(value);
+                _weight = CheckingWeight(value);
             }
         }
 
@@ -53,8 +53,40 @@ namespace Model
             }
             set
             {
-                _distance = CheckingNumber(value);
+                _distance = CheckingDistance((int)CheckingNumber(value));
             }
+        }
+
+        /// <summary>
+        /// Максимальный вес человека.
+        /// </summary>
+        private const int MaxDistance = 30;
+
+        /// <summary>
+        /// Максимальный вес человека.
+        /// </summary>
+        private const double MinDistance = 1.5;
+
+        /// <summary>
+        /// Метод проверки дистанции.
+        /// </summary>
+        /// <param name="weight">Дистанция.</param>
+        /// <returns>Введенная дистанция.</returns>
+        /// <exception cref="Exception">исключает неподходящую дистанцию
+        /// .</exception>
+        protected static int CheckingDistance(int distance)
+        {
+            if (distance < MinDistance)
+            {
+                throw new Exception($"Необходимо пробежать хотя бы " +
+                    $"{MinDistance} км.");
+            }
+            else if (distance > MaxDistance)
+            { 
+                throw new Exception($"Нерекомендуется бегать больше" +
+                    $" {MaxDistance} км. Опасно для здоровья!");
+            }
+            return distance;
         }
 
         /// <summary>

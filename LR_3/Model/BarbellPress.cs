@@ -13,17 +13,17 @@ namespace Model
     public class BarbellPress : ExercisesBase
     {
         /// <summary>
-        /// Вес штанги.
+        /// Вес человка.
         /// </summary>
         private double _weight;
 
         /// <summary>
         /// Количество повторений.
         /// </summary>
-        private double _numerRepetitions;
+        private int _numerRepetitions;
 
         /// <summary>
-        /// Чтение и записть веса.
+        /// Чтение и записть веса человка.
         /// </summary>
         public double Weight
         {
@@ -33,14 +33,14 @@ namespace Model
             }
             set
             {
-                _weight = CheckingNumber(value);
+                _weight = CheckingWeight(CheckingNumber(value));
             }
         }
 
         /// <summary>
         /// Чтение и записть количества повторений.
         /// </summary>
-        public double NumerRepetitions
+        public int NumerRepetitions
         {
             get
             {
@@ -48,8 +48,41 @@ namespace Model
             }
             set
             {
-                _numerRepetitions = CheckingNumber(value);
+                _numerRepetitions = CheckNumerRepetitions
+                    ((int)CheckingNumber(value));
             }
+        }
+
+        /// <summary>
+        /// Максимальное количество повторений.
+        /// </summary>
+        private const int MaxNumerRepetitions = 15;
+
+        /// <summary>
+        /// Максимальное количество повторений.
+        /// </summary>
+        private const int MinNumerRepetitions = 5;
+
+        /// <summary>
+        /// проверка на количество повторений
+        /// </summary>
+        /// <param name="numerRepetitions">количество повторений</param>
+        /// <returns></returns>
+        /// <exception cref="Exception">неподходящее число повторений...
+        /// .</exception>
+        private static int CheckNumerRepetitions(int numerRepetitions)
+        {
+            if (numerRepetitions < MinNumerRepetitions)
+            {
+                throw new Exception($"Начинать было бы не плохо с " +
+                    $"{MinNumerRepetitions} повторений.");
+            }
+            else if (numerRepetitions > MaxNumerRepetitions)
+            {
+                throw new Exception($"Нерекомендуется делать больше" +
+                    $" {MaxNumerRepetitions} повторений за один подход");
+            }
+            return numerRepetitions;
         }
 
         /// <summary>

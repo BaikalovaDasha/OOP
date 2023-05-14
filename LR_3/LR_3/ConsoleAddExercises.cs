@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using static System.Collections.Specialized.BitVector32;
 
@@ -35,7 +36,7 @@ namespace LR_3
                 (new Action(() =>
                 {
                     Console.Write("Введите время плавания, мин: ");
-                    swimming.Time = ReadFromConsoleAndParse();
+                    swimming.Time = (int)ReadFromConsoleAndParse();
                 }), "время плавания"),
                 (new Action(() =>
                 {
@@ -68,7 +69,9 @@ namespace LR_3
                     }
                     if (tmpStyle < 1 || tmpStyle > 4)
                     {
-                        throw new ArgumentOutOfRangeException();
+                        throw new ArgumentException("Необходимо выбрать" +
+                            " стиль плавания только из представленного" +
+                            " списка");
                     }
 
                 }), "стиль плавания"),
@@ -106,7 +109,8 @@ namespace LR_3
                     Console.Write("Виды интенсивности: 1 - минимальная," +
                         " 2 - слабая, 3 - средняя, 4 - высокая," +
                         " 5 - экстра.\nВыберите интенсивность при беге: ");
-                    _ = int.TryParse(Console.ReadLine(), out int tmpIntensity);
+                    _ = int.TryParse(Console.ReadLine(), 
+                        out int tmpIntensity);
                     switch (tmpIntensity)
                     {
                         //BUG: + 
@@ -138,7 +142,9 @@ namespace LR_3
                     }
                     if (tmpIntensity < 1 || tmpIntensity > 5)
                     {
-                        throw new ArgumentOutOfRangeException();
+                        throw new ArgumentException("Необходимо выбрать" +
+                            " интенсивность бега только из представленного" +
+                            " списка");
                     }
 
                 }), "интенсивность бега"),
@@ -169,7 +175,8 @@ namespace LR_3
                 (new Action(() =>
                 {
                     Console.Write("Введите количество повторений: ");
-                    barbellPress.NumerRepetitions = ReadFromConsoleAndParse();
+                    barbellPress.NumerRepetitions = 
+                    (int)ReadFromConsoleAndParse();
                 }), "количество повторений"),
 
             };
@@ -197,12 +204,22 @@ namespace LR_3
         /// </summary>
         public static double ReadFromConsoleAndParse()
         {
-            bool tmp = double.TryParse(Console.ReadLine().Replace('.', ','), out double number);
-            if (!tmp)
+            return double.Parse(CheckString
+                (Console.ReadLine()).Replace('.', ','));
+        }
+
+        /// <summary>
+        /// Проверка на ввод числа
+        /// </summary>
+        public static string CheckString(string value)
+        {
+            Regex checkString = new(@"\d");
+
+            if (!checkString.IsMatch(value))
             {
                 throw new ArgumentException("Введите число!");
             }
-            return number;
+            return value;
         }
 
         /// <summary>
