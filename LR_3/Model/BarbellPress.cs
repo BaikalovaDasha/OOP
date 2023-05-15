@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Model
+﻿namespace Model
 {
-    //TODO: XML +
     /// <summary>
     /// Класс упражнения жима штанги.
     /// </summary>
@@ -63,6 +56,8 @@ namespace Model
         /// </summary>
         private const int MinNumerRepetitions = 5;
 
+        // TODO: Уточнить Exception
+        // TODO: Добавить описание
         /// <summary>
         /// проверка на количество повторений
         /// </summary>
@@ -70,21 +65,22 @@ namespace Model
         /// <returns></returns>
         /// <exception cref="Exception">неподходящее число повторений...
         /// .</exception>
-        private static int CheckNumerRepetitions(int numerRepetitions)
+        private int CheckNumerRepetitions(int numerRepetitions)
         {
             if (numerRepetitions < MinNumerRepetitions)
             {
                 throw new Exception($"Начинать было бы не плохо с " +
                     $"{MinNumerRepetitions} повторений.");
             }
-            else if (numerRepetitions > MaxNumerRepetitions)
+            if (numerRepetitions > MaxNumerRepetitions)
             {
                 throw new Exception($"Нерекомендуется делать больше" +
                     $" {MaxNumerRepetitions} повторений за один подход");
             }
             return numerRepetitions;
         }
-
+        
+        // TODO: Добавить описание
         /// <summary>
         /// Расчёт расхода калорий при жиме штанги.
         /// </summary>

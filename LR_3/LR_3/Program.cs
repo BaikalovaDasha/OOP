@@ -59,13 +59,15 @@ namespace ConsoleApp
             }
         }
 
+        // TODO: Добавить описание
         /// <summary>
         /// Вывод потраченных калорий.
         /// </summary>
         /// <param name="exercises"></param>
         public static void GetInfoExercise(ExercisesBase exercises)
         {
-            Console.WriteLine($"Затратилось {exercises.CalculationCalorie()} калорий.");
+            Console.WriteLine(
+                $"Затратилось {exercises.CalculationCalorie()} калорий.");
         }
     }
 }

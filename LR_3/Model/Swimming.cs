@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-
-namespace Model
+﻿namespace Model
 {
-    //TODO: XML + 
     /// <summary>
     /// Класс упражнения плавание.
     /// </summary>
@@ -66,23 +58,24 @@ namespace Model
         /// <summary>
         /// Минимальное время плавания.
         /// </summary>
-        private const double MinTime = 10;
+        private const int MinTime = 10;
 
+        // TODO: Уточнить Exception
         /// <summary>
         /// Проверка времени при плавании.
         /// </summary>
-        /// <param name="weight">Время.</param>
+        /// <param name="time">Время.</param>
         /// <returns>Введённое время.</returns>
         /// <exception cref="Exception">исключает неподходящее время
         /// .</exception>
-        protected static int CheckingTime(int time)
+        private int CheckingTime(int time)
         {
             if (time < MinTime)
             {
                 throw new Exception($"Для результата необходимо проплыть" +
                     $" хотя бы {MinTime} минут.");
             }
-            else if (time > MaxTime)
+            if (time > MaxTime)
             {
                 throw new Exception($"Нерекомендуется плавать больше" +
                     $" {MaxTime} минут!");
@@ -90,12 +83,14 @@ namespace Model
             return time;
         }
 
+        // TODO: Добавить описание
         /// <summary>
         /// Расчёт расхода калорий при плавании.
         /// </summary>
         /// <returns></returns>
         public override int CalculationCalorie()
         {
+            // TODO: Вынести из метода
             var swimmingStyle = new Dictionary<SwimmingStyle, double>()
             {
                 [SwimmingStyle.Crawl] = 0.102,

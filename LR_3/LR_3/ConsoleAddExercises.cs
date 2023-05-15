@@ -1,13 +1,5 @@
 ﻿using Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using static System.Collections.Specialized.BitVector32;
 
 namespace LR_3
 {
@@ -17,6 +9,7 @@ namespace LR_3
     /// </summary>
     public static class ConsoleAddExercises
     {
+        // TODO: Добавить описание
         /// <summary>
         /// Метод добавления вида упражнения: плавание.
         /// </summary>
@@ -36,7 +29,7 @@ namespace LR_3
                 (new Action(() =>
                 {
                     Console.Write("Введите время плавания, мин: ");
-                    swimming.Time = (int)ReadFromConsoleAndParse();
+                    swimming.Time = Convert.ToInt32(ReadFromConsoleAndParse());
                 }), "время плавания"),
                 (new Action(() =>
                 {
@@ -45,7 +38,6 @@ namespace LR_3
                     _ = int.TryParse(Console.ReadLine(), out int tmpStyle);
                     switch (tmpStyle)
                     {
-                        //BUG: + 
                         case 1:
                         {
                             swimming.Style = SwimmingStyle.Crawl;
@@ -82,7 +74,8 @@ namespace LR_3
 
             return swimming;
         }
-
+        
+        // TODO: Добавить описание
         /// <summary>
         /// Метод добавления вида упражнения: бег.
         /// </summary>
@@ -113,7 +106,6 @@ namespace LR_3
                         out int tmpIntensity);
                     switch (tmpIntensity)
                     {
-                        //BUG: + 
                         case 1:
                         {
                             running.Intensity = RunningIntensity.Minimum;
@@ -176,7 +168,7 @@ namespace LR_3
                 {
                     Console.Write("Введите количество повторений: ");
                     barbellPress.NumerRepetitions = 
-                    (int)ReadFromConsoleAndParse();
+                        Convert.ToInt32(ReadFromConsoleAndParse());
                 }), "количество повторений"),
 
             };
@@ -185,8 +177,7 @@ namespace LR_3
 
             return barbellPress;
         }
-
-        //TODO: XML +
+        
         /// <summary>
         /// Перебор action при вводе вида упражнения.
         /// </summary>
@@ -198,7 +189,8 @@ namespace LR_3
                 ActionHandler(act.Item1, act.Item2);
             }
         }
-
+        
+        // TODO: Добавить описание
         /// <summary>
         /// Чтение с консоли и преобразование в double
         /// </summary>
@@ -207,7 +199,8 @@ namespace LR_3
             return double.Parse(CheckString
                 (Console.ReadLine()).Replace('.', ','));
         }
-
+        
+        // TODO: Добавить описание
         /// <summary>
         /// Проверка на ввод числа
         /// </summary>
@@ -221,13 +214,14 @@ namespace LR_3
             }
             return value;
         }
-
+        
+        // TODO: Добавить описание
         /// <summary>
         /// Метод использования Action.
         /// </summary>
         /// <param name="action"></param>
         /// <param name="propertyName"></param>
-        private static void ActionHandler(Action action, string propertyname)
+        private static void ActionHandler(Action action, string propertyName)
         {
             while (true)
             {
@@ -239,7 +233,7 @@ namespace LR_3
                 catch (Exception exception)
                 {
                     Console.WriteLine($"Ошибка: {exception.Message} " +
-                        $"Введите {propertyname} ещё раз!");
+                        $"Введите {propertyName} ещё раз!");
                 }
             }
         }

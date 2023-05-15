@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Model
+﻿namespace Model
 {
-    //TODO: XML + 
     /// <summary>
     /// Класс упражнения бега.
     /// </summary>
@@ -28,7 +21,7 @@ namespace Model
         public RunningIntensity Intensity { get; set; }
 
         /// <summary>
-        /// Чтение и записть веса.
+        /// Чтение и запись веса.
         /// </summary>
         public double Weight
         {
@@ -43,7 +36,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Чтение и записть расстояние.
+        /// Чтение и запись расстояния.
         /// </summary>
         public double Distance
         {
@@ -53,10 +46,11 @@ namespace Model
             }
             set
             {
-                _distance = CheckingDistance((int)CheckingNumber(value));
+                _distance = CheckingDistance(CheckingNumber(value));
             }
         }
-
+        
+        // TODO: Обновить описания
         /// <summary>
         /// Максимальный вес человека.
         /// </summary>
@@ -67,36 +61,37 @@ namespace Model
         /// </summary>
         private const double MinDistance = 1.5;
 
+        // TODO: Уточнить Exception
         /// <summary>
         /// Метод проверки дистанции.
         /// </summary>
-        /// <param name="weight">Дистанция.</param>
+        /// <param name="distance">Дистанция.</param>
         /// <returns>Введенная дистанция.</returns>
         /// <exception cref="Exception">исключает неподходящую дистанцию
         /// .</exception>
-        protected static int CheckingDistance(int distance)
+        private double CheckingDistance(double distance)
         {
             if (distance < MinDistance)
             {
                 throw new Exception($"Необходимо пробежать хотя бы " +
                     $"{MinDistance} км.");
             }
-            else if (distance > MaxDistance)
+            if (distance > MaxDistance)
             { 
                 throw new Exception($"Нерекомендуется бегать больше" +
                     $" {MaxDistance} км. Опасно для здоровья!");
             }
             return distance;
         }
-
+        
+        // TODO: Добавить описание
         /// <summary>
         /// Расчёт расхода калорий при беге.
         /// </summary>
         /// <returns></returns>
         public override int CalculationCalorie()
         {
-            //TODO: switch-case + 
-            //TODO: сделать соответствие элементам перечисления и коэффициентам + 
+            // TODO: Вынести из метода
             var runningIntensity = new Dictionary<RunningIntensity, double>()
             {
                 [RunningIntensity.Minimum] = 1.2,
