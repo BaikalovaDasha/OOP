@@ -9,11 +9,12 @@ namespace LR_3
     /// </summary>
     public static class ConsoleAddExercises
     {
-        // TODO: Добавить описание
+        // TODO: Добавить описание + 
         /// <summary>
         /// Метод добавления вида упражнения: плавание.
         /// </summary>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException">неподходящий стиль плавания.
+        /// ...</exception>
         public static Swimming AddingSwimming()
         {
             var swimming = new Swimming();
@@ -75,11 +76,12 @@ namespace LR_3
             return swimming;
         }
         
-        // TODO: Добавить описание
+        // TODO: Добавить описание + 
         /// <summary>
         /// Метод добавления вида упражнения: бег.
         /// </summary>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException">неподходящий вид...
+        /// ...интенсивности.</exception>
         public static Running AddingRunning()
         {
             var running = new Running();
@@ -151,7 +153,7 @@ namespace LR_3
         /// <summary>
         /// Метод добавления вида упражнения: жим штанги.
         /// </summary>
-        /// <exception cref="ArgumentException"></exception>
+        /// <returns>вводимые параметры.</returns>
         public static BarbellPress AddingBarbellPress()
         {
             var barbellPress = new BarbellPress();
@@ -181,7 +183,7 @@ namespace LR_3
         /// <summary>
         /// Перебор action при вводе вида упражнения.
         /// </summary>
-        /// <param name="actionList"></param>
+        /// <param name="actionList">список из Action.</param>
         public static void IterateList(List<(Action, string)> actionList)
         {
             foreach (var act in actionList)
@@ -189,21 +191,23 @@ namespace LR_3
                 ActionHandler(act.Item1, act.Item2);
             }
         }
-        
+
         // TODO: Добавить описание
         /// <summary>
         /// Чтение с консоли и преобразование в double
         /// </summary>
+        /// <returns>преобразованная строка в double.</returns>
         public static double ReadFromConsoleAndParse()
         {
             return double.Parse(CheckString
                 (Console.ReadLine()).Replace('.', ','));
         }
-        
+
         // TODO: Добавить описание
         /// <summary>
         /// Проверка на ввод числа
         /// </summary>
+        /// <returns>введённое число.</returns>
         public static string CheckString(string value)
         {
             Regex checkString = new(@"\d");
@@ -214,13 +218,13 @@ namespace LR_3
             }
             return value;
         }
-        
-        // TODO: Добавить описание
+
+        // TODO: Добавить описание + 
         /// <summary>
         /// Метод использования Action.
         /// </summary>
-        /// <param name="action"></param>
-        /// <param name="propertyName"></param>
+        /// <param name="action">action.</param>
+        /// <param name="propertyName">параметры.</param>
         private static void ActionHandler(Action action, string propertyName)
         {
             while (true)

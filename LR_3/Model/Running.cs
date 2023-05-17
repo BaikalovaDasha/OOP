@@ -50,18 +50,18 @@
             }
         }
         
-        // TODO: Обновить описания
+        // TODO: Обновить описания + 
         /// <summary>
-        /// Максимальный вес человека.
+        /// Максимальное расстояние при беге.
         /// </summary>
         private const int MaxDistance = 30;
 
         /// <summary>
-        /// Максимальный вес человека.
+        /// Максимальное расстояние при беге.
         /// </summary>
         private const double MinDistance = 1.5;
 
-        // TODO: Уточнить Exception
+        // TODO: Уточнить Exception +
         /// <summary>
         /// Метод проверки дистанции.
         /// </summary>
@@ -73,34 +73,35 @@
         {
             if (distance < MinDistance)
             {
-                throw new Exception($"Необходимо пробежать хотя бы " +
+                throw new ArgumentException($"Необходимо пробежать хотя бы " +
                     $"{MinDistance} км.");
             }
             if (distance > MaxDistance)
             { 
-                throw new Exception($"Нерекомендуется бегать больше" +
+                throw new ArgumentException($"Нерекомендуется бегать больше" +
                     $" {MaxDistance} км. Опасно для здоровья!");
             }
             return distance;
         }
-        
-        // TODO: Добавить описание
+
+        private readonly Dictionary<RunningIntensity, double> runningIntensity = 
+            new()
+        {
+            [RunningIntensity.Minimum] = 1.2,
+            [RunningIntensity.Weak] = 1.375,
+            [RunningIntensity.Medium] = 1.55,
+            [RunningIntensity.High] = 1.725,
+            [RunningIntensity.Extra] = 1.9,
+        };
+
+        // TODO: Добавить описание +
         /// <summary>
         /// Расчёт расхода калорий при беге.
         /// </summary>
-        /// <returns></returns>
+        /// <returns> потраченные калории.</returns>
         public override int CalculationCalorie()
         {
-            // TODO: Вынести из метода
-            var runningIntensity = new Dictionary<RunningIntensity, double>()
-            {
-                [RunningIntensity.Minimum] = 1.2,
-                [RunningIntensity.Weak] = 1.375,
-                [RunningIntensity.Medium] = 1.55,
-                [RunningIntensity.High] = 1.725,
-                [RunningIntensity.Extra] = 1.9,
-            };
-
+            // TODO: Вынести из метода + (вынести словарь) 
             return (int)(Weight * Distance * runningIntensity[Intensity]);
         }
     }

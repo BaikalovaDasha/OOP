@@ -56,35 +56,35 @@
         /// </summary>
         private const int MinNumerRepetitions = 5;
 
-        // TODO: Уточнить Exception
-        // TODO: Добавить описание
+        // TODO: Уточнить Exception + 
+        // TODO: Добавить описание +
         /// <summary>
         /// проверка на количество повторений
         /// </summary>
-        /// <param name="numerRepetitions">количество повторений</param>
-        /// <returns></returns>
+        /// <param name="numerRepetitions">количество повторений.</param>
+        /// <returns>введённое количество повторений.</returns>
         /// <exception cref="Exception">неподходящее число повторений...
         /// .</exception>
         private int CheckNumerRepetitions(int numerRepetitions)
         {
             if (numerRepetitions < MinNumerRepetitions)
             {
-                throw new Exception($"Начинать было бы не плохо с " +
+                throw new ArgumentException($"Начинать было бы не плохо с " +
                     $"{MinNumerRepetitions} повторений.");
             }
             if (numerRepetitions > MaxNumerRepetitions)
             {
-                throw new Exception($"Нерекомендуется делать больше" +
+                throw new ArgumentException($"Нерекомендуется делать больше" +
                     $" {MaxNumerRepetitions} повторений за один подход");
             }
             return numerRepetitions;
         }
         
-        // TODO: Добавить описание
+        // TODO: Добавить описание + 
         /// <summary>
         /// Расчёт расхода калорий при жиме штанги.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>потраченные калории.</returns>
         public override int CalculationCalorie()
         {
             return (int)(Weight * 0.454 / 150 * 5 * NumerRepetitions);

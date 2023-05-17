@@ -59,11 +59,11 @@ namespace ConsoleApp
             }
         }
 
-        // TODO: Добавить описание
+        // TODO: Добавить описание + 
         /// <summary>
         /// Вывод потраченных калорий.
         /// </summary>
-        /// <param name="exercises"></param>
+        /// <param name="exercises">вид упражнения.</param>
         public static void GetInfoExercise(ExercisesBase exercises)
         {
             Console.WriteLine(

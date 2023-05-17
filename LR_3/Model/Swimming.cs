@@ -60,7 +60,7 @@
         /// </summary>
         private const int MinTime = 10;
 
-        // TODO: Уточнить Exception
+        // TODO: Уточнить Exception +
         /// <summary>
         /// Проверка времени при плавании.
         /// </summary>
@@ -72,33 +72,34 @@
         {
             if (time < MinTime)
             {
-                throw new Exception($"Для результата необходимо проплыть" +
+                throw new ArgumentException($"Для результата необходимо проплыть" +
                     $" хотя бы {MinTime} минут.");
             }
             if (time > MaxTime)
             {
-                throw new Exception($"Нерекомендуется плавать больше" +
+                throw new ArgumentException($"Нерекомендуется плавать больше" +
                     $" {MaxTime} минут!");
             }
             return time;
         }
 
-        // TODO: Добавить описание
+        private readonly Dictionary<SwimmingStyle, double> swimmingStyle =
+            new()
+        {
+            [SwimmingStyle.Crawl] = 0.102,
+            [SwimmingStyle.Breaststroke] = 0.180,
+            [SwimmingStyle.Butterfly] = 0.242,
+            [SwimmingStyle.WaterAerobics] = 0.096,
+        };
+
+        // TODO: Добавить описание + 
         /// <summary>
         /// Расчёт расхода калорий при плавании.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>потраченные калории.</returns>
         public override int CalculationCalorie()
         {
-            // TODO: Вынести из метода
-            var swimmingStyle = new Dictionary<SwimmingStyle, double>()
-            {
-                [SwimmingStyle.Crawl] = 0.102,
-                [SwimmingStyle.Breaststroke] = 0.180,
-                [SwimmingStyle.Butterfly] = 0.242,
-                [SwimmingStyle.WaterAerobics] = 0.096,
-            };
-
+            // TODO: Вынести из метода + (вынести словарь)
             return (int)(Weight * Time * swimmingStyle[Style]);
         }
     }
