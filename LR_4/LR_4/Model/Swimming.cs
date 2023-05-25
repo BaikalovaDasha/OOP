@@ -1,4 +1,4 @@
-﻿namespace Model
+﻿namespace model
 {
     /// <summary>
     /// Класс упражнения плавание.
@@ -60,6 +60,7 @@
         /// </summary>
         private const int MinTime = 10;
 
+        // TODO: Уточнить Exception +
         /// <summary>
         /// Проверка времени при плавании.
         /// </summary>
@@ -91,12 +92,14 @@
                 [SwimmingStyle.WaterAerobics] = 0.096,
             };
 
+        // TODO: Добавить описание + 
         /// <summary>
         /// Расчёт расхода калорий при плавании.
         /// </summary>
         /// <returns>потраченные калории.</returns>
         public override int CalculationCalorie()
         {
+            // TODO: Вынести из метода + (вынести словарь)
             return (int)(Weight * Time * swimmingStyle[Style]);
         }
     }

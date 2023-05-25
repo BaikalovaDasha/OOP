@@ -1,4 +1,4 @@
-﻿namespace Model
+﻿namespace model
 {
     /// <summary>
     /// Класс для видов упражнений.
