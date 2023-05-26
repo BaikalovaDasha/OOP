@@ -50,7 +50,6 @@
             }
         }
         
-        // TODO: Обновить описания + 
         /// <summary>
         /// Максимальное расстояние при беге.
         /// </summary>
@@ -61,7 +60,6 @@
         /// </summary>
         private const double MinDistance = 1.5;
 
-        // TODO: Уточнить Exception +
         /// <summary>
         /// Метод проверки дистанции.
         /// </summary>
@@ -94,14 +92,12 @@
             [RunningIntensity.Extra] = 1.9,
         };
 
-        // TODO: Добавить описание +
         /// <summary>
         /// Расчёт расхода калорий при беге.
         /// </summary>
         /// <returns> потраченные калории.</returns>
         public override int CalculationCalorie()
         {
-            // TODO: Вынести из метода + (вынести словарь) 
             return (int)(Weight * Distance * runningIntensity[Intensity]);
         }
     }

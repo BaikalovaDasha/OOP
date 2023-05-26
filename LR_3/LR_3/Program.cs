@@ -59,7 +59,6 @@ namespace ConsoleApp
             }
         }
 
-        // TODO: Добавить описание + 
         /// <summary>
         /// Вывод потраченных калорий.
         /// </summary>

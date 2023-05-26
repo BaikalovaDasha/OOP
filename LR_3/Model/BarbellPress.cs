@@ -56,14 +56,13 @@
         /// </summary>
         private const int MinNumerRepetitions = 5;
 
-        // TODO: Уточнить Exception + 
-        // TODO: Добавить описание +
         /// <summary>
         /// проверка на количество повторений
         /// </summary>
         /// <param name="numerRepetitions">количество повторений.</param>
         /// <returns>введённое количество повторений.</returns>
-        /// <exception cref="Exception">неподходящее число повторений...
+        /// //TODO: XML
+        /// <exception cref="ArgumentException">неподходящее число повторений...
         /// .</exception>
         private int CheckNumerRepetitions(int numerRepetitions)
         {
@@ -80,7 +79,6 @@
             return numerRepetitions;
         }
         
-        // TODO: Добавить описание + 
         /// <summary>
         /// Расчёт расхода калорий при жиме штанги.
         /// </summary>

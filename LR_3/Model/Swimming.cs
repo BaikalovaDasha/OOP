@@ -60,13 +60,12 @@
         /// </summary>
         private const int MinTime = 10;
 
-        // TODO: Уточнить Exception +
         /// <summary>
         /// Проверка времени при плавании.
         /// </summary>
         /// <param name="time">Время.</param>
         /// <returns>Введённое время.</returns>
-        /// <exception cref="Exception">исключает неподходящее время
+        /// <exception cref="ArgumentException">исключает неподходящее время
         /// .</exception>
         private int CheckingTime(int time)
         {
@@ -83,6 +82,7 @@
             return time;
         }
 
+        //TODO: RSDN
         private readonly Dictionary<SwimmingStyle, double> swimmingStyle =
             new()
         {
@@ -92,14 +92,12 @@
             [SwimmingStyle.WaterAerobics] = 0.096,
         };
 
-        // TODO: Добавить описание + 
         /// <summary>
         /// Расчёт расхода калорий при плавании.
         /// </summary>
         /// <returns>потраченные калории.</returns>
         public override int CalculationCalorie()
         {
-            // TODO: Вынести из метода + (вынести словарь)
             return (int)(Weight * Time * swimmingStyle[Style]);
         }
     }

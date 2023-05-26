@@ -9,7 +9,6 @@ namespace LR_3
     /// </summary>
     public static class ConsoleAddExercises
     {
-        // TODO: Добавить описание + 
         /// <summary>
         /// Метод добавления вида упражнения: плавание.
         /// </summary>
@@ -76,7 +75,6 @@ namespace LR_3
             return swimming;
         }
         
-        // TODO: Добавить описание + 
         /// <summary>
         /// Метод добавления вида упражнения: бег.
         /// </summary>
@@ -192,7 +190,6 @@ namespace LR_3
             }
         }
 
-        // TODO: Добавить описание
         /// <summary>
         /// Чтение с консоли и преобразование в double
         /// </summary>
@@ -203,7 +200,6 @@ namespace LR_3
                 (Console.ReadLine()).Replace('.', ','));
         }
 
-        // TODO: Добавить описание
         /// <summary>
         /// Проверка на ввод числа
         /// </summary>
@@ -219,7 +215,6 @@ namespace LR_3
             return value;
         }
 
-        // TODO: Добавить описание + 
         /// <summary>
         /// Метод использования Action.
         /// </summary>
