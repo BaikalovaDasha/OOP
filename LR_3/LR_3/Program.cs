@@ -66,7 +66,7 @@ namespace ConsoleApp
         public static void GetInfoExercise(ExercisesBase exercises)
         {
             Console.WriteLine(
-                $"Затратилось {exercises.CalculationCalorie()} калорий.");
+                $"Затратилось {exercises.CalculationCalorie()} килокалории.");
         }
     }
 }
