@@ -82,7 +82,9 @@
             return time;
         }
 
-        //TODO: RSDN
+        /// <summary>
+        /// Словарь коэффициентов стиля плавания.
+        /// </summary>
         private readonly Dictionary<SwimmingStyle, double> swimmingStyle =
             new()
         {

@@ -82,6 +82,9 @@
             return distance;
         }
 
+        /// <summary>
+        /// Словарь коэффициентов интенсивности.
+        /// </summary>
         private readonly Dictionary<RunningIntensity, double> runningIntensity = 
             new()
         {

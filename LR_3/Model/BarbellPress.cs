@@ -62,8 +62,7 @@
         /// <param name="numerRepetitions">количество повторений.</param>
         /// <returns>введённое количество повторений.</returns>
         /// //TODO: XML
-        /// <exception cref="ArgumentException">неподходящее число повторений...
-        /// .</exception>
+        /// <exception cref="ArgumentException">повторения не соответствуют интервалу.</exception>
         private int CheckNumerRepetitions(int numerRepetitions)
         {
             if (numerRepetitions < MinNumerRepetitions)
