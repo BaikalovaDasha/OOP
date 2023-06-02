@@ -160,7 +160,7 @@ namespace LR_3
             {
                 (new Action(() =>
                 {
-                    Console.Write("Введите вес человека, кг: ");
+                    Console.Write("Введите поднимаемый вес, кг: ");
                     barbellPress.Weight = ReadFromConsoleAndParse();
                 }), "вес человека"),
 

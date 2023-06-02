@@ -85,13 +85,13 @@
         /// <summary>
         /// Словарь коэффициентов стиля плавания.
         /// </summary>
-        private readonly Dictionary<SwimmingStyle, double> swimmingStyle =
+        private readonly Dictionary<SwimmingStyle, double> SwimmingStyle =
             new()
         {
-            [SwimmingStyle.Crawl] = 0.102,
-            [SwimmingStyle.Breaststroke] = 0.180,
-            [SwimmingStyle.Butterfly] = 0.242,
-            [SwimmingStyle.WaterAerobics] = 0.096,
+            [Model.SwimmingStyle.Crawl] = 0.102,
+            [Model.SwimmingStyle.Breaststroke] = 0.180,
+            [Model.SwimmingStyle.Butterfly] = 0.242,
+            [Model.SwimmingStyle.WaterAerobics] = 0.096,
         };
 
         /// <summary>
@@ -100,7 +100,7 @@
         /// <returns>потраченные калории.</returns>
         public override int CalculationCalorie()
         {
-            return (int)(Weight * Time * swimmingStyle[Style]);
+            return (int)(Weight * Time * SwimmingStyle[Style]);
         }
     }
 }

@@ -15,7 +15,6 @@
         /// </summary>
         private int _numerRepetitions;
 
-
         /// <summary>
         /// Чтение и записть веса человка.
         /// </summary>
@@ -27,7 +26,7 @@
             }
             set
             {
-                _weight = CheckingWeight(CheckingNumber(value));
+                _weight = CheckWeight((int)CheckingNumber(value));
             }
         }
 
@@ -55,7 +54,38 @@
         /// <summary>
         /// Максимальное количество повторений.
         /// </summary>
-        private const int MinNumerRepetitions = 5;
+        private const int MinNumerRepetitions = 1;
+
+        /// <summary>
+        /// Максимальный вес.
+        /// </summary>
+        private const int MaxWeght = 335;
+
+        /// <summary>
+        /// Максимальное количество повторений.
+        /// </summary>
+        private const int MinWeght = 90;
+
+        /// <summary>
+        /// проверка на поднимаемый вес
+        /// </summary>
+        /// <param name="numerRepetitions">поднимаемый вес.</param>
+        /// <returns>введённое поднимаемый вес.</returns>
+        /// <exception cref="ArgumentException">вес не соответствует интервалу.</exception>
+        private static int CheckWeight(int weight)
+        {
+            if (weight > MaxWeght)
+            {
+                throw new ArgumentException($"Поднимаемый вес не может быть" +
+                    $" больше {MaxWeght}");
+            }
+            if (weight < MinWeght)
+            {
+                throw new ArgumentException($"Не рекомендуем поднимать вес" +
+                    $" меньше, чем {MinWeght}");
+            }
+            return weight;
+        }
 
         /// <summary>
         /// проверка на количество повторений
@@ -78,6 +108,7 @@
             }
             return numerRepetitions;
         }
+
         
         /// <summary>
         /// Расчёт расхода калорий при жиме штанги.

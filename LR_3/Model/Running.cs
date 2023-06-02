@@ -85,14 +85,14 @@
         /// <summary>
         /// Словарь коэффициентов интенсивности.
         /// </summary>
-        private readonly Dictionary<RunningIntensity, double> runningIntensity = 
+        private readonly Dictionary<RunningIntensity, double> RunningIntensity = 
             new()
         {
-            [RunningIntensity.Minimum] = 1.2,
-            [RunningIntensity.Weak] = 1.375,
-            [RunningIntensity.Medium] = 1.55,
-            [RunningIntensity.High] = 1.725,
-            [RunningIntensity.Extra] = 1.9,
+            [Model.RunningIntensity.Minimum] = 1.2,
+            [Model.RunningIntensity.Weak] = 1.375,
+            [Model.RunningIntensity.Medium] = 1.55,
+            [Model.RunningIntensity.High] = 1.725,
+            [Model.RunningIntensity.Extra] = 1.9,
         };
 
         /// <summary>
@@ -101,7 +101,7 @@
         /// <returns> потраченные калории.</returns>
         public override int CalculationCalorie()
         {
-            return (int)(Weight * Distance * runningIntensity[Intensity]);
+            return (int)(Weight * Distance * RunningIntensity[Intensity]);
         }
     }
 }
