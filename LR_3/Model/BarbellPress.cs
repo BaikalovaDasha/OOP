@@ -6,7 +6,7 @@
     public class BarbellPress : ExercisesBase
     {
         /// <summary>
-        /// Вес человка.
+        /// поднимаемый вес.
         /// </summary>
         private double _weight;
 
@@ -14,6 +14,7 @@
         /// Количество повторений.
         /// </summary>
         private int _numerRepetitions;
+
 
         /// <summary>
         /// Чтение и записть веса человка.
