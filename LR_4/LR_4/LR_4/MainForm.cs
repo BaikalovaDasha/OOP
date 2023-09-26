@@ -21,7 +21,6 @@ namespace LR_4
         {
             var addExercisesForm = new AddForm();
 
-            addExercisesForm.
         }
     }
 }
