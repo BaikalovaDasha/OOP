@@ -120,12 +120,12 @@ namespace LR_4
                 ExercisesAdded?.Invoke(this, eventArgs);
                 DialogResult = DialogResult.OK;
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Введено некорректное значение!\n" +
-                    "Введите одно положительное десятичное число" +
-                    " в каждое текстовое поле.",
+                MessageBox.Show("Введено некорректное значение!\n",
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message);
+
             }
         }
     }
