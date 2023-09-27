@@ -1,15 +1,35 @@
-﻿namespace model
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
+
+namespace model
 {
     /// <summary>
     /// Класс для видов упражнений.
     /// </summary>
+    [XmlInclude(typeof(BarbellPress))]
+    [XmlInclude(typeof(Running))]
+    [XmlInclude(typeof(Swimming))]
+
     public abstract class ExercisesBase
     {
+        /// <summary>
+        /// Тип упражнения.
+        /// </summary>
+        [DisplayName("Тип упражнения")]
+        public abstract string ExercisesType { get; }
+
+        /// <summary>
+        /// Параметры упражнения.
+        /// </summary>
+        [DisplayName("Параметры упражнения")]
+        public abstract string Parameters { get; }
+
         /// <summary>
         /// Метод рассчитывающий калории в зависимости...
         /// ...от выполненного упражнения.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Рассчитанные колории.</returns>
+        [DisplayName("Калории, Ккал")]
         public abstract int CalculationCalorie();
 
         /// <summary>
@@ -55,6 +75,12 @@
             }
             return weight;
         }
+
+        /// <summary>
+        /// Метод вывода инфрмации об упражнении.
+        /// </summary>
+        /// <returns></returns>
+        public abstract string GetInfo();
 
     }
 }

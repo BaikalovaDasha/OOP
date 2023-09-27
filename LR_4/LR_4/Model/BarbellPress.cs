@@ -6,7 +6,12 @@
     public class BarbellPress : ExercisesBase
     {
         /// <summary>
-        /// Вес человка.
+        /// Вес штанги.
+        /// </summary>
+        private double _weightRod;
+
+        /// <summary>
+        /// Вес человека.
         /// </summary>
         private double _weight;
 
@@ -16,7 +21,22 @@
         private int _numerRepetitions;
 
         /// <summary>
-        /// Чтение и записть веса человка.
+        /// Чтение и записть веса штанги.
+        /// </summary>
+        public double WeightRod
+        {
+            get
+            {
+                return _weightRod;
+            }
+            set
+            {
+                _weight = CheckingWeight(CheckingNumber(value));
+            }
+        }
+
+        /// <summary>
+        /// Чтение и записть веса человека.
         /// </summary>
         public double Weight
         {
@@ -49,12 +69,12 @@
         /// <summary>
         /// Максимальное количество повторений.
         /// </summary>
-        private const int MaxNumerRepetitions = 15;
+        private const int MaxNumerRepetitions = 10;
 
         /// <summary>
         /// Максимальное количество повторений.
         /// </summary>
-        private const int MinNumerRepetitions = 5;
+        private const int MinNumerRepetitions = 1;
 
         // TODO: Уточнить Exception + 
         // TODO: Добавить описание +
@@ -88,6 +108,42 @@
         public override int CalculationCalorie()
         {
             return (int)(Weight * 0.454 / 150 * 5 * NumerRepetitions);
+        }
+
+        /// <summary>
+        /// Тип упражнения.
+        /// </summary>
+        public override string ExercisesType
+        {
+            get
+            {
+                return $"Жим штанги лёжа";
+            }
+        }
+
+        /// <summary>
+        /// Параметры упражнения.
+        /// </summary>
+        public override string Parameters
+        {
+            get
+            {
+                return $"Вес человека = {Weight}, кг;\n" +
+                    $"Вес штанги = {WeightRod}, кг;\n" +
+                    $"Количество повторений = {NumerRepetitions}";
+            }
+        }
+
+        /// <summary>
+        /// Метод вывода инфрмации об упражнении.
+        /// </summary>
+        /// <returns>Иняормация об упражнении.</returns>
+        public override string GetInfo()
+        {
+            return $"Жим штанги:\nВес человека = {Weight}, кг;\n " +
+                $"Вес штанги = {WeightRod}, кг;\n" +
+                $"Количество повторений = {NumerRepetitions}.\n" +
+                $"Затраченные калории = {CalculationCalorie}, Ккал";
         }
     }
 }

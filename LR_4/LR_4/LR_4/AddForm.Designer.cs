@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            comboBox1 = new ComboBox();
-            button1 = new Button();
+            comboBoxExercises = new ComboBox();
+            RadnomButton = new Button();
             groupBox1 = new GroupBox();
-            button2 = new Button();
-            button3 = new Button();
+            OK = new Button();
+            Cancel = new Button();
             SuspendLayout();
             // 
             // label1
@@ -45,23 +45,24 @@
             label1.TabIndex = 0;
             label1.Text = "Выберите упражнение";
             // 
-            // comboBox1
+            // comboBoxExercises
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(12, 45);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(189, 28);
-            comboBox1.TabIndex = 1;
+            comboBoxExercises.FormattingEnabled = true;
+            comboBoxExercises.Location = new Point(12, 45);
+            comboBoxExercises.Name = "comboBoxExercises";
+            comboBoxExercises.Size = new Size(189, 28);
+            comboBoxExercises.TabIndex = 1;
+            comboBoxExercises.SelectedIndexChanged += ComboBoxExcercises_SelectedIndexChanged;
             // 
-            // button1
+            // RadnomButton
             // 
-            button1.Location = new Point(207, 45);
-            button1.Name = "button1";
-            button1.Size = new Size(189, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Случайное упражнение";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            RadnomButton.Location = new Point(207, 45);
+            RadnomButton.Name = "RadnomButton";
+            RadnomButton.Size = new Size(189, 29);
+            RadnomButton.TabIndex = 2;
+            RadnomButton.Text = "Случайное упражнение";
+            RadnomButton.UseVisualStyleBackColor = true;
+            RadnomButton.Click += RadnomButton_Click;
             // 
             // groupBox1
             // 
@@ -72,34 +73,36 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Параметры упражнений";
             // 
-            // button2
+            // OK
             // 
-            button2.Location = new Point(12, 285);
-            button2.Name = "button2";
-            button2.Size = new Size(189, 29);
-            button2.TabIndex = 4;
-            button2.Text = "OK";
-            button2.UseVisualStyleBackColor = true;
+            OK.Location = new Point(12, 285);
+            OK.Name = "OK";
+            OK.Size = new Size(189, 29);
+            OK.TabIndex = 4;
+            OK.Text = "OK";
+            OK.UseVisualStyleBackColor = true;
+            OK.Click += OK_Click;
             // 
-            // button3
+            // Cancel
             // 
-            button3.Location = new Point(207, 285);
-            button3.Name = "button3";
-            button3.Size = new Size(189, 29);
-            button3.TabIndex = 5;
-            button3.Text = "Отменить";
-            button3.UseVisualStyleBackColor = true;
+            Cancel.Location = new Point(207, 285);
+            Cancel.Name = "Cancel";
+            Cancel.Size = new Size(189, 29);
+            Cancel.TabIndex = 5;
+            Cancel.Text = "Отменить";
+            Cancel.UseVisualStyleBackColor = true;
+            Cancel.Click += Cancel_Click;
             // 
             // AddForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(405, 336);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(button3);
+            Controls.Add(OK);
+            Controls.Add(RadnomButton);
+            Controls.Add(Cancel);
             Controls.Add(groupBox1);
-            Controls.Add(comboBox1);
+            Controls.Add(comboBoxExercises);
             Controls.Add(label1);
             Name = "AddForm";
             Text = "Добавление упражения";
@@ -110,10 +113,10 @@
         #endregion
 
         private Label label1;
-        private ComboBox comboBox1;
-        private Button button1;
+        private ComboBox comboBoxExercises;
+        private Button RadnomButton;
         private GroupBox groupBox1;
-        private Button button2;
-        private Button button3;
+        private Button OK;
+        private Button Cancel;
     }
 }

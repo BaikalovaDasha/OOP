@@ -84,6 +84,9 @@
             return distance;
         }
 
+        /// <summary>
+        /// Словарь интенсивности бега.
+        /// </summary>
         private readonly Dictionary<RunningIntensity, double> runningIntensity =
             new()
             {
@@ -103,6 +106,42 @@
         {
             // TODO: Вынести из метода + (вынести словарь) 
             return (int)(Weight * Distance * runningIntensity[Intensity]);
+        }
+
+        /// <summary>
+        /// Тип упражнения.
+        /// </summary>
+        public override string ExercisesType
+        {
+            get
+            {
+                return $"Бег";
+            }
+        }
+
+        /// <summary>
+        /// Параметры упражнения.
+        /// </summary>
+        public override string Parameters
+        {
+            get
+            {
+                return $"Вес человека = {Weight}, кг;\n" +
+                    $"Расстояние = {Distance}, км;\n" +
+                    $"Интенсивность бега = {Intensity}";
+            }
+        }
+
+        /// <summary>
+        /// Метод вывода инфрмации об упражнении.
+        /// </summary>
+        /// <returns>Иняормация об упражнении.</returns>
+        public override string GetInfo()
+        {
+            return $"Жим штанги:\nВес человека = {Weight}, кг;\n" +
+                $"Расстояние = {Distance}, мин;\n" +
+                $"Интенсивность бега = {Intensity}.\n" +
+                $"Затраченные калории = {CalculationCalorie}, Ккал";
         }
     }
 }
