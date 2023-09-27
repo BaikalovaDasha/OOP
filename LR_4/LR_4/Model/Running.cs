@@ -124,8 +124,8 @@
         {
             get
             {
-                return $"Вес человека = {Weight}, кг;\n" +
-                    $"Расстояние = {Distance}, км;\n" +
+                return $"Вес человека = {Weight} кг\n" +
+                    $"Расстояние = {Distance} км\n" +
                     $"Интенсивность бега = {Intensity}";
             }
         }
@@ -136,10 +136,10 @@
         /// <returns>Иняормация об упражнении.</returns>
         public override string GetInfo()
         {
-            return $"Жим штанги:\nВес человека = {Weight}, кг;\n" +
-                $"Расстояние = {Distance}, мин;\n" +
+            return $"Вес человека = {Weight} кг;\n" +
+                $"Расстояние = {Distance} мин;\n" +
                 $"Интенсивность бега = {Intensity}.\n" +
-                $"Затраченные калории = {CalculationCalorie}, Ккал";
+                $"Затраченные калории = {CalculationCalorie} Ккал";
         }
     }
 }

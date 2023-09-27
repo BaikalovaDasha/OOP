@@ -64,17 +64,6 @@ namespace LR_4
         /// <param name="e"></param>
         private void RadnomButton_Click(object sender, EventArgs e)
         {
-            Random random = new();
-
-            comboBoxExercises.SelectedIndex = random.Next(0, 3);
-
-            foreach (TextBox textbox in userControl.Controls.OfType<TextBox>())
-            {
-                if (textbox.Visible && String.IsNullOrEmpty(textbox.Text))
-                {
-                    textbox.Text = random.Next(1, 100).ToString();
-                }
-            }
         }
 
         /// <summary>

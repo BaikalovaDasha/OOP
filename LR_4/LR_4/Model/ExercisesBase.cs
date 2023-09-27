@@ -29,7 +29,7 @@ namespace model
         /// ...от выполненного упражнения.
         /// </summary>
         /// <returns>Рассчитанные колории.</returns>
-        [DisplayName("Калории, Ккал")]
+        [DisplayName("Затраченные калории, Ккал")]
         public abstract int CalculationCalorie { get; }
 
         /// <summary>

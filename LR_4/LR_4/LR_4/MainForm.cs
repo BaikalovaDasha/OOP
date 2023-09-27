@@ -70,9 +70,11 @@ namespace LR_4
             dataGridView.RowHeadersVisible = false;
             var source = new BindingSource(exercises, null);
             dataGridView.DataSource = source;
-            //dataGridView.Columns[0].Width = 130;
-            //dataGridView.Columns[1].Width = 192;
-            //dataGridView.Columns[2].Width = 125;
+
+            dataGridView.Columns[0].Width = 160;
+            dataGridView.Columns[1].Width = 500;
+            dataGridView.Columns[2].Width = 136;
+
             dataGridView.AllowUserToResizeColumns = false;
             dataGridView.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;

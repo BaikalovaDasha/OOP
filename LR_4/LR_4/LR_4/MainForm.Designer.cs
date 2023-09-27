@@ -47,7 +47,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(393, 181);
+            dataGridView1.Size = new Size(540, 181);
             dataGridView1.TabIndex = 0;
             // 
             // AddExercisesButton
@@ -102,7 +102,7 @@
             groupBox1.Controls.Add(dataGridView1);
             groupBox1.Location = new Point(12, 43);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(405, 226);
+            groupBox1.Size = new Size(552, 226);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Список упражнений";
@@ -115,7 +115,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(437, 411);
+            ClientSize = new Size(576, 411);
             Controls.Add(groupBox1);
             Controls.Add(button5);
             Controls.Add(button4);
@@ -124,7 +124,7 @@
             Controls.Add(AddExercisesButton);
             Name = "MainForm";
             Text = "Калькулятор килокалорий";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             ResumeLayout(false);
