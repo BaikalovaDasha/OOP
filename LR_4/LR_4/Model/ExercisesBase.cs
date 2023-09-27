@@ -30,7 +30,7 @@ namespace model
         /// </summary>
         /// <returns>Рассчитанные колории.</returns>
         [DisplayName("Калории, Ккал")]
-        public abstract int CalculationCalorie();
+        public abstract int CalculationCalorie { get; }
 
         /// <summary>
         /// Проверка параметра.

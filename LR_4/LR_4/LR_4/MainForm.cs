@@ -34,6 +34,11 @@ namespace LR_4
         private void AddExercisesButton_Click(object sender, EventArgs e)
         {
             AddForm addForm = new();
+
+            addForm.ExercisesAdded += (sender, ExercisesEventArgs) =>
+            {
+                _exercisesList.Add(((ExercisesEventArgs)ExercisesEventArgs).Exercises);
+            };
             addForm.ShowDialog(this);
         }
 
@@ -65,9 +70,9 @@ namespace LR_4
             dataGridView.RowHeadersVisible = false;
             var source = new BindingSource(exercises, null);
             dataGridView.DataSource = source;
-            dataGridView.Columns[0].Width = 130;
-            dataGridView.Columns[1].Width = 192;
-            dataGridView.Columns[2].Width = 125;
+            //dataGridView.Columns[0].Width = 130;
+            //dataGridView.Columns[1].Width = 192;
+            //dataGridView.Columns[2].Width = 125;
             dataGridView.AllowUserToResizeColumns = false;
             dataGridView.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;

@@ -1,6 +1,6 @@
 ﻿namespace LR_4
 {
-    partial class AddRunning
+    partial class AddSwimmingUserControl
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             comboBox1 = new ComboBox();
-            label4 = new Label();
+            label_Style = new Label();
             label1 = new Label();
             textBox1 = new TextBox();
             label_Time = new Label();
@@ -41,84 +41,84 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(176, 100);
+            comboBox1.Location = new Point(159, 102);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(169, 28);
-            comboBox1.TabIndex = 18;
+            comboBox1.TabIndex = 26;
             // 
-            // label4
+            // label_Style
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(20, 108);
-            label4.Name = "label4";
-            label4.Size = new Size(150, 20);
-            label4.TabIndex = 17;
-            label4.Text = "Интенсивность бега";
+            label_Style.AutoSize = true;
+            label_Style.Location = new Point(3, 110);
+            label_Style.Name = "label_Style";
+            label_Style.Size = new Size(120, 20);
+            label_Style.TabIndex = 25;
+            label_Style.Text = "Стиль плавания";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(307, 65);
+            label1.Location = new Point(290, 67);
             label1.Name = "label1";
-            label1.Size = new Size(27, 20);
-            label1.TabIndex = 16;
-            label1.Text = "км";
+            label1.Size = new Size(38, 20);
+            label1.TabIndex = 24;
+            label1.Text = "мин";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(176, 58);
+            textBox1.Location = new Point(159, 60);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 15;
+            textBox1.TabIndex = 23;
             // 
             // label_Time
             // 
             label_Time.AutoSize = true;
-            label_Time.Location = new Point(20, 65);
+            label_Time.Location = new Point(3, 67);
             label_Time.Name = "label_Time";
-            label_Time.Size = new Size(88, 20);
-            label_Time.TabIndex = 14;
-            label_Time.Text = "Расстояние";
+            label_Time.Size = new Size(125, 20);
+            label_Time.TabIndex = 22;
+            label_Time.Text = "Время плавания";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(307, 24);
+            label2.Location = new Point(290, 26);
             label2.Name = "label2";
             label2.Size = new Size(22, 20);
-            label2.TabIndex = 13;
+            label2.TabIndex = 21;
             label2.Text = "кг";
             // 
             // Weight
             // 
-            Weight.Location = new Point(176, 17);
+            Weight.Location = new Point(159, 19);
             Weight.Name = "Weight";
             Weight.Size = new Size(125, 27);
-            Weight.TabIndex = 12;
+            Weight.TabIndex = 20;
             // 
             // label_Weight
             // 
             label_Weight.AutoSize = true;
-            label_Weight.Location = new Point(20, 24);
+            label_Weight.Location = new Point(3, 26);
             label_Weight.Name = "label_Weight";
             label_Weight.Size = new Size(101, 20);
-            label_Weight.TabIndex = 11;
+            label_Weight.TabIndex = 19;
             label_Weight.Text = "Вес человека";
             // 
-            // AddRunning
+            // AddSwimmingUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(comboBox1);
-            Controls.Add(label4);
+            Controls.Add(label_Style);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(label_Time);
             Controls.Add(label2);
             Controls.Add(Weight);
             Controls.Add(label_Weight);
-            Name = "AddRunning";
-            Size = new Size(388, 150);
+            Name = "AddSwimmingUserControl";
+            Size = new Size(340, 150);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -126,7 +126,7 @@
         #endregion
 
         private ComboBox comboBox1;
-        private Label label4;
+        private Label label_Style;
         private Label label1;
         private TextBox textBox1;
         private Label label_Time;

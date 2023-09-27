@@ -124,6 +124,7 @@
             Controls.Add(AddExercisesButton);
             Name = "MainForm";
             Text = "Калькулятор килокалорий";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             ResumeLayout(false);

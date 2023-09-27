@@ -31,7 +31,7 @@
             }
             set
             {
-                _weight = CheckingWeight(CheckingNumber(value));
+                _weight = value;
             }
         }
 
@@ -105,10 +105,8 @@
         /// Расчёт расхода калорий при жиме штанги.
         /// </summary>
         /// <returns>потраченные калории.</returns>
-        public override int CalculationCalorie()
-        {
-            return (int)(Weight * 0.454 / 150 * 5 * NumerRepetitions);
-        }
+        public override int CalculationCalorie =>
+            (int)(Weight * 0.454 / 150 * 5 * NumerRepetitions);
 
         /// <summary>
         /// Тип упражнения.

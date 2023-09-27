@@ -10,10 +10,10 @@ namespace LR_4
     /// <summary>
     /// Интерфейс добавления упражнения.
     /// </summary>
-    internal class IAddFigure
+    internal interface IAddExercises
     {
         /// <summary>
-        /// Метод добавления упражнение.
+        /// Метод добавления упражнения.
         /// </summary>
         /// <returns></returns>
         public abstract ExercisesBase AddExercises();

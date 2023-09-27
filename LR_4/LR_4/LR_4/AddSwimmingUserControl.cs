@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LR_4
 {
-    public partial class AddRunning : UserControl
+    public partial class AddSwimmingUserControl : UserControl
     {
-        public AddRunning()
+        public AddSwimmingUserControl()
         {
             InitializeComponent();
         }

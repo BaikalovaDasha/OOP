@@ -32,8 +32,10 @@
             comboBoxExercises = new ComboBox();
             RadnomButton = new Button();
             groupBox1 = new GroupBox();
+            addRunningUserControl1 = new AddRunningUserControl();
             OK = new Button();
             Cancel = new Button();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -66,12 +68,20 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(addRunningUserControl1);
             groupBox1.Location = new Point(12, 89);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(381, 180);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Параметры упражнений";
+            // 
+            // addRunningUserControl1
+            // 
+            addRunningUserControl1.Location = new Point(6, 26);
+            addRunningUserControl1.Name = "addRunningUserControl1";
+            addRunningUserControl1.Size = new Size(369, 148);
+            addRunningUserControl1.TabIndex = 0;
             // 
             // OK
             // 
@@ -106,6 +116,8 @@
             Controls.Add(label1);
             Name = "AddForm";
             Text = "Добавление упражения";
+            Load += AddForm_Load;
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -118,5 +130,6 @@
         private GroupBox groupBox1;
         private Button OK;
         private Button Cancel;
+        private AddRunningUserControl addRunningUserControl1;
     }
 }

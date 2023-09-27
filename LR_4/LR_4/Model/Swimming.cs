@@ -100,11 +100,8 @@
         /// Расчёт расхода калорий при плавании.
         /// </summary>
         /// <returns>потраченные калории.</returns>
-        public override int CalculationCalorie()
-        {
-            // TODO: Вынести из метода + (вынести словарь)
-            return (int)(Weight * Time * swimmingStyle[Style]);
-        }
+        public override int CalculationCalorie => 
+            (int)(Weight * Time * swimmingStyle[Style]);
 
         /// <summary>
         /// Тип упражнения.

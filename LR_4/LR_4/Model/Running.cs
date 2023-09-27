@@ -102,11 +102,9 @@
         /// Расчёт расхода калорий при беге.
         /// </summary>
         /// <returns> потраченные калории.</returns>
-        public override int CalculationCalorie()
-        {
+        public override int CalculationCalorie =>
             // TODO: Вынести из метода + (вынести словарь) 
-            return (int)(Weight * Distance * runningIntensity[Intensity]);
-        }
+            (int)(Weight * Distance * runningIntensity[Intensity]);
 
         /// <summary>
         /// Тип упражнения.
