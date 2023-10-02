@@ -67,21 +67,24 @@ namespace LR_4
         public static void CreateTable(BindingList<ExercisesBase> exercises,
             DataGridView dataGridView)
         {
+            dataGridView.AllowUserToResizeColumns = false;
+            dataGridView.AllowUserToResizeRows = false;
             dataGridView.RowHeadersVisible = false;
+
             var source = new BindingSource(exercises, null);
             dataGridView.DataSource = source;
 
-            dataGridView.Columns[0].Width = 160;
-            dataGridView.Columns[1].Width = 500;
-            dataGridView.Columns[2].Width = 136;
+            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            dataGridView.AllowUserToResizeColumns = false;
             dataGridView.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
             dataGridView.ColumnHeadersDefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
             dataGridView.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
+
         }
     }
 }
