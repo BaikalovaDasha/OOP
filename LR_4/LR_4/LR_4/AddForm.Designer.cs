@@ -49,6 +49,7 @@
             // 
             // comboBoxExercises
             // 
+            comboBoxExercises.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxExercises.FormattingEnabled = true;
             comboBoxExercises.Location = new Point(12, 45);
             comboBoxExercises.Name = "comboBoxExercises";
@@ -91,6 +92,7 @@
             OK.TabIndex = 4;
             OK.Text = "OK";
             OK.UseVisualStyleBackColor = true;
+            OK.Enabled = false;
             OK.Click += OK_Click;
             // 
             // Cancel
@@ -107,6 +109,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(405, 336);
             Controls.Add(OK);
             Controls.Add(RadnomButton);

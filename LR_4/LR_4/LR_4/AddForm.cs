@@ -43,7 +43,6 @@ namespace LR_4
             _comboBoxToUserControl = new Dictionary<string, UserControl>()
             {
                 {typeExercises[0], addRunningUserControl1},
-
             };
         }
 
@@ -85,7 +84,6 @@ namespace LR_4
                     this.userControl = userControl;
                 }
             }
-
         }
 
         /// <summary>
@@ -109,12 +107,14 @@ namespace LR_4
                 ExercisesAdded?.Invoke(this, eventArgs);
                 DialogResult = DialogResult.OK;
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
-                MessageBox.Show("Введено некорректное значение!\n",
-                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    MessageBox.Show(ex.Message);
-
+                MessageBox.Show(ex.Message);
+            }
+            catch
+            {
+                MessageBox.Show("Введено некорректное значение!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

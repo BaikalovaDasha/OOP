@@ -40,6 +40,7 @@
             // 
             // Intensity
             // 
+            Intensity.DropDownStyle = ComboBoxStyle.DropDownList;
             Intensity.FormattingEnabled = true;
             Intensity.Location = new Point(176, 100);
             Intensity.Name = "Intensity";

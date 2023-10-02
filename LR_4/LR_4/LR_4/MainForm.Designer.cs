@@ -37,6 +37,7 @@
             groupBox1 = new GroupBox();
             openFileDialog1 = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 

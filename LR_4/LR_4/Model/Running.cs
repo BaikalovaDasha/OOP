@@ -118,15 +118,30 @@
         }
 
         /// <summary>
+        /// Словарь интенсивности бега для отображения.
+        /// </summary>
+        private readonly Dictionary<RunningIntensity, string> IntensityRunning =
+            new()
+            {
+                [RunningIntensity.Minimum] = "минимальная",
+                [RunningIntensity.Weak] = "слабая",
+                [RunningIntensity.Medium] = "средняя",
+                [RunningIntensity.High] = "высокая",
+                [RunningIntensity.Extra] = "Максимальная",
+            };
+
+        /// <summary>
         /// Параметры упражнения.
         /// </summary>
         public override string Parameters
         {
             get
             {
-                return $"Вес человека = {Weight} кг;\n" +
+                string parameters = $"Вес человека = {Weight} кг;\n" +
                     $"Расстояние = {Distance} км;\n" +
-                    $"Интенсивность бега = {Intensity}.";
+                    $"Интенсивность бега = {IntensityRunning[Intensity]}.";
+
+                return parameters;
             }
         }
 

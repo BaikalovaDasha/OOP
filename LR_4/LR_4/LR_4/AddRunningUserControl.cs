@@ -35,7 +35,7 @@ namespace LR_4
                 "Высокая", "Максимальная" };
 
             Intensity.Items.AddRange(new string[]
-                 { runningIntensity[0], runningIntensity[1], 
+                 { runningIntensity[0], runningIntensity[1],
                      runningIntensity[2], runningIntensity[3],
                      runningIntensity[4]});
 
@@ -108,6 +108,6 @@ namespace LR_4
             return running;
         }
 
-       
+
     }
 }
