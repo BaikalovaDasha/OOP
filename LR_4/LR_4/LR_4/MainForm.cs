@@ -87,5 +87,15 @@ namespace LR_4
                 DataGridViewSelectionMode.FullRowSelect;
 
         }
+
+        /// <summary>
+        /// Событие при генерации случайной фигуры.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Random_Click(object sender, EventArgs e)
+        {
+            _exercisesList.Add(RandomExercises.GetRandomExercises());
+        }
     }
 }

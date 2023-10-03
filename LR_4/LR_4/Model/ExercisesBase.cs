@@ -53,12 +53,12 @@ namespace model.Exercises
         /// <summary>
         /// Максимальный вес человека.
         /// </summary>
-        private const int MaxWeight = 120;
+        internal const int MaxWeight = 120;
 
         /// <summary>
         /// Максимальный вес человека.
         /// </summary>
-        private const int MinWeight = 45;
+        internal const int MinWeight = 45;
 
         /// <summary>
         /// Метод проверки веса человека.

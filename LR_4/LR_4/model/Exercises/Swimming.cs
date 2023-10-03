@@ -53,12 +53,12 @@
         /// <summary>
         /// Максимальное время плавания.
         /// </summary>
-        private protected const int MaxTime = 90;
+        internal const int MaxTime = 90;
 
         /// <summary>
         /// Минимальное время плавания.
         /// </summary>
-        private protected const int MinTime = 10;
+        internal const int MinTime = 10;
 
         // TODO: Уточнить Exception +
         /// <summary>
