@@ -92,6 +92,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(236, 181);
             Controls.Add(button_ShowFiltr);
             Controls.Add(groupBox_Filter);

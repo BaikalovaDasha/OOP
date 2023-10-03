@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace LR_4
 {
@@ -23,6 +24,11 @@ namespace LR_4
         /// Отфильтрованый список
         /// </summary>
         private BindingList<ExercisesBase> _filteredList = new();
+
+        /// <summary>
+        /// Для файлов.
+        /// </summary>
+        private readonly XmlSerializer _serializer = new(typeof(BindingList<ExercisesBase>));
 
         /// <summary>
         /// Основная форма.
@@ -136,6 +142,74 @@ namespace LR_4
         private void Button_CleanFilter_Click(object sender, EventArgs e)
         {
             CreateTable(_exercisesList, dataGridView1);
+        }
+
+        /// <summary>
+        /// Открытие файла.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripLabel_OpenFileBurron_Click(object sender, EventArgs e)
+        {
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = "Файлы (*.pltw)|*.pltw|Все файлы (*.*)|*.*"
+            };
+
+            if (openFileDialog.ShowDialog() != DialogResult.OK) return;
+
+            var path = openFileDialog.FileName.ToString();
+            try
+            {
+                using (var file = new StreamReader(path))
+                {
+                    _exercisesList = (BindingList<ExercisesBase>)_serializer.Deserialize(file);
+                }
+
+                dataGridView1.DataSource = _exercisesList;
+                dataGridView1.CurrentCell = null;
+                MessageBox.Show("Файл успешно загружен.", "Загрузка завершена",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Не удалось загрузить файл.\n" +
+                    "Файл повреждён или не соответствует формату.",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Сохранение списка в файл.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripLabel_SaveFileButton_Click(object sender, EventArgs e)
+        {
+            if (_exercisesList.Count == 0)
+            {
+                MessageBox.Show("Отсутствуют данные для сохранения.",
+                    "Данные не сохранены", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+
+            var saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Файлы (*.pltw)|*.pltw|Все файлы (*.*)|*.*"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var path = saveFileDialog.FileName.ToString();
+                using (FileStream file = File.Create(path))
+                {
+                    _serializer.Serialize(file, _exercisesList);
+                }
+                MessageBox.Show("Файл успешно сохранён.",
+                    "Сохранение завершено",MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
+            }
         }
     }
 }

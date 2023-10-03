@@ -61,15 +61,6 @@ namespace LR_4
         }
 
         /// <summary>
-        /// Рандом упражнений.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void RadnomButton_Click(object sender, EventArgs e)
-        {
-        }
-
-        /// <summary>
         /// Выпадающий список. Действие которого выполняется, ...
         /// ... выбрали фигуру из выпадающего списка.
         /// </summary>

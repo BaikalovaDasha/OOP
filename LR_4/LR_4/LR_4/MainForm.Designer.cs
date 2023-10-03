@@ -35,8 +35,13 @@
             button_FiltrExercises = new Button();
             button_CleanFilter = new Button();
             groupBox1 = new GroupBox();
+            toolStrip1 = new ToolStrip();
+            toolStripLabel_OpenFileBurron = new ToolStripLabel();
+            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripLabel_SaveFileButton = new ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -109,12 +114,42 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Список упражнений";
             // 
+            // toolStrip1
+            // 
+            toolStrip1.ImageScalingSize = new Size(20, 20);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel_OpenFileBurron, toolStripSeparator1, toolStripLabel_SaveFileButton });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(755, 25);
+            toolStrip1.TabIndex = 7;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel_OpenFileBurron
+            // 
+            toolStripLabel_OpenFileBurron.Name = "toolStripLabel_OpenFileBurron";
+            toolStripLabel_OpenFileBurron.Size = new Size(45, 22);
+            toolStripLabel_OpenFileBurron.Text = "Файл";
+            toolStripLabel_OpenFileBurron.Click += ToolStripLabel_OpenFileBurron_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 25);
+            // 
+            // toolStripLabel_SaveFileButton
+            // 
+            toolStripLabel_SaveFileButton.Name = "toolStripLabel_SaveFileButton";
+            toolStripLabel_SaveFileButton.Size = new Size(109, 22);
+            toolStripLabel_SaveFileButton.Text = "Сохранить как";
+            toolStripLabel_SaveFileButton.Click += ToolStripLabel_SaveFileButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(755, 560);
+            Controls.Add(toolStrip1);
             Controls.Add(groupBox1);
             Controls.Add(button_CleanFilter);
             Controls.Add(button_FiltrExercises);
@@ -126,7 +161,10 @@
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -138,5 +176,9 @@
         private Button button_FiltrExercises;
         private Button button_CleanFilter;
         private GroupBox groupBox1;
+        private ToolStrip toolStrip1;
+        private ToolStripLabel toolStripLabel_OpenFileBurron;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripLabel toolStripLabel_SaveFileButton;
     }
 }

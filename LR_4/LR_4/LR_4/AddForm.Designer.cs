@@ -66,7 +66,6 @@
             RadnomButton.TabIndex = 2;
             RadnomButton.Text = "Случайное упражнение";
             RadnomButton.UseVisualStyleBackColor = true;
-            RadnomButton.Click += RadnomButton_Click;
             // 
             // groupBox_ParametrsExercises
             // 
