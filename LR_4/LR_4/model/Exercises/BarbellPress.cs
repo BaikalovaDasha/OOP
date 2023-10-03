@@ -1,4 +1,4 @@
-﻿namespace model
+﻿namespace model.Exercises
 {
     /// <summary>
     /// Класс упражнения жима штанги.
@@ -67,6 +67,11 @@
         }
 
         /// <summary>
+        /// Максимальное количество повторений.
+        /// </summary>
+        internal const int MinWeghtRod = 20;
+
+        /// <summary>
         /// Проверка веса штанги.
         /// </summary>
         /// <param name="weight"></param>
@@ -79,18 +84,23 @@
                 throw new ArgumentException(
                     $"Не рекомендуется поднимать штангу больше своего веса.");
             }
+            if (weightRod < MinWeghtRod)
+            {
+                throw new ArgumentException(
+                    $"Рекомендуем начать с {MinWeghtRod} кг.");
+            }
             return weightRod;
         }
 
         /// <summary>
         /// Максимальное количество повторений.
         /// </summary>
-        private const int MaxNumerRepetitions = 10;
+        internal const int MaxNumerRepetitions = 10;
 
         /// <summary>
         /// Максимальное количество повторений.
         /// </summary>
-        private const int MinNumerRepetitions = 1;
+        internal const int MinNumerRepetitions = 1;
 
         // TODO: Уточнить Exception + 
         // TODO: Добавить описание +

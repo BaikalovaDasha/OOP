@@ -1,4 +1,4 @@
-﻿namespace model
+﻿namespace model.Exercises
 {
     /// <summary>
     /// Класс упражнения плавание.
@@ -53,12 +53,12 @@
         /// <summary>
         /// Максимальное время плавания.
         /// </summary>
-        private const int MaxTime = 90;
+        private protected const int MaxTime = 90;
 
         /// <summary>
         /// Минимальное время плавания.
         /// </summary>
-        private const int MinTime = 10;
+        private protected const int MinTime = 10;
 
         // TODO: Уточнить Exception +
         /// <summary>
@@ -68,7 +68,7 @@
         /// <returns>Введённое время.</returns>
         /// <exception cref="Exception">исключает неподходящее время
         /// .</exception>
-        private int CheckingTime(int time)
+        private static int CheckingTime(int time)
         {
             if (time < MinTime)
             {
@@ -100,7 +100,7 @@
         /// Расчёт расхода калорий при плавании.
         /// </summary>
         /// <returns>потраченные калории.</returns>
-        public override int CalculationCalorie => 
+        public override int CalculationCalorie =>
             (int)(Weight * Time * swimmingStyle[Style]);
 
         /// <summary>
@@ -117,7 +117,7 @@
         /// <summary>
         /// Словарь стилей плавания для отображения.
         /// </summary>
-        private readonly Dictionary<SwimmingStyle, string> styleSwimming =
+        private protected readonly Dictionary<SwimmingStyle, string> styleSwimming =
             new()
             {
                 [SwimmingStyle.Crawl] = "кроль",

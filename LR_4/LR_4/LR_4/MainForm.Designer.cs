@@ -31,13 +31,11 @@
             dataGridView1 = new DataGridView();
             AddExercisesButton = new Button();
             CleanListButton_Click = new Button();
-            button3 = new Button();
+            button_Random = new Button();
             button4 = new Button();
             button5 = new Button();
             groupBox1 = new GroupBox();
-            openFileDialog1 = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,7 +53,7 @@
             // 
             AddExercisesButton.Location = new Point(12, 275);
             AddExercisesButton.Name = "AddExercisesButton";
-            AddExercisesButton.Size = new Size(187, 29);
+            AddExercisesButton.Size = new Size(240, 29);
             AddExercisesButton.TabIndex = 1;
             AddExercisesButton.Text = "Добавить упражнение";
             AddExercisesButton.UseVisualStyleBackColor = true;
@@ -63,26 +61,26 @@
             // 
             // CleanListButton_Click
             // 
-            CleanListButton_Click.Location = new Point(224, 275);
+            CleanListButton_Click.Location = new Point(507, 275);
             CleanListButton_Click.Name = "CleanListButton_Click";
-            CleanListButton_Click.Size = new Size(187, 29);
+            CleanListButton_Click.Size = new Size(240, 29);
             CleanListButton_Click.TabIndex = 2;
             CleanListButton_Click.Text = "Удалить упражнения";
             CleanListButton_Click.UseVisualStyleBackColor = true;
             CleanListButton_Click.Click += CleanListButton_Click_Click;
             // 
-            // button3
+            // button_Random
             // 
-            button3.Location = new Point(12, 324);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 3;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            button_Random.Location = new Point(259, 275);
+            button_Random.Name = "button_Random";
+            button_Random.Size = new Size(240, 29);
+            button_Random.TabIndex = 3;
+            button_Random.Text = "Рандомное упражнение";
+            button_Random.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            button4.Location = new Point(154, 324);
+            button4.Location = new Point(12, 324);
             button4.Name = "button4";
             button4.Size = new Size(94, 29);
             button4.TabIndex = 4;
@@ -91,7 +89,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(317, 324);
+            button5.Location = new Point(122, 324);
             button5.Name = "button5";
             button5.Size = new Size(94, 29);
             button5.TabIndex = 5;
@@ -108,19 +106,16 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Список упражнений";
             // 
-            // openFileDialog1
-            // 
-            openFileDialog1.FileName = "openFileDialog1";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(755, 361);
             Controls.Add(groupBox1);
             Controls.Add(button5);
             Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(button_Random);
             Controls.Add(CleanListButton_Click);
             Controls.Add(AddExercisesButton);
             Name = "MainForm";
@@ -136,10 +131,9 @@
         private DataGridView dataGridView1;
         private Button AddExercisesButton;
         private Button CleanListButton_Click;
-        private Button button3;
+        private Button button_Random;
         private Button button4;
         private Button button5;
         private GroupBox groupBox1;
-        private OpenFileDialog openFileDialog1;
     }
 }

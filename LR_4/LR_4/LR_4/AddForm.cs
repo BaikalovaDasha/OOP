@@ -91,16 +91,6 @@ namespace LR_4
         }
 
         /// <summary>
-        /// Закрыть.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        /// <summary>
         /// Добавить выбранное упражнение.
         /// </summary>
         /// <param name="sender"></param>
@@ -112,7 +102,7 @@ namespace LR_4
                 var currentExercisesControlName = comboBoxExercises.SelectedItem.ToString();
                 var currentExercisesControl = _comboBoxToUserControl[currentExercisesControlName];
                 var eventArgs = new ExercisesEventArgs(((IAddExercises)currentExercisesControl).AddExercises());
-                ExercisesAdded?.Invoke(this, eventArgs);
+                ExercisesAdded.Invoke(this, eventArgs);
                 DialogResult = DialogResult.OK;
             }
             catch (ArgumentException ex)
@@ -121,7 +111,7 @@ namespace LR_4
             }
             catch
             {
-                MessageBox.Show("Введено некорректное значение!", "Ошибка",
+                MessageBox.Show("Вы забыли указать один из параметров!", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

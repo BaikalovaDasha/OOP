@@ -1,4 +1,4 @@
-﻿namespace model
+﻿namespace model.Exercises
 {
     /// <summary>
     /// Класс упражнения бега.
@@ -54,12 +54,12 @@
         /// <summary>
         /// Максимальное расстояние при беге.
         /// </summary>
-        private const int MaxDistance = 30;
+        internal const int MaxDistance = 30;
 
         /// <summary>
         /// Максимальное расстояние при беге.
         /// </summary>
-        private const double MinDistance = 1.5;
+        internal const double MinDistance = 1.5;
 
         // TODO: Уточнить Exception +
         /// <summary>
@@ -120,7 +120,7 @@
         /// <summary>
         /// Словарь интенсивности бега для отображения.
         /// </summary>
-        private readonly Dictionary<RunningIntensity, string> IntensityRunning =
+        internal readonly Dictionary<RunningIntensity, string> intensityRunning =
             new()
             {
                 [RunningIntensity.Minimum] = "минимальная",
@@ -139,7 +139,7 @@
             {
                 string parameters = $"Вес человека = {Weight} кг;\n" +
                     $"Расстояние = {Distance} км;\n" +
-                    $"Интенсивность бега = {IntensityRunning[Intensity]}.";
+                    $"Интенсивность бега = {intensityRunning[Intensity]}.";
 
                 return parameters;
             }

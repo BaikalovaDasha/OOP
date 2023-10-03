@@ -72,6 +72,7 @@
             textBox_Time.Name = "textBox_Time";
             textBox_Time.Size = new Size(125, 27);
             textBox_Time.TabIndex = 23;
+            textBox_Time.KeyPress += Time_KeyPress;
             // 
             // label_Time
             // 

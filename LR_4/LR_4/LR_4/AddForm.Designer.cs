@@ -28,26 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            label_ChoseExercises = new Label();
             comboBoxExercises = new ComboBox();
             RadnomButton = new Button();
-            groupBox1 = new GroupBox();
+            groupBox_ParametrsExercises = new GroupBox();
+            addBarbellPressUserControl1 = new AddBarbellPressUserControl();
             addSwimmingUserControl1 = new AddSwimmingUserControl();
             addRunningUserControl1 = new AddRunningUserControl();
             OK = new Button();
-            Cancel = new Button();
-            addBarbellPressUserControl1 = new AddBarbellPressUserControl();
-            groupBox1.SuspendLayout();
+            groupBox_ParametrsExercises.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // label_ChoseExercises
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(169, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Выберите упражнение";
+            label_ChoseExercises.AutoSize = true;
+            label_ChoseExercises.Location = new Point(12, 22);
+            label_ChoseExercises.Name = "label_ChoseExercises";
+            label_ChoseExercises.Size = new Size(169, 20);
+            label_ChoseExercises.TabIndex = 0;
+            label_ChoseExercises.Text = "Выберите упражнение";
             // 
             // comboBoxExercises
             // 
@@ -69,17 +68,24 @@
             RadnomButton.UseVisualStyleBackColor = true;
             RadnomButton.Click += RadnomButton_Click;
             // 
-            // groupBox1
+            // groupBox_ParametrsExercises
             // 
-            groupBox1.Controls.Add(addBarbellPressUserControl1);
-            groupBox1.Controls.Add(addSwimmingUserControl1);
-            groupBox1.Controls.Add(addRunningUserControl1);
-            groupBox1.Location = new Point(12, 89);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(381, 180);
-            groupBox1.TabIndex = 3;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Параметры упражнений";
+            groupBox_ParametrsExercises.Controls.Add(addBarbellPressUserControl1);
+            groupBox_ParametrsExercises.Controls.Add(addSwimmingUserControl1);
+            groupBox_ParametrsExercises.Controls.Add(addRunningUserControl1);
+            groupBox_ParametrsExercises.Location = new Point(12, 89);
+            groupBox_ParametrsExercises.Name = "groupBox_ParametrsExercises";
+            groupBox_ParametrsExercises.Size = new Size(381, 180);
+            groupBox_ParametrsExercises.TabIndex = 3;
+            groupBox_ParametrsExercises.TabStop = false;
+            groupBox_ParametrsExercises.Text = "Параметры упражнений";
+            // 
+            // addBarbellPressUserControl1
+            // 
+            addBarbellPressUserControl1.Location = new Point(6, 26);
+            addBarbellPressUserControl1.Name = "addBarbellPressUserControl1";
+            addBarbellPressUserControl1.Size = new Size(369, 148);
+            addBarbellPressUserControl1.TabIndex = 2;
             // 
             // addSwimmingUserControl1
             // 
@@ -100,28 +106,11 @@
             OK.Enabled = false;
             OK.Location = new Point(12, 285);
             OK.Name = "OK";
-            OK.Size = new Size(189, 29);
+            OK.Size = new Size(381, 29);
             OK.TabIndex = 4;
             OK.Text = "OK";
             OK.UseVisualStyleBackColor = true;
             OK.Click += OK_Click;
-            // 
-            // Cancel
-            // 
-            Cancel.Location = new Point(207, 285);
-            Cancel.Name = "Cancel";
-            Cancel.Size = new Size(189, 29);
-            Cancel.TabIndex = 5;
-            Cancel.Text = "Отменить";
-            Cancel.UseVisualStyleBackColor = true;
-            Cancel.Click += Cancel_Click;
-            // 
-            // addBarbellPressUserControl1
-            // 
-            addBarbellPressUserControl1.Location = new Point(6, 32);
-            addBarbellPressUserControl1.Name = "addBarbellPressUserControl1";
-            addBarbellPressUserControl1.Size = new Size(375, 140);
-            addBarbellPressUserControl1.TabIndex = 2;
             // 
             // AddForm
             // 
@@ -131,26 +120,24 @@
             ClientSize = new Size(405, 336);
             Controls.Add(OK);
             Controls.Add(RadnomButton);
-            Controls.Add(Cancel);
-            Controls.Add(groupBox1);
+            Controls.Add(groupBox_ParametrsExercises);
             Controls.Add(comboBoxExercises);
-            Controls.Add(label1);
+            Controls.Add(label_ChoseExercises);
             Name = "AddForm";
             Text = "Добавление упражения";
             Load += AddForm_Load;
-            groupBox1.ResumeLayout(false);
+            groupBox_ParametrsExercises.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label label_ChoseExercises;
         private ComboBox comboBoxExercises;
         private Button RadnomButton;
-        private GroupBox groupBox1;
+        private GroupBox groupBox_ParametrsExercises;
         private Button OK;
-        private Button Cancel;
         private AddRunningUserControl addRunningUserControl1;
         private AddSwimmingUserControl addSwimmingUserControl1;
         private AddBarbellPressUserControl addBarbellPressUserControl1;

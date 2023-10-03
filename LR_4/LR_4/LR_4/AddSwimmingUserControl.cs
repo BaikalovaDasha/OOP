@@ -1,5 +1,7 @@
 ﻿using model;
+using model.Exercises;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LR_4
 {
@@ -78,13 +81,13 @@ namespace LR_4
         /// <param name="e"></param>
         private void Swimming_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string style = comboBox_Style.SelectedItem.ToString();
+            string style = comboBox_Style.SelectedIndex.ToString();
             foreach (var (item, swimmingStyle) in _comboBoxStyle)
             {
-                if (style == item)
-                {
-                    _swimmingStyle = swimmingStyle;
-                }
+                    if (style == item)
+                    {
+                        _swimmingStyle = swimmingStyle;
+                    }
             }
         }
 

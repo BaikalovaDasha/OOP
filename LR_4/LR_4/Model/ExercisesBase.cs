@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Xml.Serialization;
+using model.Exercises;
 
-namespace model
+namespace model.Exercises
 {
     /// <summary>
     /// Класс для видов упражнений.
@@ -65,7 +66,7 @@ namespace model
         /// <param name="weight">Вес человека.</param>
         /// <returns>Введенный вес.</returns>
         /// <exception cref="Exception">исключает неподходящий вес.</exception>
-        protected double CheckingWeight(double weight)
+        protected static double CheckingWeight(double weight)
         {
             if (weight < MinWeight || weight > MaxWeight)
             {

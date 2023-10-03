@@ -1,4 +1,4 @@
-﻿namespace model
+﻿namespace model.Exercises
 {
     /// <summary>
     /// Варианты стиля плавания.
