@@ -151,9 +151,9 @@
         /// <returns>Иняормация об упражнении.</returns>
         public override string GetInfo()
         {
-            return $"Вес человека = {Weight} кг;\n" +
-                $"Расстояние = {Distance} мин;\n" +
-                $"Интенсивность бега = {Intensity}.\n" +
+            return $"Вес человека = {Weight} кг;" +
+                $"Расстояние = {Distance} мин;" +
+                $"Интенсивность бега = {Intensity}." +
                 $"Затраченные калории = {CalculationCalorie} Ккал";
         }
     }

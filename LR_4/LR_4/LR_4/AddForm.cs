@@ -43,6 +43,7 @@ namespace LR_4
             _comboBoxToUserControl = new Dictionary<string, UserControl>()
             {
                 {typeExercises[0], addRunningUserControl1},
+                {typeExercises[1], addSwimmingUserControl1},
             };
         }
 
@@ -54,6 +55,7 @@ namespace LR_4
         private void AddForm_Load(object sender, EventArgs e)
         {
             addRunningUserControl1.Visible = false;
+            addSwimmingUserControl1.Visible = false;
         }
 
         /// <summary>
@@ -96,11 +98,15 @@ namespace LR_4
             Close();
         }
 
+        /// <summary>
+        /// Добавить выбранное упражнение.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OK_Click(object sender, EventArgs e)
         {
             try
             {
-
                 var currentExercisesControlName = comboBoxExercises.SelectedItem.ToString();
                 var currentExercisesControl = _comboBoxToUserControl[currentExercisesControlName];
                 var eventArgs = new ExercisesEventArgs(((IAddExercises)currentExercisesControl).AddExercises());

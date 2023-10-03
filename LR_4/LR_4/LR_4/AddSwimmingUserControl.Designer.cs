@@ -28,23 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            comboBox1 = new ComboBox();
+            Style = new ComboBox();
             label_Style = new Label();
             label1 = new Label();
-            textBox1 = new TextBox();
+            Time = new TextBox();
             label_Time = new Label();
             label2 = new Label();
             Weight = new TextBox();
             label_Weight = new Label();
             SuspendLayout();
             // 
-            // comboBox1
+            // Style
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(159, 102);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(169, 28);
-            comboBox1.TabIndex = 26;
+            Style.DropDownStyle = ComboBoxStyle.DropDownList;
+            Style.FormattingEnabled = true;
+            Style.Location = new Point(159, 102);
+            Style.Name = "Style";
+            Style.Size = new Size(169, 28);
+            Style.TabIndex = 26;
+            Style.SelectedIndexChanged += Swimming_SelectedIndexChanged;
             // 
             // label_Style
             // 
@@ -64,12 +66,12 @@
             label1.TabIndex = 24;
             label1.Text = "мин";
             // 
-            // textBox1
+            // Time
             // 
-            textBox1.Location = new Point(159, 60);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 23;
+            Time.Location = new Point(159, 60);
+            Time.Name = "Time";
+            Time.Size = new Size(125, 27);
+            Time.TabIndex = 23;
             // 
             // label_Time
             // 
@@ -88,6 +90,7 @@
             label2.Size = new Size(22, 20);
             label2.TabIndex = 21;
             label2.Text = "кг";
+            Weight.KeyPress += Weight_KeyPress;
             // 
             // Weight
             // 
@@ -109,10 +112,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(comboBox1);
+            Controls.Add(Style);
             Controls.Add(label_Style);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(Time);
             Controls.Add(label_Time);
             Controls.Add(label2);
             Controls.Add(Weight);
@@ -125,10 +128,10 @@
 
         #endregion
 
-        private ComboBox comboBox1;
+        private ComboBox Style;
         private Label label_Style;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox Time;
         private Label label_Time;
         private Label label2;
         private TextBox Weight;

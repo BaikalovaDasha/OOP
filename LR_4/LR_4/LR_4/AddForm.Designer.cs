@@ -32,6 +32,7 @@
             comboBoxExercises = new ComboBox();
             RadnomButton = new Button();
             groupBox1 = new GroupBox();
+            addSwimmingUserControl1 = new AddSwimmingUserControl();
             addRunningUserControl1 = new AddRunningUserControl();
             OK = new Button();
             Cancel = new Button();
@@ -69,6 +70,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(addSwimmingUserControl1);
             groupBox1.Controls.Add(addRunningUserControl1);
             groupBox1.Location = new Point(12, 89);
             groupBox1.Name = "groupBox1";
@@ -76,6 +78,13 @@
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Параметры упражнений";
+            // 
+            // addSwimmingUserControl1
+            // 
+            addSwimmingUserControl1.Location = new Point(24, 24);
+            addSwimmingUserControl1.Name = "addSwimmingUserControl1";
+            addSwimmingUserControl1.Size = new Size(351, 148);
+            addSwimmingUserControl1.TabIndex = 1;
             // 
             // addRunningUserControl1
             // 
@@ -86,13 +95,13 @@
             // 
             // OK
             // 
+            OK.Enabled = false;
             OK.Location = new Point(12, 285);
             OK.Name = "OK";
             OK.Size = new Size(189, 29);
             OK.TabIndex = 4;
             OK.Text = "OK";
             OK.UseVisualStyleBackColor = true;
-            OK.Enabled = false;
             OK.Click += OK_Click;
             // 
             // Cancel
@@ -134,5 +143,6 @@
         private Button OK;
         private Button Cancel;
         private AddRunningUserControl addRunningUserControl1;
+        private AddSwimmingUserControl addSwimmingUserControl1;
     }
 }

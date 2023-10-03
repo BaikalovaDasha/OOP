@@ -43,5 +43,6 @@ namespace LR_4
             }
             return double.Parse(number);
         }
+
     }
 }

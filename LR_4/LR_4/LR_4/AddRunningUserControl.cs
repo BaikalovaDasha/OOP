@@ -19,7 +19,7 @@ namespace LR_4
     {
 
         /// <summary>
-        /// 
+        /// Словарь UserControls
         /// </summary>
         private readonly Dictionary<string, RunningIntensity>
             _comboBoxIntensity;
@@ -107,7 +107,5 @@ namespace LR_4
 
             return running;
         }
-
-
     }
 }

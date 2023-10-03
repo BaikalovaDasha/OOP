@@ -115,15 +115,29 @@
         }
 
         /// <summary>
+        /// Словарь стилей плавания для отображения.
+        /// </summary>
+        private readonly Dictionary<SwimmingStyle, string> styleSwimming =
+            new()
+            {
+                [SwimmingStyle.Crawl] = "кроль",
+                [SwimmingStyle.Breaststroke] = "брас",
+                [SwimmingStyle.Butterfly] = "баттерфлай",
+                [SwimmingStyle.WaterAerobics] = "аэробика",
+            };
+
+        /// <summary>
         /// Параметры упражнения.
         /// </summary>
         public override string Parameters
         {
             get
             {
-                return $"Вес человека = {Weight}, кг;\n" +
+                string parameters = $"Вес человека = {Weight}, кг;\n" +
                     $"Время плавания = {Time}, мин;\n" +
-                    $"Стиль плавания = {Style}";
+                    $"Стиль плавания = {styleSwimming[Style]}";
+
+                return parameters;
             }
         }
 
