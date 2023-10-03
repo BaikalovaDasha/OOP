@@ -13,6 +13,9 @@ using System.Xml.Serialization;
 
 namespace LR_4
 {
+    /// <summary>
+    /// Основная форма.
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
@@ -153,7 +156,7 @@ namespace LR_4
         {
             var openFileDialog = new OpenFileDialog
             {
-                Filter = "Файлы (*.pltw)|*.pltw|Все файлы (*.*)|*.*"
+                Filter = "Файлы (*.gplw)|*.gplw"
             };
 
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
@@ -196,7 +199,7 @@ namespace LR_4
 
             var saveFileDialog = new SaveFileDialog
             {
-                Filter = "Файлы (*.pltw)|*.pltw|Все файлы (*.*)|*.*"
+                Filter = "Файлы (*.gplw)|*.gplw"
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -207,7 +210,7 @@ namespace LR_4
                     _serializer.Serialize(file, _exercisesList);
                 }
                 MessageBox.Show("Файл успешно сохранён.",
-                    "Сохранение завершено",MessageBoxButtons.OK, 
+                    "Сохранение завершено", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
         }
