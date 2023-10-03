@@ -25,5 +25,10 @@
         /// </summary>
         WaterAerobics,
 
+        /// <summary>
+        /// Дефолтное значение.
+        /// </summary>
+        Defult
+
     }
 }

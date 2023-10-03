@@ -72,24 +72,41 @@ namespace LR_4
         /// <summary>
         /// 
         /// </summary>
-        private SwimmingStyle _swimmingStyle;
+        //private SwimmingStyle _swimmingStyle;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Swimming_SelectedIndexChanged(object sender, EventArgs e)
+        //private void Swimming_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string style = comboBox_Style.SelectedIndex.ToString();
+        //    foreach (var (item, swimmingStyle) in _comboBoxStyle)
+        //    {
+        //            if (style == item)
+        //            {
+        //                _swimmingStyle = swimmingStyle;
+        //            }
+        //    }
+        //}
+
+
+        private SwimmingStyle ChoiceSwimmingStyle()
         {
+            SwimmingStyle _swimmingStyle = SwimmingStyle.Defult;
             string style = comboBox_Style.SelectedIndex.ToString();
             foreach (var (item, swimmingStyle) in _comboBoxStyle)
             {
-                    if (style == item)
-                    {
-                        _swimmingStyle = swimmingStyle;
-                    }
+                if (style == item)
+                {
+                    _swimmingStyle = swimmingStyle;
+                }
             }
+            return _swimmingStyle;
         }
+
+
 
         /// <summary>
         /// Метод добавления фигур.
@@ -101,7 +118,7 @@ namespace LR_4
             {
                 Weight = ControlText.CheckNumber(textBox_Weight.Text),
                 Time = (int)ControlText.CheckNumber(textBox_Time.Text),
-                Style = _swimmingStyle,
+                Style = ChoiceSwimmingStyle(),
             };
 
             return swimmng;

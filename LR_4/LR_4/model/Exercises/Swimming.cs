@@ -16,9 +16,30 @@
         private int _time;
 
         /// <summary>
+        /// Стиль плавания.
+        /// </summary>
+        private SwimmingStyle _style;
+
+        /// <summary>
         /// Чтение и запись стиля плавания.
         /// </summary>
-        public SwimmingStyle Style { get; set; }
+        public SwimmingStyle Style 
+        { 
+            get
+            {
+                return _style;
+            }
+
+            set
+            {
+                if (value == SwimmingStyle.Defult)
+                {
+                    throw new ArgumentException($"Вы забыли выбрать стиль плавания!");
+                }
+
+                _style = value;
+            }
+        }
 
         /// <summary>
         /// Чтение и записть веса.
@@ -133,8 +154,8 @@
         {
             get
             {
-                string parameters = $"Вес человека = {Weight}, кг;\n" +
-                    $"Время плавания = {Time}, мин;\n" +
+                string parameters = $"Вес человека = {Weight} кг;\n" +
+                    $"Время плавания = {Time} мин;\n" +
                     $"Стиль плавания = {styleSwimming[Style]}";
 
                 return parameters;

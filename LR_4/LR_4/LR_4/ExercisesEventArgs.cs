@@ -21,7 +21,7 @@ namespace LR_4
         /// <summary>
         /// Конструктор события добавления упражнения.
         /// </summary>
-        /// <param name="figure"></param>
+        /// <param name="exercises"></param>
         public ExercisesEventArgs(ExercisesBase exercises)
         {
             Exercises = exercises;

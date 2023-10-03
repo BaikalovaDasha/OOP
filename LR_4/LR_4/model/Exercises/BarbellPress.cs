@@ -100,7 +100,7 @@
         /// <summary>
         /// Максимальное количество повторений.
         /// </summary>
-        internal const int MinNumerRepetitions = 1;
+        internal const int MinNumerRepetitions = 5;
 
         // TODO: Уточнить Exception + 
         // TODO: Добавить описание +

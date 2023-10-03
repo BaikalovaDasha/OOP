@@ -54,12 +54,12 @@
         /// <summary>
         /// Максимальное расстояние при беге.
         /// </summary>
-        internal const int MaxDistance = 30;
+        internal const int MaxDistance = 10;
 
         /// <summary>
         /// Максимальное расстояние при беге.
         /// </summary>
-        internal const double MinDistance = 1.5;
+        internal const int MinDistance = 1;
 
         // TODO: Уточнить Exception +
         /// <summary>

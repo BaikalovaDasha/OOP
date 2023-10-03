@@ -20,6 +20,11 @@ namespace LR_4
         private BindingList<ExercisesBase> _exercisesList = new();
 
         /// <summary>
+        /// Отфильтрованый список
+        /// </summary>
+        private BindingList<ExercisesBase> _filteredList = new();
+
+        /// <summary>
         /// Основная форма.
         /// </summary>
         public MainForm()
@@ -43,9 +48,18 @@ namespace LR_4
             addForm.ShowDialog(this);
         }
 
+        /// <summary>
+        /// Событие удаление упражнения.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CleanListButton_Click_Click(object sender, EventArgs e)
         {
-
+            var countOfRows = dataGridView1.SelectedRows.Count;
+            for (int i = 0; i < countOfRows; i++)
+            {
+                _exercisesList.RemoveAt(dataGridView1.SelectedRows[0].Index);
+            }
         }
 
         /// <summary>
@@ -89,13 +103,39 @@ namespace LR_4
         }
 
         /// <summary>
-        /// Событие при генерации случайной фигуры.
+        /// Событие при генерации случайного упражнения.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Button_Random_Click(object sender, EventArgs e)
         {
             _exercisesList.Add(RandomExercises.GetRandomExercises());
+        }
+
+        /// <summary>
+        /// Кнопка открытия фильтра.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_FiltrExercises_Click(object sender, EventArgs e)
+        {
+            var newFilterForm = new FilterForm(_exercisesList);
+            newFilterForm.Show();
+            newFilterForm.ExercisesFiltered += (sender, exercisesEventArgs) =>
+            {
+                dataGridView1.DataSource = ((ExercisesListEventArgs)exercisesEventArgs).ExercisesList;
+                _filteredList = ((ExercisesListEventArgs)exercisesEventArgs).ExercisesList;
+            };
+        }
+
+        /// <summary>
+        /// Сброс фильтра.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_CleanFilter_Click(object sender, EventArgs e)
+        {
+            CreateTable(_exercisesList, dataGridView1);
         }
     }
 }

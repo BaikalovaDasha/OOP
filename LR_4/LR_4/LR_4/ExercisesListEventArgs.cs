@@ -19,7 +19,7 @@ namespace LR_4
         /// <summary>
         /// Конструктор события добавления упражнения.
         /// </summary>
-        /// <param name="figure"></param>
+        /// <param name="exercises"></param>
         public ExercisesListEventArgs(BindingList<ExercisesBase> exercises)
         {
             ExercisesList = exercises;

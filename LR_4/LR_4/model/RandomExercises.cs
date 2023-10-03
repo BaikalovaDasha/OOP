@@ -52,10 +52,12 @@ namespace model
         /// <returns>Случайный параллелепипед</returns>
         public static ExercisesBase GetRandomBarbellBase()
         {
+            int weight = _random.Next(ExercisesBase.MinWeight, ExercisesBase.MaxWeight);
+
             var barbellPress = new BarbellPress
             {
-                Weight = _random.Next(ExercisesBase.MinWeight, ExercisesBase.MaxWeight),
-                WeightRod = _random.Next(BarbellPress.MinWeghtRod, ExercisesBase.MaxWeight),
+                Weight = weight,
+                WeightRod = _random.Next(BarbellPress.MinWeghtRod, weight),
                 NumerRepetitions = _random.Next(BarbellPress.MinNumerRepetitions,
                 BarbellPress.MaxNumerRepetitions)
             };
@@ -72,7 +74,7 @@ namespace model
             var running = new Running
             {
                 Weight = _random.Next(ExercisesBase.MinWeight, ExercisesBase.MaxWeight),
-                Distance = _random.Next((int)Running.MinDistance, Running.MaxDistance),
+                Distance = _random.Next(Running.MinDistance, Running.MaxDistance),
                 //Intensity
             };
             return running;

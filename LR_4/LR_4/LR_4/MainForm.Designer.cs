@@ -32,8 +32,8 @@
             AddExercisesButton = new Button();
             CleanListButton_Click = new Button();
             button_Random = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            button_FiltrExercises = new Button();
+            button_CleanFilter = new Button();
             groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
@@ -79,23 +79,25 @@
             button_Random.UseVisualStyleBackColor = true;
             button_Random.Click += Button_Random_Click;
             // 
-            // button4
+            // button_FiltrExercises
             // 
-            button4.Location = new Point(12, 532);
-            button4.Name = "button4";
-            button4.Size = new Size(94, 29);
-            button4.TabIndex = 4;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            button_FiltrExercises.Location = new Point(130, 522);
+            button_FiltrExercises.Name = "button_FiltrExercises";
+            button_FiltrExercises.Size = new Size(240, 29);
+            button_FiltrExercises.TabIndex = 4;
+            button_FiltrExercises.Text = "Фильтрация упражнений";
+            button_FiltrExercises.UseVisualStyleBackColor = true;
+            button_FiltrExercises.Click += Button_FiltrExercises_Click;
             // 
-            // button5
+            // button_CleanFilter
             // 
-            button5.Location = new Point(122, 532);
-            button5.Name = "button5";
-            button5.Size = new Size(94, 29);
-            button5.TabIndex = 5;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = true;
+            button_CleanFilter.Location = new Point(392, 522);
+            button_CleanFilter.Name = "button_CleanFilter";
+            button_CleanFilter.Size = new Size(240, 29);
+            button_CleanFilter.TabIndex = 5;
+            button_CleanFilter.Text = "Сбросить фильтрацию";
+            button_CleanFilter.UseVisualStyleBackColor = true;
+            button_CleanFilter.Click += Button_CleanFilter_Click;
             // 
             // groupBox1
             // 
@@ -112,10 +114,10 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(755, 577);
+            ClientSize = new Size(755, 560);
             Controls.Add(groupBox1);
-            Controls.Add(button5);
-            Controls.Add(button4);
+            Controls.Add(button_CleanFilter);
+            Controls.Add(button_FiltrExercises);
             Controls.Add(button_Random);
             Controls.Add(CleanListButton_Click);
             Controls.Add(AddExercisesButton);
@@ -133,8 +135,8 @@
         private Button AddExercisesButton;
         private Button CleanListButton_Click;
         private Button button_Random;
-        private Button button4;
-        private Button button5;
+        private Button button_FiltrExercises;
+        private Button button_CleanFilter;
         private GroupBox groupBox1;
     }
 }
