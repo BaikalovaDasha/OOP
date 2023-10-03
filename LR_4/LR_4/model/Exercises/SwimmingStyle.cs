@@ -23,12 +23,7 @@
         /// <summary>
         /// Аквааэробика.
         /// </summary>
-        WaterAerobics,
-
-        /// <summary>
-        /// Дефолтное значение.
-        /// </summary>
-        Defult
+        WaterAerobics
 
     }
 }

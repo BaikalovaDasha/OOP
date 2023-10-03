@@ -75,7 +75,7 @@ namespace model
             {
                 Weight = _random.Next(ExercisesBase.MinWeight, ExercisesBase.MaxWeight),
                 Distance = _random.Next(Running.MinDistance, Running.MaxDistance),
-                //Intensity
+                Intensity = (RunningIntensity)_random.Next(5)
             };
             return running;
         }
@@ -91,7 +91,7 @@ namespace model
             {
                 Weight = _random.Next(ExercisesBase.MinWeight, ExercisesBase.MaxWeight),
                 Time = _random.Next(Swimming.MinTime, Swimming.MaxTime),
-                //Style
+                Style = (SwimmingStyle)_random.Next(4)
             };
             return swimming;
         }

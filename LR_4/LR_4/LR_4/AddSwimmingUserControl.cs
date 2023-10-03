@@ -72,7 +72,7 @@ namespace LR_4
         /// <summary>
         /// 
         /// </summary>
-        //private SwimmingStyle _swimmingStyle = SwimmingStyle.Defult;
+        private SwimmingStyle _swimmingStyle;
 
         /// <summary>
         /// 
@@ -81,7 +81,6 @@ namespace LR_4
         /// <param name="e"></param>
         private void Swimming_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SwimmingStyle _swimmingStyle = SwimmingStyle.Defult;
             string style = comboBox_Style.SelectedIndex.ToString();
             foreach (var (item, swimmingStyle) in _comboBoxStyle)
             {

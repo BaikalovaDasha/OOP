@@ -28,6 +28,8 @@
         /// <summary>
         /// Экстра интенсивность.
         /// </summary>
-        Extra
+        Extra,
+
+        Defult
     }
 }

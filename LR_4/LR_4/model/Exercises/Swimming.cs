@@ -32,10 +32,10 @@
 
             set
             {
-                if (value == SwimmingStyle.Defult)
-                {
-                    throw new ArgumentException($"Вы забыли выбрать стиль плавания!");
-                }
+                //if (value == SwimmingStyle.Defult)
+                //{
+                //    throw new ArgumentException($"Вы забыли выбрать стиль плавания!");
+                //}
 
                 _style = value;
             }
