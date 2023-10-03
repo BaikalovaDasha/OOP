@@ -72,40 +72,25 @@ namespace LR_4
         /// <summary>
         /// 
         /// </summary>
-        //private SwimmingStyle _swimmingStyle;
+        //private SwimmingStyle _swimmingStyle = SwimmingStyle.Defult;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        //private void Swimming_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    string style = comboBox_Style.SelectedIndex.ToString();
-        //    foreach (var (item, swimmingStyle) in _comboBoxStyle)
-        //    {
-        //            if (style == item)
-        //            {
-        //                _swimmingStyle = swimmingStyle;
-        //            }
-        //    }
-        //}
-
-
-        private SwimmingStyle ChoiceSwimmingStyle()
+        private void Swimming_SelectedIndexChanged(object sender, EventArgs e)
         {
             SwimmingStyle _swimmingStyle = SwimmingStyle.Defult;
             string style = comboBox_Style.SelectedIndex.ToString();
             foreach (var (item, swimmingStyle) in _comboBoxStyle)
             {
-                if (style == item)
-                {
-                    _swimmingStyle = swimmingStyle;
-                }
+                    if (style == item)
+                    {
+                        _swimmingStyle = swimmingStyle;
+                    }
             }
-            return _swimmingStyle;
         }
-
 
 
         /// <summary>
@@ -118,7 +103,7 @@ namespace LR_4
             {
                 Weight = ControlText.CheckNumber(textBox_Weight.Text),
                 Time = (int)ControlText.CheckNumber(textBox_Time.Text),
-                Style = ChoiceSwimmingStyle(),
+                Style = _swimmingStyle,
             };
 
             return swimmng;

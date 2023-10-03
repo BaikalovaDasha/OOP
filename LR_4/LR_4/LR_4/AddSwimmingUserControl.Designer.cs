@@ -46,7 +46,7 @@
             comboBox_Style.Name = "comboBox_Style";
             comboBox_Style.Size = new Size(169, 28);
             comboBox_Style.TabIndex = 26;
-            //comboBox_Style.SelectedIndexChanged += Swimming_SelectedIndexChanged;
+            comboBox_Style.SelectedIndexChanged += Swimming_SelectedIndexChanged;
             // 
             // label_Style
             // 
