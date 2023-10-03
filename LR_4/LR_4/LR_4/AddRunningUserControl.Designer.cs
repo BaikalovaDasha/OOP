@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Intensity = new ComboBox();
+            comboBox_Intensity = new ComboBox();
             label_Intensity = new Label();
             label_distance_ = new Label();
-            Distance = new TextBox();
+            textBox_Distance = new TextBox();
             label_Distance = new Label();
             label_weight_ = new Label();
-            Weight = new TextBox();
+            textBox_Weight = new TextBox();
             label_Weight = new Label();
             SuspendLayout();
             // 
-            // Intensity
+            // comboBox_Intensity
             // 
-            Intensity.DropDownStyle = ComboBoxStyle.DropDownList;
-            Intensity.FormattingEnabled = true;
-            Intensity.Location = new Point(176, 100);
-            Intensity.Name = "Intensity";
-            Intensity.Size = new Size(169, 28);
-            Intensity.TabIndex = 18;
-            Intensity.SelectedIndexChanged += Intensity_SelectedIndexChanged;
+            comboBox_Intensity.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_Intensity.FormattingEnabled = true;
+            comboBox_Intensity.Location = new Point(176, 100);
+            comboBox_Intensity.Name = "comboBox_Intensity";
+            comboBox_Intensity.Size = new Size(169, 28);
+            comboBox_Intensity.TabIndex = 18;
+            comboBox_Intensity.SelectedIndexChanged += Intensity_SelectedIndexChanged;
             // 
             // label_Intensity
             // 
@@ -66,13 +66,13 @@
             label_distance_.TabIndex = 16;
             label_distance_.Text = "км";
             // 
-            // Distance
+            // textBox_Distance
             // 
-            Distance.Location = new Point(176, 58);
-            Distance.Name = "Distance";
-            Distance.Size = new Size(125, 27);
-            Distance.TabIndex = 15;
-            Distance.KeyPress += Distance_KeyPress;
+            textBox_Distance.Location = new Point(176, 58);
+            textBox_Distance.Name = "textBox_Distance";
+            textBox_Distance.Size = new Size(125, 27);
+            textBox_Distance.TabIndex = 15;
+            textBox_Distance.KeyPress += Distance_KeyPress;
             // 
             // label_Distance
             // 
@@ -92,13 +92,13 @@
             label_weight_.TabIndex = 13;
             label_weight_.Text = "кг";
             // 
-            // Weight
+            // textBox_Weight
             // 
-            Weight.Location = new Point(176, 17);
-            Weight.Name = "Weight";
-            Weight.Size = new Size(125, 27);
-            Weight.TabIndex = 12;
-            Weight.KeyPress += Weight_KeyPress;
+            textBox_Weight.Location = new Point(176, 17);
+            textBox_Weight.Name = "textBox_Weight";
+            textBox_Weight.Size = new Size(125, 27);
+            textBox_Weight.TabIndex = 12;
+            textBox_Weight.KeyPress += Weight_KeyPress;
             // 
             // label_Weight
             // 
@@ -113,13 +113,13 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(Intensity);
+            Controls.Add(comboBox_Intensity);
             Controls.Add(label_Intensity);
             Controls.Add(label_distance_);
-            Controls.Add(Distance);
+            Controls.Add(textBox_Distance);
             Controls.Add(label_Distance);
             Controls.Add(label_weight_);
-            Controls.Add(Weight);
+            Controls.Add(textBox_Weight);
             Controls.Add(label_Weight);
             Name = "AddRunningUserControl";
             Size = new Size(364, 150);
@@ -129,13 +129,13 @@
 
         #endregion
 
-        private ComboBox Intensity;
+        private ComboBox comboBox_Intensity;
         private Label label_Intensity;
         private Label label_distance_;
-        private TextBox Distance;
+        private TextBox textBox_Distance;
         private Label label_Distance;
         private Label label_weight_;
-        private TextBox Weight;
+        private TextBox textBox_Weight;
         private Label label_Weight;
     }
 }

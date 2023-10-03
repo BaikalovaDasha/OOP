@@ -36,6 +36,7 @@
             addRunningUserControl1 = new AddRunningUserControl();
             OK = new Button();
             Cancel = new Button();
+            addBarbellPressUserControl1 = new AddBarbellPressUserControl();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,6 +71,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(addBarbellPressUserControl1);
             groupBox1.Controls.Add(addSwimmingUserControl1);
             groupBox1.Controls.Add(addRunningUserControl1);
             groupBox1.Location = new Point(12, 89);
@@ -114,6 +116,13 @@
             Cancel.UseVisualStyleBackColor = true;
             Cancel.Click += Cancel_Click;
             // 
+            // addBarbellPressUserControl1
+            // 
+            addBarbellPressUserControl1.Location = new Point(6, 32);
+            addBarbellPressUserControl1.Name = "addBarbellPressUserControl1";
+            addBarbellPressUserControl1.Size = new Size(375, 140);
+            addBarbellPressUserControl1.TabIndex = 2;
+            // 
             // AddForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -144,5 +153,6 @@
         private Button Cancel;
         private AddRunningUserControl addRunningUserControl1;
         private AddSwimmingUserControl addSwimmingUserControl1;
+        private AddBarbellPressUserControl addBarbellPressUserControl1;
     }
 }

@@ -33,7 +33,7 @@ namespace LR_4
             string[] swimmingStyle = { "Кроль", "Брасс", "Баттерфляй",
                 "Аквааэробика"};
 
-            Style.Items.AddRange(new string[]
+            comboBox_Style.Items.AddRange(new string[]
                  { swimmingStyle[0], swimmingStyle[1],
                      swimmingStyle[2], swimmingStyle[3]});
 
@@ -78,7 +78,7 @@ namespace LR_4
         /// <param name="e"></param>
         private void Swimming_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string style = Style.SelectedItem.ToString();
+            string style = comboBox_Style.SelectedItem.ToString();
             foreach (var (item, swimmingStyle) in _comboBoxStyle)
             {
                 if (style == item)
@@ -96,8 +96,8 @@ namespace LR_4
         {
             var swimmng = new Swimming
             {
-                Weight = ControlText.CheckNumber(Weight.Text),
-                Time = (int)ControlText.CheckNumber(Time.Text),
+                Weight = ControlText.CheckNumber(textBox_Weight.Text),
+                Time = (int)ControlText.CheckNumber(textBox_Time.Text),
                 Style = _swimmingStyle,
             };
 

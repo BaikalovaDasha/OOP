@@ -34,7 +34,7 @@ namespace LR_4
             string[] runningIntensity = { "Минимальная", "Слабая", "Средняя",
                 "Высокая", "Максимальная" };
 
-            Intensity.Items.AddRange(new string[]
+            comboBox_Intensity.Items.AddRange(new string[]
                  { runningIntensity[0], runningIntensity[1],
                      runningIntensity[2], runningIntensity[3],
                      runningIntensity[4]});
@@ -82,7 +82,7 @@ namespace LR_4
         /// <param name="e"></param>
         private void Intensity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string intensity = Intensity.SelectedItem.ToString();
+            string intensity = comboBox_Intensity.SelectedItem.ToString();
             foreach (var (item, runningIntensity) in _comboBoxIntensity)
             {
                 if (intensity == item)
@@ -100,8 +100,8 @@ namespace LR_4
         {
             var running = new Running
             {
-                Weight = ControlText.CheckNumber(Weight.Text),
-                Distance = ControlText.CheckNumber(Distance.Text),
+                Weight = ControlText.CheckNumber(textBox_Weight.Text),
+                Distance = ControlText.CheckNumber(textBox_Distance.Text),
                 Intensity = _runningIntensity,
             };
 

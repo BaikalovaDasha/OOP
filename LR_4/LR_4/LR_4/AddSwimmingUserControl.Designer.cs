@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Style = new ComboBox();
+            comboBox_Style = new ComboBox();
             label_Style = new Label();
             label1 = new Label();
-            Time = new TextBox();
+            textBox_Time = new TextBox();
             label_Time = new Label();
             label2 = new Label();
-            Weight = new TextBox();
+            textBox_Weight = new TextBox();
             label_Weight = new Label();
             SuspendLayout();
             // 
-            // Style
+            // comboBox_Style
             // 
-            Style.DropDownStyle = ComboBoxStyle.DropDownList;
-            Style.FormattingEnabled = true;
-            Style.Location = new Point(159, 102);
-            Style.Name = "Style";
-            Style.Size = new Size(169, 28);
-            Style.TabIndex = 26;
-            Style.SelectedIndexChanged += Swimming_SelectedIndexChanged;
+            comboBox_Style.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_Style.FormattingEnabled = true;
+            comboBox_Style.Location = new Point(159, 102);
+            comboBox_Style.Name = "comboBox_Style";
+            comboBox_Style.Size = new Size(169, 28);
+            comboBox_Style.TabIndex = 26;
+            comboBox_Style.SelectedIndexChanged += Swimming_SelectedIndexChanged;
             // 
             // label_Style
             // 
@@ -66,12 +66,12 @@
             label1.TabIndex = 24;
             label1.Text = "мин";
             // 
-            // Time
+            // textBox_Time
             // 
-            Time.Location = new Point(159, 60);
-            Time.Name = "Time";
-            Time.Size = new Size(125, 27);
-            Time.TabIndex = 23;
+            textBox_Time.Location = new Point(159, 60);
+            textBox_Time.Name = "textBox_Time";
+            textBox_Time.Size = new Size(125, 27);
+            textBox_Time.TabIndex = 23;
             // 
             // label_Time
             // 
@@ -90,14 +90,14 @@
             label2.Size = new Size(22, 20);
             label2.TabIndex = 21;
             label2.Text = "кг";
-            Weight.KeyPress += Weight_KeyPress;
             // 
-            // Weight
+            // textBox_Weight
             // 
-            Weight.Location = new Point(159, 19);
-            Weight.Name = "Weight";
-            Weight.Size = new Size(125, 27);
-            Weight.TabIndex = 20;
+            textBox_Weight.Location = new Point(159, 19);
+            textBox_Weight.Name = "textBox_Weight";
+            textBox_Weight.Size = new Size(125, 27);
+            textBox_Weight.TabIndex = 20;
+            textBox_Weight.KeyPress += Weight_KeyPress;
             // 
             // label_Weight
             // 
@@ -112,13 +112,13 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(Style);
+            Controls.Add(comboBox_Style);
             Controls.Add(label_Style);
             Controls.Add(label1);
-            Controls.Add(Time);
+            Controls.Add(textBox_Time);
             Controls.Add(label_Time);
             Controls.Add(label2);
-            Controls.Add(Weight);
+            Controls.Add(textBox_Weight);
             Controls.Add(label_Weight);
             Name = "AddSwimmingUserControl";
             Size = new Size(340, 150);
@@ -128,13 +128,13 @@
 
         #endregion
 
-        private ComboBox Style;
+        private ComboBox comboBox_Style;
         private Label label_Style;
         private Label label1;
-        private TextBox Time;
+        private TextBox textBox_Time;
         private Label label_Time;
         private Label label2;
-        private TextBox Weight;
+        private TextBox textBox_Weight;
         private Label label_Weight;
     }
 }

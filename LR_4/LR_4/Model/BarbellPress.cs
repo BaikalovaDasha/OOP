@@ -31,7 +31,7 @@
             }
             set
             {
-                _weight = value;
+                _weightRod = CheckingWeightRod(value);
             }
         }
 
@@ -67,6 +67,22 @@
         }
 
         /// <summary>
+        /// Проверка веса штанги.
+        /// </summary>
+        /// <param name="weight"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        private double CheckingWeightRod(double weightRod)
+        {
+            if (weightRod > Weight)
+            {
+                throw new ArgumentException(
+                    $"Не рекомендуется поднимать штангу больше своего веса.");
+            }
+            return weightRod;
+        }
+
+        /// <summary>
         /// Максимальное количество повторений.
         /// </summary>
         private const int MaxNumerRepetitions = 10;
@@ -85,11 +101,11 @@
         /// <returns>введённое количество повторений.</returns>
         /// <exception cref="Exception">неподходящее число повторений...
         /// .</exception>
-        private int CheckNumerRepetitions(int numerRepetitions)
+        private static int CheckNumerRepetitions(int numerRepetitions)
         {
             if (numerRepetitions < MinNumerRepetitions)
             {
-                throw new ArgumentException($"Начинать было бы не плохо с " +
+                throw new ArgumentException($"Было бы не плохо начать хотя бы с " +
                     $"{MinNumerRepetitions} повторений.");
             }
             if (numerRepetitions > MaxNumerRepetitions)
@@ -106,7 +122,7 @@
         /// </summary>
         /// <returns>потраченные калории.</returns>
         public override int CalculationCalorie =>
-            (int)(Weight * 0.454 / 150 * 5 * NumerRepetitions);
+            (int)(WeightRod * 0.454 / 150 * 5 * NumerRepetitions);
 
         /// <summary>
         /// Тип упражнения.
@@ -126,8 +142,8 @@
         {
             get
             {
-                return $"Вес человека = {Weight}, кг;\n" +
-                    $"Вес штанги = {WeightRod}, кг;\n" +
+                return $"Вес человека = {Weight} кг;\n" +
+                    $"Вес штанги = {WeightRod} кг;\n" +
                     $"Количество повторений = {NumerRepetitions}";
             }
         }

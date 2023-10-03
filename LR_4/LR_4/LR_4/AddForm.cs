@@ -44,6 +44,7 @@ namespace LR_4
             {
                 {typeExercises[0], addRunningUserControl1},
                 {typeExercises[1], addSwimmingUserControl1},
+                {typeExercises[2], addBarbellPressUserControl1}
             };
         }
 
@@ -56,6 +57,7 @@ namespace LR_4
         {
             addRunningUserControl1.Visible = false;
             addSwimmingUserControl1.Visible = false;
+            addBarbellPressUserControl1.Visible = false;
         }
 
         /// <summary>

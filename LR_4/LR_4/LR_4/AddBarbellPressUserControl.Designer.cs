@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label_Intensity = new Label();
+            label_NumberRepetitions = new Label();
             label_distance_ = new Label();
-            WeightRod = new TextBox();
+            textBox_WeightRod = new TextBox();
             label_WeightRod = new Label();
             label_weight_ = new Label();
-            Weight = new TextBox();
+            textBox_Weight = new TextBox();
             label_Weight = new Label();
-            textBox1 = new TextBox();
+            textBox_NumberRepetitions = new TextBox();
             SuspendLayout();
             // 
-            // label_Intensity
+            // label_NumberRepetitions
             // 
-            label_Intensity.AutoSize = true;
-            label_Intensity.Location = new Point(20, 111);
-            label_Intensity.Name = "label_Intensity";
-            label_Intensity.Size = new Size(179, 20);
-            label_Intensity.TabIndex = 25;
-            label_Intensity.Text = "Количество повторений";
+            label_NumberRepetitions.AutoSize = true;
+            label_NumberRepetitions.Location = new Point(20, 111);
+            label_NumberRepetitions.Name = "label_NumberRepetitions";
+            label_NumberRepetitions.Size = new Size(179, 20);
+            label_NumberRepetitions.TabIndex = 25;
+            label_NumberRepetitions.Text = "Количество повторений";
             // 
             // label_distance_
             // 
@@ -56,12 +56,13 @@
             label_distance_.TabIndex = 24;
             label_distance_.Text = "кг";
             // 
-            // WeightRod
+            // textBox_WeightRod
             // 
-            WeightRod.Location = new Point(205, 61);
-            WeightRod.Name = "WeightRod";
-            WeightRod.Size = new Size(125, 27);
-            WeightRod.TabIndex = 23;
+            textBox_WeightRod.Location = new Point(205, 61);
+            textBox_WeightRod.Name = "textBox_WeightRod";
+            textBox_WeightRod.Size = new Size(125, 27);
+            textBox_WeightRod.TabIndex = 23;
+            textBox_WeightRod.KeyPress += WeightRod_KeyPress;
             // 
             // label_WeightRod
             // 
@@ -82,12 +83,13 @@
             label_weight_.TabIndex = 21;
             label_weight_.Text = "кг";
             // 
-            // Weight
+            // textBox_Weight
             // 
-            Weight.Location = new Point(205, 20);
-            Weight.Name = "Weight";
-            Weight.Size = new Size(125, 27);
-            Weight.TabIndex = 20;
+            textBox_Weight.Location = new Point(205, 20);
+            textBox_Weight.Name = "textBox_Weight";
+            textBox_Weight.Size = new Size(125, 27);
+            textBox_Weight.TabIndex = 20;
+            textBox_Weight.KeyPress += Weight_KeyPress;
             // 
             // label_Weight
             // 
@@ -98,24 +100,25 @@
             label_Weight.TabIndex = 19;
             label_Weight.Text = "Вес человека";
             // 
-            // textBox1
+            // textBox_NumberRepetitions
             // 
-            textBox1.Location = new Point(205, 104);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 26;
+            textBox_NumberRepetitions.Location = new Point(205, 104);
+            textBox_NumberRepetitions.Name = "textBox_NumberRepetitions";
+            textBox_NumberRepetitions.Size = new Size(125, 27);
+            textBox_NumberRepetitions.TabIndex = 26;
+            textBox_NumberRepetitions.KeyPress += NumberRepetitions_KeyPress;
             // 
             // AddBarbellPressUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(textBox1);
-            Controls.Add(label_Intensity);
+            Controls.Add(textBox_NumberRepetitions);
+            Controls.Add(label_NumberRepetitions);
             Controls.Add(label_distance_);
-            Controls.Add(WeightRod);
+            Controls.Add(textBox_WeightRod);
             Controls.Add(label_WeightRod);
             Controls.Add(label_weight_);
-            Controls.Add(Weight);
+            Controls.Add(textBox_Weight);
             Controls.Add(label_Weight);
             Name = "AddBarbellPressUserControl";
             Size = new Size(364, 150);
@@ -124,13 +127,13 @@
         }
 
         #endregion
-        private Label label_Intensity;
+        private Label label_NumberRepetitions;
         private Label label_distance_;
-        private TextBox WeightRod;
+        private TextBox textBox_WeightRod;
         private Label label_WeightRod;
         private Label label_weight_;
-        private TextBox Weight;
+        private TextBox textBox_Weight;
         private Label label_Weight;
-        private TextBox textBox1;
+        private TextBox textBox_NumberRepetitions;
     }
 }
