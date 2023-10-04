@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace LR_4
 {
     /// <summary>
-    /// 
+    /// //TODO: XML
     /// </summary>
     public partial class AddSwimmingUserControl : UserControl, IAddExercises
     {
@@ -49,6 +49,7 @@ namespace LR_4
             };
         }
 
+        //TODO: duplication
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
@@ -84,10 +85,10 @@ namespace LR_4
             string style = comboBox_Style.SelectedIndex.ToString();
             foreach (var (item, swimmingStyle) in _comboBoxStyle)
             {
-                    if (style == item)
-                    {
-                        _swimmingStyle = swimmingStyle;
-                    }
+                if (style == item)
+                {
+                    _swimmingStyle = swimmingStyle;
+                }
             }
         }
 

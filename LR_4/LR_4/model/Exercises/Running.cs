@@ -84,6 +84,7 @@
             return distance;
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Словарь интенсивности бега.
         /// </summary>
@@ -127,7 +128,8 @@
                 [RunningIntensity.Weak] = "слабая",
                 [RunningIntensity.Medium] = "средняя",
                 [RunningIntensity.High] = "высокая",
-                [RunningIntensity.Extra] = "Максимальная",
+                //TODO: единообразие
+                [RunningIntensity.Extra] = "Максимальная"
             };
 
         /// <summary>

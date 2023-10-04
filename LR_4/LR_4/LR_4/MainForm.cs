@@ -78,7 +78,6 @@ namespace LR_4
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Выделение памяти
             _exercisesList = new BindingList<ExercisesBase>();
             CreateTable(_exercisesList, dataGridView1);
         }

@@ -21,6 +21,21 @@
         private int _numerRepetitions;
 
         /// <summary>
+        /// Чтение и записть веса человека.
+        /// </summary>
+        public double Weight
+        {
+            get
+            {
+                return _weight;
+            }
+            set
+            {
+                _weight = CheckingWeight(CheckingNumber(value));
+            }
+        }
+
+        /// <summary>
         /// Чтение и записть веса штанги.
         /// </summary>
         public double WeightRod
@@ -35,20 +50,6 @@
             }
         }
 
-        /// <summary>
-        /// Чтение и записть веса человека.
-        /// </summary>
-        public double Weight
-        {
-            get
-            {
-                return _weight;
-            }
-            set
-            {
-                _weight = CheckingWeight(CheckingNumber(value));
-            }
-        }
 
         /// <summary>
         /// Чтение и записть количества повторений.

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace LR_4
 {
+    //TODO: XML
     public partial class AddForm : Form
     {
         /// <summary>
@@ -23,6 +24,7 @@ namespace LR_4
         private readonly Dictionary<string, UserControl>
             _comboBoxToUserControl;
 
+        //TODO: remove?
         /// <summary>
         /// Метка используемого UserControl.
         /// </summary>

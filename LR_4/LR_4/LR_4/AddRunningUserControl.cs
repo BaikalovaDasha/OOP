@@ -51,6 +51,7 @@ namespace LR_4
 
         }
 
+        //TODO: duplication
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
@@ -72,7 +73,7 @@ namespace LR_4
         }
 
         /// <summary>
-        /// 
+        /// //TODO: XML
         /// </summary>
         private RunningIntensity _runningIntensity;
 
@@ -99,6 +100,10 @@ namespace LR_4
         /// <returns></returns>
         public ExercisesBase AddExercises()
         {
+            if (comboBox_Intensity.SelectedIndex < 0)
+            {
+                throw new Exception("Выберите!!!111");
+            }
             var running = new Running
             {
                 Weight = ControlText.CheckNumber(textBox_Weight.Text),

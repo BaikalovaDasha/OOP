@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace LR_4
 {
+    //TODO: rewrite
     /// <summary>
     /// Класс событий.
     /// </summary>
