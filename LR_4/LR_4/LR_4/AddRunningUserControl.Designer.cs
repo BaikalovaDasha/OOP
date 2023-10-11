@@ -72,7 +72,7 @@
             textBox_Distance.Name = "textBox_Distance";
             textBox_Distance.Size = new Size(125, 27);
             textBox_Distance.TabIndex = 15;
-            textBox_Distance.KeyPress += Distance_KeyPress;
+            textBox_Distance.KeyPress += ControlValue_KeyPress;
             // 
             // label_Distance
             // 
@@ -98,7 +98,7 @@
             textBox_Weight.Name = "textBox_Weight";
             textBox_Weight.Size = new Size(125, 27);
             textBox_Weight.TabIndex = 12;
-            textBox_Weight.KeyPress += Weight_KeyPress;
+            textBox_Weight.KeyPress += ControlValue_KeyPress;
             // 
             // label_Weight
             // 

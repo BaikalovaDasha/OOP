@@ -103,8 +103,6 @@
         /// </summary>
         internal const int MinNumerRepetitions = 5;
 
-        // TODO: Уточнить Exception + 
-        // TODO: Добавить описание +
         /// <summary>
         /// проверка на количество повторений
         /// </summary>
@@ -127,7 +125,6 @@
             return numerRepetitions;
         }
 
-        // TODO: Добавить описание + 
         /// <summary>
         /// Расчёт расхода калорий при жиме штанги.
         /// </summary>

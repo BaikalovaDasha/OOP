@@ -14,8 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LR_4
 {
+    //TODO: XML + 
     /// <summary>
-    /// //TODO: XML
+    /// UserControl упражнения: плавания.
     /// </summary>
     public partial class AddSwimmingUserControl : UserControl, IAddExercises
     {
@@ -49,23 +50,13 @@ namespace LR_4
             };
         }
 
-        //TODO: duplication
+        //TODO: duplication + 
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Weight_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ControlText.CheckInput(e);
-        }
-
-        /// <summary>
-        /// Контроль ввода значений.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Time_KeyPress(object sender, KeyPressEventArgs e)
+        private void ControlValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             ControlText.CheckInput(e);
         }

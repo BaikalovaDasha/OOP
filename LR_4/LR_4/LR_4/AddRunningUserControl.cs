@@ -51,32 +51,24 @@ namespace LR_4
 
         }
 
-        //TODO: duplication
+        //TODO: duplication + 
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Weight_KeyPress(object sender, KeyPressEventArgs e)
+        private void ControlValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             ControlText.CheckInput(e);
         }
 
+        //TODO: XML + 
         /// <summary>
-        /// Контроль ввода значений.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Distance_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ControlText.CheckInput(e);
-        }
-
-        /// <summary>
-        /// //TODO: XML
+        /// Переменная для записи интенсивности  бега.
         /// </summary>
         private RunningIntensity _runningIntensity;
 
+        //TODO: XML
         /// <summary>
         /// 
         /// </summary>

@@ -50,7 +50,6 @@
             }
         }
 
-        // TODO: Обновить описания + 
         /// <summary>
         /// Максимальное расстояние при беге.
         /// </summary>
@@ -61,7 +60,6 @@
         /// </summary>
         internal const int MinDistance = 1;
 
-        // TODO: Уточнить Exception +
         /// <summary>
         /// Метод проверки дистанции.
         /// </summary>
@@ -84,11 +82,11 @@
             return distance;
         }
 
-        //TODO: RSDN
+        //TODO: RSDN +
         /// <summary>
         /// Словарь интенсивности бега.
         /// </summary>
-        private readonly Dictionary<RunningIntensity, double> runningIntensity =
+        private readonly Dictionary<RunningIntensity, double> _runningIntensity =
             new()
             {
                 [RunningIntensity.Minimum] = 1.2,
@@ -98,14 +96,12 @@
                 [RunningIntensity.Extra] = 1.9,
             };
 
-        // TODO: Добавить описание +
         /// <summary>
         /// Расчёт расхода калорий при беге.
         /// </summary>
         /// <returns> потраченные калории.</returns>
-        public override int CalculationCalorie =>
-            // TODO: Вынести из метода + (вынести словарь) 
-            (int)(Weight * Distance * runningIntensity[Intensity]);
+        public override int CalculationCalorie => 
+            (int)(Weight * Distance * _runningIntensity[Intensity]);
 
         /// <summary>
         /// Тип упражнения.
@@ -128,8 +124,8 @@
                 [RunningIntensity.Weak] = "слабая",
                 [RunningIntensity.Medium] = "средняя",
                 [RunningIntensity.High] = "высокая",
-                //TODO: единообразие
-                [RunningIntensity.Extra] = "Максимальная"
+                //TODO: единообразие + 
+                [RunningIntensity.Extra] = "максимальная"
             };
 
         /// <summary>

@@ -72,7 +72,7 @@
             textBox_Time.Name = "textBox_Time";
             textBox_Time.Size = new Size(125, 27);
             textBox_Time.TabIndex = 23;
-            textBox_Time.KeyPress += Time_KeyPress;
+            textBox_Time.KeyPress += ControlValue_KeyPress;
             // 
             // label_Time
             // 
@@ -98,7 +98,7 @@
             textBox_Weight.Name = "textBox_Weight";
             textBox_Weight.Size = new Size(125, 27);
             textBox_Weight.TabIndex = 20;
-            textBox_Weight.KeyPress += Weight_KeyPress;
+            textBox_Weight.KeyPress += ControlValue_KeyPress;
             // 
             // label_Weight
             // 

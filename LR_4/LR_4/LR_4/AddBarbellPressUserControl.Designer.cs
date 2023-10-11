@@ -62,7 +62,7 @@
             textBox_WeightRod.Name = "textBox_WeightRod";
             textBox_WeightRod.Size = new Size(125, 27);
             textBox_WeightRod.TabIndex = 23;
-            textBox_WeightRod.KeyPress += WeightRod_KeyPress;
+            textBox_WeightRod.KeyPress += ControlValue_KeyPress;
             // 
             // label_WeightRod
             // 
@@ -89,7 +89,7 @@
             textBox_Weight.Name = "textBox_Weight";
             textBox_Weight.Size = new Size(125, 27);
             textBox_Weight.TabIndex = 20;
-            textBox_Weight.KeyPress += Weight_KeyPress;
+            textBox_Weight.KeyPress += ControlValue_KeyPress;
             // 
             // label_Weight
             // 
@@ -106,7 +106,7 @@
             textBox_NumberRepetitions.Name = "textBox_NumberRepetitions";
             textBox_NumberRepetitions.Size = new Size(125, 27);
             textBox_NumberRepetitions.TabIndex = 26;
-            textBox_NumberRepetitions.KeyPress += NumberRepetitions_KeyPress;
+            textBox_NumberRepetitions.KeyPress += ControlValue_KeyPress;
             // 
             // AddBarbellPressUserControl
             // 

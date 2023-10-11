@@ -10,7 +10,10 @@ using System.Windows.Forms;
 
 namespace LR_4
 {
-    //TODO: XML
+    //TODO: XML + 
+    /// <summary>
+    /// Форма добавления упражнения.
+    /// </summary>
     public partial class AddForm : Form
     {
         /// <summary>
@@ -24,11 +27,11 @@ namespace LR_4
         private readonly Dictionary<string, UserControl>
             _comboBoxToUserControl;
 
-        //TODO: remove?
+        //TODO: remove? (используется ниже переменная) +
         /// <summary>
         /// Метка используемого UserControl.
         /// </summary>
-        private UserControl userControl;
+        private UserControl _userControl;
 
         /// <summary>
         /// Форма добавления упражнения.
@@ -78,7 +81,7 @@ namespace LR_4
                 {
                     userControl.Visible = true;
                     OK.Enabled = true;
-                    this.userControl = userControl;
+                    _userControl = userControl;
                 }
             }
         }

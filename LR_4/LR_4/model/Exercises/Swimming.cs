@@ -81,7 +81,6 @@
         /// </summary>
         internal const int MinTime = 10;
 
-        // TODO: Уточнить Exception +
         /// <summary>
         /// Проверка времени при плавании.
         /// </summary>
@@ -116,7 +115,6 @@
                 [SwimmingStyle.WaterAerobics] = 0.096,
             };
 
-        // TODO: Добавить описание + 
         /// <summary>
         /// Расчёт расхода калорий при плавании.
         /// </summary>

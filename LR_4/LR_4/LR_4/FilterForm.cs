@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace LR_4
 {
+    //два варианта фильтрации
     /// <summary>
     /// Форма фильтрации.
     /// </summary>

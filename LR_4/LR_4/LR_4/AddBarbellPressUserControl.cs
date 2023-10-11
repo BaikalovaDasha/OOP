@@ -25,33 +25,13 @@ namespace LR_4
             InitializeComponent();
         }
 
-        //TODO: duplication
+        //TODO: duplication +
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Weight_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ControlText.CheckInput(e);
-        }
-
-        /// <summary>
-        /// Контроль ввода значений.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void WeightRod_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ControlText.CheckInput(e);
-        }
-
-        /// <summary>
-        /// Контроль ввода значений.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void NumberRepetitions_KeyPress(object sender, KeyPressEventArgs e)
+        private void ControlValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             ControlText.CheckInput(e);
         }

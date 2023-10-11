@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 namespace LR_4
 {
     //TODO: XML
+    /// <summary>
+    /// 
+    /// </summary>
     internal class ExercisesListEventArgs : EventArgs
     {
         /// <summary>
