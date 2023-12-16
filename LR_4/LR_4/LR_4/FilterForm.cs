@@ -1,4 +1,5 @@
-﻿using model.Exercises;
+﻿using model;
+using model.Exercises;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -90,6 +91,8 @@ namespace LR_4
                 _ = new ExercisesListEventArgs(_listExercisesFilter);
                 return;
             }
+
+            _listExercisesFilter.Add(RandomExercises.GetRandomExercises());
 
             ExercisesFiltered?.Invoke(this, eventArgs);
             Close();

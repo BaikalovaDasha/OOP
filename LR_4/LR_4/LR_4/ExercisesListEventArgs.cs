@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace LR_4
 {
-    //TODO: XML
+    //TODO: XML +
     /// <summary>
-    /// 
+    /// Класс события добавления упражнения в список.
     /// </summary>
     internal class ExercisesListEventArgs : EventArgs
     {

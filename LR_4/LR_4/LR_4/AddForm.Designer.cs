@@ -30,7 +30,6 @@
         {
             label_ChoseExercises = new Label();
             comboBoxExercises = new ComboBox();
-            RadnomButton = new Button();
             groupBox_ParametrsExercises = new GroupBox();
             addBarbellPressUserControl1 = new AddBarbellPressUserControl();
             addSwimmingUserControl1 = new AddSwimmingUserControl();
@@ -54,18 +53,9 @@
             comboBoxExercises.FormattingEnabled = true;
             comboBoxExercises.Location = new Point(12, 45);
             comboBoxExercises.Name = "comboBoxExercises";
-            comboBoxExercises.Size = new Size(189, 28);
+            comboBoxExercises.Size = new Size(381, 28);
             comboBoxExercises.TabIndex = 1;
             comboBoxExercises.SelectedIndexChanged += ComboBoxExcercises_SelectedIndexChanged;
-            // 
-            // RadnomButton
-            // 
-            RadnomButton.Location = new Point(207, 45);
-            RadnomButton.Name = "RadnomButton";
-            RadnomButton.Size = new Size(189, 29);
-            RadnomButton.TabIndex = 2;
-            RadnomButton.Text = "Случайное упражнение";
-            RadnomButton.UseVisualStyleBackColor = true;
             // 
             // groupBox_ParametrsExercises
             // 
@@ -118,7 +108,6 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(405, 336);
             Controls.Add(OK);
-            Controls.Add(RadnomButton);
             Controls.Add(groupBox_ParametrsExercises);
             Controls.Add(comboBoxExercises);
             Controls.Add(label_ChoseExercises);
@@ -134,7 +123,6 @@
 
         private Label label_ChoseExercises;
         private ComboBox comboBoxExercises;
-        private Button RadnomButton;
         private GroupBox groupBox_ParametrsExercises;
         private Button OK;
         private AddRunningUserControl addRunningUserControl1;

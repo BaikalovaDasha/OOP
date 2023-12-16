@@ -68,15 +68,16 @@ namespace LR_4
         /// </summary>
         private RunningIntensity _runningIntensity;
 
-        //TODO: XML
+        //TODO: XML + 
         /// <summary>
-        /// 
+        /// Метод присваивающий полю интенсивности значение comboBox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Intensity_SelectedIndexChanged(object sender, EventArgs e)
         {
             string intensity = comboBox_Intensity.SelectedItem.ToString();
+
             foreach (var (item, runningIntensity) in _comboBoxIntensity)
             {
                 if (intensity == item)

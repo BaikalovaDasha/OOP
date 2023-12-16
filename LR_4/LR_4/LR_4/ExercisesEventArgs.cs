@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace LR_4
 {
-    //TODO: rewrite
+    //TODO: rewrite +
     /// <summary>
-    /// Класс событий.
+    /// Класс события добавления упражнения.
     /// </summary>
     public class ExercisesEventArgs : EventArgs
     {

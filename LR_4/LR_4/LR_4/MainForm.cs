@@ -118,6 +118,7 @@ namespace LR_4
         private void Button_Random_Click(object sender, EventArgs e)
         {
             _exercisesList.Add(RandomExercises.GetRandomExercises());
+
         }
 
         /// <summary>
@@ -133,6 +134,7 @@ namespace LR_4
             {
                 dataGridView1.DataSource = ((ExercisesListEventArgs)exercisesEventArgs).ExercisesList;
                 _filteredList = ((ExercisesListEventArgs)exercisesEventArgs).ExercisesList;
+                button_Random.Enabled = false;
             };
         }
 
