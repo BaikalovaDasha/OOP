@@ -90,6 +90,10 @@ namespace LR_4
         /// <returns></returns>
         public ExercisesBase AddExercises()
         {
+            if (comboBox_Style.SelectedIndex < 0)
+            {
+                throw new ArgumentException("Не выбран стиль плавания.");
+            }
             var swimmng = new Swimming
             {
                 Weight = ControlText.CheckNumber(textBox_Weight.Text),

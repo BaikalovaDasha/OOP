@@ -103,12 +103,13 @@ namespace LR_4
             }
             catch (ArgumentException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Внимание",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information); ;
             }
             catch
             {
-                MessageBox.Show("Вы забыли указать один из параметров!", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Вы забыли указать один из параметров!", "Внимание",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

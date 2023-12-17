@@ -95,7 +95,7 @@ namespace LR_4
         {
             if (comboBox_Intensity.SelectedIndex < 0)
             {
-                throw new Exception("Выберите!!!111");
+                throw new ArgumentException("Не выбрана интенсивность бега.");
             }
             var running = new Running
             {
