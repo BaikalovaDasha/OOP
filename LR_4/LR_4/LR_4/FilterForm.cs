@@ -92,8 +92,6 @@ namespace LR_4
                 return;
             }
 
-            _listExercisesFilter.Add(RandomExercises.GetRandomExercises());
-
             ExercisesFiltered?.Invoke(this, eventArgs);
             Close();
         }

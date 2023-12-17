@@ -118,7 +118,6 @@ namespace LR_4
         private void Button_Random_Click(object sender, EventArgs e)
         {
             _exercisesList.Add(RandomExercises.GetRandomExercises());
-
         }
 
         /// <summary>
@@ -134,8 +133,10 @@ namespace LR_4
             {
                 dataGridView1.DataSource = ((ExercisesListEventArgs)exercisesEventArgs).ExercisesList;
                 _filteredList = ((ExercisesListEventArgs)exercisesEventArgs).ExercisesList;
-                button_Random.Enabled = false;
             };
+            AddExercisesButton.Enabled = false;
+            button_Random.Enabled = false;
+            CleanListButton_Click.Enabled = false;
         }
 
         /// <summary>
@@ -146,6 +147,9 @@ namespace LR_4
         private void Button_CleanFilter_Click(object sender, EventArgs e)
         {
             CreateTable(_exercisesList, dataGridView1);
+            AddExercisesButton.Enabled = true;
+            button_Random.Enabled = true;
+            CleanListButton_Click.Enabled = true;
         }
 
         /// <summary>
