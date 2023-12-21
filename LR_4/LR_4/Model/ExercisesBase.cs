@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Xml.Serialization;
 using model.Exercises;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace model.Exercises
 {
@@ -40,9 +41,9 @@ namespace model.Exercises
         /// <returns>проверенное число.</returns>
         /// <exception cref="ArgumentException">отбрасывает отрицательные...
         /// ...числа</exception>
-        protected double CheckingNumber(double number)
+        protected static double CheckingNumber(double number)
         {
-            if (number < 0)
+            if (number < 0 || double.IsNaN(number))
             {
                 throw new ArgumentException("Параметр должен быть" +
                     " положительным!");
@@ -68,7 +69,7 @@ namespace model.Exercises
         /// <exception cref="Exception">исключает неподходящий вес.</exception>
         protected static double CheckingWeight(double weight)
         {
-            if (weight < MinWeight || weight > MaxWeight)
+            if (weight < MinWeight || weight > MaxWeight || double.IsNaN(weight))
             {
                 throw new ArgumentException(
                     $"Вес человека должен быть больше" +

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             dataGridView1 = new DataGridView();
             AddExercisesButton = new Button();
             CleanListButton_Click = new Button();
@@ -36,9 +37,10 @@
             button_CleanFilter = new Button();
             groupBox1 = new GroupBox();
             toolStrip1 = new ToolStrip();
-            toolStripLabel_OpenFileBurron = new ToolStripLabel();
             toolStripSeparator1 = new ToolStripSeparator();
-            toolStripLabel_SaveFileButton = new ToolStripLabel();
+            toolStripLabel_OpenFile = new ToolStripDropDownButton();
+            toolStripLabel_SaveFileButton = new ToolStripMenuItem();
+            toolStripLabel_OpenFileBurron = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -117,31 +119,41 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel_OpenFileBurron, toolStripSeparator1, toolStripLabel_SaveFileButton });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripSeparator1, toolStripLabel_OpenFile });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(755, 25);
+            toolStrip1.Size = new Size(755, 27);
             toolStrip1.TabIndex = 7;
             toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel_OpenFileBurron
-            // 
-            toolStripLabel_OpenFileBurron.Name = "toolStripLabel_OpenFileBurron";
-            toolStripLabel_OpenFileBurron.Size = new Size(45, 22);
-            toolStripLabel_OpenFileBurron.Text = "Файл";
-            toolStripLabel_OpenFileBurron.Click += ToolStripLabel_OpenFileBurron_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 25);
+            toolStripSeparator1.Size = new Size(6, 27);
+            // 
+            // toolStripLabel_OpenFile
+            // 
+            toolStripLabel_OpenFile.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripLabel_OpenFile.DropDownItems.AddRange(new ToolStripItem[] { toolStripLabel_SaveFileButton, toolStripLabel_OpenFileBurron });
+            toolStripLabel_OpenFile.Image = (Image)resources.GetObject("toolStripLabel_OpenFile.Image");
+            toolStripLabel_OpenFile.ImageTransparentColor = Color.Magenta;
+            toolStripLabel_OpenFile.Name = "toolStripLabel_OpenFile";
+            toolStripLabel_OpenFile.Size = new Size(59, 24);
+            toolStripLabel_OpenFile.Text = "Файл";
             // 
             // toolStripLabel_SaveFileButton
             // 
             toolStripLabel_SaveFileButton.Name = "toolStripLabel_SaveFileButton";
-            toolStripLabel_SaveFileButton.Size = new Size(109, 22);
+            toolStripLabel_SaveFileButton.Size = new Size(224, 26);
             toolStripLabel_SaveFileButton.Text = "Сохранить как";
             toolStripLabel_SaveFileButton.Click += ToolStripLabel_SaveFileButton_Click;
+            // 
+            // toolStripLabel_OpenFileBurron
+            // 
+            toolStripLabel_OpenFileBurron.Name = "toolStripLabel_OpenFileBurron";
+            toolStripLabel_OpenFileBurron.Size = new Size(224, 26);
+            toolStripLabel_OpenFileBurron.Text = "Загрузить";
+            toolStripLabel_OpenFileBurron.Click += ToolStripLabel_OpenFileBurron_Click;
             // 
             // MainForm
             // 
@@ -177,8 +189,9 @@
         private Button button_CleanFilter;
         private GroupBox groupBox1;
         private ToolStrip toolStrip1;
-        private ToolStripLabel toolStripLabel_OpenFileBurron;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripLabel toolStripLabel_SaveFileButton;
+        private ToolStripDropDownButton toolStripLabel_OpenFile;
+        private ToolStripMenuItem toolStripLabel_SaveFileButton;
+        private ToolStripMenuItem toolStripLabel_OpenFileBurron;
     }
 }

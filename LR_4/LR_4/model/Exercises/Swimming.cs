@@ -67,7 +67,7 @@
             }
             set
             {
-                _time = CheckingTime((int)CheckingNumber(value));
+                _time = CheckingTime(value);
             }
         }
 

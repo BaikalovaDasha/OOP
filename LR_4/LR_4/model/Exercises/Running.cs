@@ -46,7 +46,7 @@
             }
             set
             {
-                _distance = CheckingDistance(CheckingNumber(value));
+                _distance = CheckingDistance(value);
             }
         }
 
@@ -67,7 +67,7 @@
         /// <returns>Введенная дистанция.</returns>
         /// <exception cref="Exception">исключает неподходящую дистанцию
         /// .</exception>
-        private double CheckingDistance(double distance)
+        private static double CheckingDistance(double distance)
         {
             if (distance < MinDistance)
             {

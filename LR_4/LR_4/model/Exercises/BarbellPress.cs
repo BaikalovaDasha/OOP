@@ -31,7 +31,7 @@
             }
             set
             {
-                _weight = CheckingWeight(CheckingNumber(value));
+                _weight = CheckingWeight(value);
             }
         }
 
@@ -62,8 +62,7 @@
             }
             set
             {
-                _numerRepetitions = CheckNumerRepetitions
-                    ((int)CheckingNumber(value));
+                _numerRepetitions = CheckNumerRepetitions(value);
             }
         }
 
