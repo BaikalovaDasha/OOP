@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace LR_4
 {
-    //TODO: rewrite +
     /// <summary>
     /// Класс события добавления упражнения.
     /// </summary>

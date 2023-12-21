@@ -51,7 +51,6 @@ namespace LR_4
 
         }
 
-        //TODO: duplication + 
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
@@ -62,13 +61,11 @@ namespace LR_4
             ControlText.CheckInput(e);
         }
 
-        //TODO: XML + 
         /// <summary>
         /// Переменная для записи интенсивности  бега.
         /// </summary>
         private RunningIntensity _runningIntensity;
 
-        //TODO: XML + 
         /// <summary>
         /// Метод присваивающий полю интенсивности значение comboBox.
         /// </summary>

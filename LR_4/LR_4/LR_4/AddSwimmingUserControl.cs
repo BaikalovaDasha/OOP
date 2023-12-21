@@ -14,7 +14,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LR_4
 {
-    //TODO: XML + 
     /// <summary>
     /// UserControl упражнения: плавания.
     /// </summary>
@@ -50,7 +49,6 @@ namespace LR_4
             };
         }
 
-        //TODO: duplication + 
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>

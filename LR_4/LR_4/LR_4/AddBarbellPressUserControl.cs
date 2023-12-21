@@ -25,7 +25,6 @@ namespace LR_4
             InitializeComponent();
         }
 
-        //TODO: duplication +
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
