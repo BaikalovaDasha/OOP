@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace LR_4
 {
-    //TODO: XML +
     /// <summary>
     /// Класс события добавления упражнения в список.
     /// </summary>
