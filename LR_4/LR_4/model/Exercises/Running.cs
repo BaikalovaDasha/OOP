@@ -1,4 +1,6 @@
-﻿namespace model.Exercises
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace model.Exercises
 {
     /// <summary>
     /// Класс упражнения бега.
@@ -69,12 +71,12 @@
         /// .</exception>
         private static double CheckingDistance(double distance)
         {
-            if (distance < MinDistance)
+            if (distance < MinDistance || double.IsNaN(distance))
             {
                 throw new ArgumentException($"Необходимо пробежать хотя бы " +
                     $"{MinDistance} км.");
             }
-            if (distance > MaxDistance)
+            if (distance > MaxDistance || double.IsNaN(distance))
             {
                 throw new ArgumentException($"Нерекомендуется бегать больше" +
                     $" {MaxDistance} км. Опасно для здоровья!");
