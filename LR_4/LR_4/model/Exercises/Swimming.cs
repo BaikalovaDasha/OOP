@@ -16,25 +16,9 @@
         private int _time;
 
         /// <summary>
-        /// Стиль плавания.
-        /// </summary>
-        private SwimmingStyle _style;
-
-        /// <summary>
         /// Чтение и запись стиля плавания.
         /// </summary>
-        public SwimmingStyle Style 
-        { 
-            get
-            {
-                return _style;
-            }
-
-            set
-            {
-                _style = value;
-            }
-        }
+        public SwimmingStyle Style { get; set; }
 
         /// <summary>
         /// Чтение и записть веса.
@@ -83,7 +67,7 @@
         /// <returns>Введённое время.</returns>
         /// <exception cref="Exception">исключает неподходящее время
         /// .</exception>
-        private static int CheckingTime(int time)
+        private int CheckingTime(int time)
         {
             if (time < MinTime)
             {

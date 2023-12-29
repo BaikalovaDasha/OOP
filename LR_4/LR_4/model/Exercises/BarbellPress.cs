@@ -67,6 +67,50 @@
         }
 
         /// <summary>
+        /// Тип упражнения.
+        /// </summary>
+        public override string ExercisesType
+        {
+            get
+            {
+                return $"Жим штанги лёжа";
+            }
+        }
+
+        /// <summary>
+        /// Параметры упражнения.
+        /// </summary>
+        public override string Parameters
+        {
+            get
+            {
+                return $"Вес человека = {Weight} кг;\n" +
+                    $"Вес штанги = {WeightRod} кг;\n" +
+                    $"Количество повторений = {NumerRepetitions}";
+            }
+        }
+
+        /// <summary>
+        /// Метод вывода инфрмации об упражнении.
+        /// </summary>
+        /// <returns>Иняормация об упражнении.</returns>
+        public override string GetInfo()
+        {
+            return $"Жим штанги:\nВес человека = {Weight}, кг;\n " +
+                $"Вес штанги = {WeightRod}, кг;\n" +
+                $"Количество повторений = {NumerRepetitions}.\n" +
+                $"Затраченные калории = {CalculationCalorie}, Ккал";
+        }
+
+        /// <summary>
+        /// Расчёт расхода калорий при жиме штанги.
+        /// </summary>
+        /// <returns>потраченные калории.</returns>
+        public override int CalculationCalorie =>
+            (int)(WeightRod * 0.454 / 150 * 5 * NumerRepetitions);
+
+
+        /// <summary>
         /// Максимальное количество повторений.
         /// </summary>
         internal const int MinWeghtRod = 20;
@@ -109,7 +153,7 @@
         /// <returns>введённое количество повторений.</returns>
         /// <exception cref="Exception">неподходящее число повторений...
         /// .</exception>
-        private static int CheckNumerRepetitions(int numerRepetitions)
+        private int CheckNumerRepetitions(int numerRepetitions)
         {
             if (numerRepetitions < MinNumerRepetitions)
             {
@@ -122,49 +166,6 @@
                     $" {MaxNumerRepetitions} повторений за один подход");
             }
             return numerRepetitions;
-        }
-
-        /// <summary>
-        /// Расчёт расхода калорий при жиме штанги.
-        /// </summary>
-        /// <returns>потраченные калории.</returns>
-        public override int CalculationCalorie =>
-            (int)(WeightRod * 0.454 / 150 * 5 * NumerRepetitions);
-
-        /// <summary>
-        /// Тип упражнения.
-        /// </summary>
-        public override string ExercisesType
-        {
-            get
-            {
-                return $"Жим штанги лёжа";
-            }
-        }
-
-        /// <summary>
-        /// Параметры упражнения.
-        /// </summary>
-        public override string Parameters
-        {
-            get
-            {
-                return $"Вес человека = {Weight} кг;\n" +
-                    $"Вес штанги = {WeightRod} кг;\n" +
-                    $"Количество повторений = {NumerRepetitions}";
-            }
-        }
-
-        /// <summary>
-        /// Метод вывода инфрмации об упражнении.
-        /// </summary>
-        /// <returns>Иняормация об упражнении.</returns>
-        public override string GetInfo()
-        {
-            return $"Жим штанги:\nВес человека = {Weight}, кг;\n " +
-                $"Вес штанги = {WeightRod}, кг;\n" +
-                $"Количество повторений = {NumerRepetitions}.\n" +
-                $"Затраченные калории = {CalculationCalorie}, Ккал";
         }
     }
 }
