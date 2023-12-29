@@ -41,14 +41,11 @@ namespace model.Exercises
         /// <returns>проверенное число.</returns>
         /// <exception cref="ArgumentException">отбрасывает отрицательные...
         /// ...числа</exception>
-        protected static double CheckingNumber(double number)
+        protected double CheckingNumber(double number)
         {
-            if (number < 0 || double.IsNaN(number))
-            {
-                throw new ArgumentException("Параметр должен быть" +
-                    " положительным!");
-            }
-            return number;
+            return number <= 0
+                ? throw new ArgumentException("Число должно быть положительным.")
+                : double.IsNaN(number) ? throw new ArgumentException("Нечисловое значение!") : number;
         }
 
         /// <summary>
@@ -67,7 +64,7 @@ namespace model.Exercises
         /// <param name="weight">Вес человека.</param>
         /// <returns>Введенный вес.</returns>
         /// <exception cref="Exception">исключает неподходящий вес.</exception>
-        protected static double CheckingWeight(double weight)
+        protected double CheckingWeight(double weight)
         {
             if (weight < MinWeight || weight > MaxWeight || double.IsNaN(weight))
             {

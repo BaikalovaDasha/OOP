@@ -31,7 +31,7 @@
             }
             set
             {
-                _weight = CheckingWeight(value);
+                _weight = CheckingWeight(CheckingNumber(value));
             }
         }
 
@@ -46,7 +46,7 @@
             }
             set
             {
-                _weightRod = CheckingWeightRod(value);
+                _weightRod = CheckingWeightRod(CheckingNumber(value));
             }
         }
 
@@ -62,7 +62,7 @@
             }
             set
             {
-                _numerRepetitions = CheckNumerRepetitions(value);
+                _numerRepetitions = CheckNumerRepetitions((int)CheckingNumber(value));
             }
         }
 

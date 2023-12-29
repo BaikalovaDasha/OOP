@@ -32,11 +32,6 @@
 
             set
             {
-                //if (value == SwimmingStyle.Defult)
-                //{
-                //    throw new ArgumentException($"Вы забыли выбрать стиль плавания!");
-                //}
-
                 _style = value;
             }
         }
@@ -52,7 +47,7 @@
             }
             set
             {
-                _weight = CheckingWeight(value);
+                _weight = CheckingWeight(CheckingNumber(value));
             }
         }
 
@@ -67,7 +62,7 @@
             }
             set
             {
-                _time = CheckingTime(value);
+                _time = CheckingTime((int)CheckingNumber(value));
             }
         }
 

@@ -33,7 +33,7 @@ namespace model.Exercises
             }
             set
             {
-                _weight = CheckingWeight(value);
+                _weight = CheckingWeight(CheckingNumber(value));
             }
         }
 
@@ -48,7 +48,7 @@ namespace model.Exercises
             }
             set
             {
-                _distance = CheckingDistance(value);
+                _distance = CheckingDistance(CheckingNumber(value));
             }
         }
 
@@ -71,12 +71,12 @@ namespace model.Exercises
         /// .</exception>
         private static double CheckingDistance(double distance)
         {
-            if (distance < MinDistance || double.IsNaN(distance))
+            if (distance < MinDistance)
             {
                 throw new ArgumentException($"Необходимо пробежать хотя бы " +
                     $"{MinDistance} км.");
             }
-            if (distance > MaxDistance || double.IsNaN(distance))
+            if (distance > MaxDistance)
             {
                 throw new ArgumentException($"Нерекомендуется бегать больше" +
                     $" {MaxDistance} км. Опасно для здоровья!");
