@@ -49,6 +49,8 @@ namespace LR_4
                 {typeExercises[1], addSwimmingUserControl1},
                 {typeExercises[2], addBarbellPressUserControl1}
             };
+
+            MaximizeBox = false;
         }
 
         /// <summary>

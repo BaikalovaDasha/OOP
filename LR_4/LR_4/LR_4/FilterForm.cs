@@ -41,6 +41,8 @@ namespace LR_4
         {
             InitializeComponent();
             _listExercises = exercises;
+
+            MaximizeBox = false;
         }
 
         /// <summary>

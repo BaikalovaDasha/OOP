@@ -39,6 +39,8 @@ namespace LR_4
         public MainForm()
         {
             InitializeComponent();
+
+            MaximizeBox = false;
         }
 
         /// <summary>
